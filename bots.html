@@ -59,6 +59,34 @@
             font-size: 1rem;
             color: #666;
         }
+        .changelog-dropdown {
+            margin: 10px 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .changelog-dropdown button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+        }
+        .changelog-content {
+            display: none;
+            padding: 10px;
+            background-color: #e2f1e1;
+            border: 1px solid #ddd;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+        .changelog-dropdown.active .changelog-content {
+            display: block;
+        }
         .footer {
             text-align: center;
             padding: 20px;
@@ -87,43 +115,103 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         const bots = [
-            { name: "130 Beta", icon: "https://cdn.discordapp.com/app-icons/1159322312923942932/f8f4642b31b612343ad3d43adb25899b.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "eBay Viewer", icon: "https://cdn.discordapp.com/app-icons/1160089910104039517/8ef706c3ad0ab075be71fe1892cbb500.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Color Bot", icon: "https://cdn.discordapp.com/app-icons/1165844911787094067/fcfb299d37081762207e677cd19f5148.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "What You Craving", icon: "https://cdn.discordapp.com/app-icons/1183614399307595796/cd3f2e093db434ff1572436d9292af42.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "TCGPlayer Bot", icon: "https://cdn.discordapp.com/app-icons/1194131740072087672/11fd96c048c6dd4cfc4252003ec15adc.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "PSA Beta", icon: "https://cdn.discordapp.com/app-icons/1198854486001721374/795b29634194e6aed6621ea592a84136.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Panini Stock Monitor", icon: "https://cdn.discordapp.com/app-icons/1266239428054089779/c7abf6d87219f94fd7c8acda4829b903.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Card Flipper Bot", icon: "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Card Flipper Beta", icon: "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "PSA Bot", icon: "https://cdn.discordapp.com/app-icons/1146642540519505941/ef43a1e7f7000a137793643440a06439.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "130 Bot", icon: "https://cdn.discordapp.com/app-icons/1155192681023152241/802bc4a94cd863d74f322f9eab57ad92.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "NBA Bot", icon: "https://cdn.discordapp.com/app-icons/1206872299802853427/ef1a12bf445a3cf5051124b12a8f437a.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "SKU Bot", icon: "https://cdn.discordapp.com/app-icons/1214803110380183612/56e3bdb84c8c1c236bb0620ff7dea05b.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Role Manager", icon: "https://cdn.discordapp.com/app-icons/1218810598171738162/208108f59efb718140bb12f61a430c8f.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Lego Bot", icon: "https://cdn.discordapp.com/app-icons/1228405919931568249/6fb70be707ab1d1125b15f3b1a21b4ab.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Bricklink", icon: "https://cdn.discordapp.com/app-icons/1235818004441468959/601642b72e74940c21b7530a9798db2d.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Feedback Bot", icon: "https://cdn.discordapp.com/app-icons/1244577770420310056/935c1e8c6ed6a5ae838ac6053b5af3be.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Grocery Finder", icon: "https://cdn.discordapp.com/app-icons/1249578998137098310/789b6c240f4838dcc75f1dc22950de87.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Waifu Bot", icon: "https://cdn.discordapp.com/app-icons/1255750520103243807/b39ddd029ce811b584d7e628c085cb97.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "Social Score", icon: "https://cdn.discordapp.com/app-icons/1323134281807171635/45ac02986104f7130a5f93e5f8f289bf.png?size=512", description: "", disclaimer: "", changelog: "" },
-            { name: "ACO Manager", icon: "https://cdn-icons-png.flaticon.com/512/3789/3789828.png", description: "", disclaimer: "", changelog: "" },
-            { name: "Twitter Restocker", icon: "https://cdn.discordapp.com/app-icons/1323559389931769937/fe9e3fe0735e4c86619a68f39240e55b.png?size=512", description: "", disclaimer: "", changelog: "" },
+            { name: "What You Craving", icon: "https://cdn.discordapp.com/app-icons/1183614399307595796/cd3f2e093db434ff1572436d9292af42.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-01", changes: ["Initial release."] },
+                { version: "1.1.0", date: "2025-01-15", changes: ["Bug fixes.", "Added new feature X."] }
+            ] },
+            { name: "TCGPlayer Bot", icon: "https://cdn.discordapp.com/app-icons/1194131740072087672/11fd96c048c6dd4cfc4252003ec15adc.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] },
+                { version: "1.2.0", date: "2025-01-20", changes: ["Added support for new API.", "Fixed UI issue."] }
+            ] },
+            { name: "Card Flipper Bot", icon: "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] },
+                { version: "1.1.0", date: "2025-01-10", changes: ["Fixed bug with flipping cards."] }
+            ] },
+            { name: "PSA Bot", icon: "https://cdn.discordapp.com/app-icons/1146642540519505941/ef43a1e7f7000a137793643440a06439.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] }
+            ] },
+            { name: "130 Bot", icon: "https://cdn.discordapp.com/app-icons/1155192681023152241/802bc4a94cd863d74f322f9eab57ad92.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-10", changes: ["Initial release."] },
+                { version: "1.1.0", date: "2025-01-15", changes: ["Improved processing speed."] }
+            ] },
+            { name: "NBA Bot", icon: "https://cdn.discordapp.com/app-icons/1206872299802853427/ef1a12bf445a3cf5051124b12a8f437a.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-07", changes: ["Initial release."] }
+            ] },
+            { name: "SKU Bot", icon: "https://cdn.discordapp.com/app-icons/1214803110380183612/56e3bdb84c8c1c236bb0620ff7dea05b.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-06", changes: ["Initial release."] },
+                { version: "1.1.0", date: "2025-01-14", changes: ["Added SKU tracking feature."] }
+            ] },
+            { name: "Role Manager", icon: "https://cdn.discordapp.com/app-icons/1218810598171738162/208108f59efb718140bb12f61a430c8f.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-04", changes: ["Initial release."] }
+            ] },
+            { name: "Bricklink", icon: "https://cdn.discordapp.com/app-icons/1235818004441468959/601642b72e74940c21b7530a9798db2d.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] }
+            ] },
+            { name: "Feedback Bot", icon: "https://cdn.discordapp.com/app-icons/1244577770420310056/935c1e8c6ed6a5ae838ac6053b5af3be.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] },
+                { version: "1.1.0", date: "2025-01-12", changes: ["Fixed feedback bug."] }
+            ] },
+            { name: "Grocery Finder", icon: "https://cdn.discordapp.com/app-icons/1249578998137098310/789b6c240f4838dcc75f1dc22950de87.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-07", changes: ["Initial release."] }
+            ] },
+            { name: "Waifu Bot", icon: "https://cdn.discordapp.com/app-icons/1255750520103243807/b39ddd029ce811b584d7e628c085cb97.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-08", changes: ["Initial release."] }
+            ] },
+            { name: "Social Score", icon: "https://cdn.discordapp.com/app-icons/1323134281807171635/45ac02986104f7130a5f93e5f8f289bf.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-09", changes: ["Initial release."] }
+            ] },
+            { name: "ACO Manager", icon: "https://cdn-icons-png.flaticon.com/512/3789/3789828.png", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-10", changes: ["Initial release."] }
+            ] },
+            { name: "Twitter Restocker", icon: "https://cdn.discordapp.com/app-icons/1323559389931769937/fe9e2741a4bb30269c0d0741b240356b.png?size=512", description: "", changelog: [
+                { version: "1.0.0", date: "2025-01-06", changes: ["Initial release."] }
+            ] }
         ];
 
-        $(document).ready(function() {
-            const botGrid = $('.bot-grid');
+        const botGrid = document.querySelector(".bot-grid");
 
-            bots.forEach(bot => {
-                const botCard = `
-                    <div class="bot-card">
-                        <img src="${bot.icon}" alt="${bot.name} Icon">
-                        <h2>${bot.name}</h2>
-                        <p>${bot.description}</p>
-                    </div>
-                `;
-                botGrid.append(botCard);
+        bots.forEach(bot => {
+            const botCard = document.createElement("div");
+            botCard.classList.add("bot-card");
+
+            const botIcon = document.createElement("img");
+            botIcon.src = bot.icon;
+            botCard.appendChild(botIcon);
+
+            const botTitle = document.createElement("h2");
+            botTitle.textContent = bot.name;
+            botCard.appendChild(botTitle);
+
+            const botDescription = document.createElement("p");
+            botDescription.textContent = bot.description;
+            botCard.appendChild(botDescription);
+
+            bot.changelog.forEach(changelog => {
+                const changelogDropdown = document.createElement("div");
+                changelogDropdown.classList.add("changelog-dropdown");
+
+                const changelogButton = document.createElement("button");
+                changelogButton.textContent = `Version ${changelog.version} - ${changelog.date}`;
+                changelogDropdown.appendChild(changelogButton);
+
+                const changelogContent = document.createElement("div");
+                changelogContent.classList.add("changelog-content");
+                changelog.changes.forEach(change => {
+                    const changeItem = document.createElement("p");
+                    changeItem.textContent = `- ${change}`;
+                    changelogContent.appendChild(changeItem);
+                });
+
+                changelogDropdown.appendChild(changelogContent);
+
+                changelogButton.addEventListener("click", () => {
+                    changelogDropdown.classList.toggle("active");
+                });
+
+                botCard.appendChild(changelogDropdown);
             });
+
+            botGrid.appendChild(botCard);
         });
     </script>
 </body>
