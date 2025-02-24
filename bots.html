@@ -241,99 +241,33 @@
             ] }
         ];
 
-        // Add after the changelog section for Card Flipper Bot
-        if (bot.tos) {
-            const tosDropdown = document.createElement("div");
-            tosDropdown.classList.add("legal-dropdown");
-        
-            const tosButton = document.createElement("button");
-            tosButton.textContent = bot.tos.title;
-            tosDropdown.appendChild(tosButton);
-        
-            const tosContent = document.createElement("div");
-            tosContent.classList.add("legal-content");
-        
-            bot.tos.sections.forEach(section => {
-                const sectionDiv = document.createElement("div");
-                sectionDiv.classList.add("legal-section");
-                
-                const heading = document.createElement("h3");
-                heading.textContent = section.heading;
-                sectionDiv.appendChild(heading);
-        
-                const content = document.createElement("p");
-                content.textContent = section.content;
-                sectionDiv.appendChild(content);
-        
-                tosContent.appendChild(sectionDiv);
-            });
-        
-            tosDropdown.appendChild(tosContent);
-            tosButton.addEventListener("click", () => {
-                tosDropdown.classList.toggle("active");
-            });
-            botCard.appendChild(tosDropdown);
-        }
-        
-        if (bot.privacy) {
-            const privacyDropdown = document.createElement("div");
-            privacyDropdown.classList.add("legal-dropdown");
-        
-            const privacyButton = document.createElement("button");
-            privacyButton.textContent = bot.privacy.title;
-            privacyDropdown.appendChild(privacyButton);
-        
-            const privacyContent = document.createElement("div");
-            privacyContent.classList.add("legal-content");
-        
-            bot.privacy.sections.forEach(section => {
-                const sectionDiv = document.createElement("div");
-                sectionDiv.classList.add("legal-section");
-                
-                const heading = document.createElement("h3");
-                heading.textContent = section.heading;
-                sectionDiv.appendChild(heading);
-        
-                const content = document.createElement("p");
-                content.textContent = section.content;
-                sectionDiv.appendChild(content);
-        
-                privacyContent.appendChild(sectionDiv);
-            });
-        
-            privacyDropdown.appendChild(privacyContent);
-            privacyButton.addEventListener("click", () => {
-                privacyDropdown.classList.toggle("active");
-            });
-            botCard.appendChild(privacyDropdown);
-        }
-        
-        const botGrid = document.querySelector(".bot-grid");
+       const botGrid = document.querySelector(".bot-grid");
 
         bots.forEach(bot => {
             const botCard = document.createElement("div");
             botCard.classList.add("bot-card");
-
+        
             const botIcon = document.createElement("img");
             botIcon.src = bot.icon;
             botCard.appendChild(botIcon);
-
+        
             const botTitle = document.createElement("h2");
             botTitle.textContent = bot.name;
             botCard.appendChild(botTitle);
-
+        
             const botDescription = document.createElement("p");
             botDescription.textContent = bot.description;
             botCard.appendChild(botDescription);
-
+        
+            // Add changelog dropdowns
             bot.changelog.forEach(changelog => {
                 const changelogDropdown = document.createElement("div");
                 changelogDropdown.classList.add("changelog-dropdown");
-
+        
                 const changelogButton = document.createElement("button");
                 changelogButton.textContent = `Version ${changelog.version} - ${changelog.date}`;
                 changelogDropdown.appendChild(changelogButton);
-
+        
                 const changelogContent = document.createElement("div");
                 changelogContent.classList.add("changelog-content");
                 changelog.changes.forEach(change => {
@@ -341,16 +275,84 @@
                     changeItem.textContent = `- ${change}`;
                     changelogContent.appendChild(changeItem);
                 });
-
+        
                 changelogDropdown.appendChild(changelogContent);
-
+        
                 changelogButton.addEventListener("click", () => {
                     changelogDropdown.classList.toggle("active");
                 });
-
+        
                 botCard.appendChild(changelogDropdown);
             });
-
+        
+            // Add ToS dropdown if it exists
+            if (bot.tos) {
+                const tosDropdown = document.createElement("div");
+                tosDropdown.classList.add("legal-dropdown");
+        
+                const tosButton = document.createElement("button");
+                tosButton.textContent = bot.tos.title;
+                tosDropdown.appendChild(tosButton);
+        
+                const tosContent = document.createElement("div");
+                tosContent.classList.add("legal-content");
+        
+                bot.tos.sections.forEach(section => {
+                    const sectionDiv = document.createElement("div");
+                    sectionDiv.classList.add("legal-section");
+                    
+                    const heading = document.createElement("h3");
+                    heading.textContent = section.heading;
+                    sectionDiv.appendChild(heading);
+        
+                    const content = document.createElement("p");
+                    content.textContent = section.content;
+                    sectionDiv.appendChild(content);
+        
+                    tosContent.appendChild(sectionDiv);
+                });
+        
+                tosDropdown.appendChild(tosContent);
+                tosButton.addEventListener("click", () => {
+                    tosDropdown.classList.toggle("active");
+                });
+                botCard.appendChild(tosDropdown);
+            }
+        
+            // Add Privacy Policy dropdown if it exists
+            if (bot.privacy) {
+                const privacyDropdown = document.createElement("div");
+                privacyDropdown.classList.add("legal-dropdown");
+        
+                const privacyButton = document.createElement("button");
+                privacyButton.textContent = bot.privacy.title;
+                privacyDropdown.appendChild(privacyButton);
+        
+                const privacyContent = document.createElement("div");
+                privacyContent.classList.add("legal-content");
+        
+                bot.privacy.sections.forEach(section => {
+                    const sectionDiv = document.createElement("div");
+                    sectionDiv.classList.add("legal-section");
+                    
+                    const heading = document.createElement("h3");
+                    heading.textContent = section.heading;
+                    sectionDiv.appendChild(heading);
+        
+                    const content = document.createElement("p");
+                    content.textContent = section.content;
+                    sectionDiv.appendChild(content);
+        
+                    privacyContent.appendChild(sectionDiv);
+                });
+        
+                privacyDropdown.appendChild(privacyContent);
+                privacyButton.addEventListener("click", () => {
+                    privacyDropdown.classList.toggle("active");
+                });
+                botCard.appendChild(privacyDropdown);
+            }
+        
             botGrid.appendChild(botCard);
         });
     </script>
