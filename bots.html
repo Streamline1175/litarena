@@ -97,6 +97,51 @@
             color: #fff;
             text-decoration: none;
         }
+        .legal-dropdown {
+            margin: 10px 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .legal-dropdown button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+        }
+        
+        .legal-content {
+            display: none;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border: 1px solid #ddd;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+        
+        .legal-dropdown.active .legal-content {
+            display: block;
+        }
+        
+        .legal-section {
+            margin: 10px 0;
+        }
+        
+        .legal-section h3 {
+            margin: 5px 0;
+            color: #1565C0;
+        }
+        
+        .legal-section p {
+            margin: 5px 0;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -123,15 +168,38 @@
                 { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] },
                 { version: "1.2.0", date: "2025-01-20", changes: ["Added support for new API.", "Fixed UI issue."] }
             ] },
-            { name: "Card Flipper Bot", icon: "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2024-12-31", changes: ["Initial release."] },
-                { version: "1.0.1", date: "2025-01-02", changes: ["Fixed bug with flipping cards."] },
-                { version: "1.0.2", date: "2025-01-05", changes: ["Fixed bug with flipping cards."] },
-                { version: "1.0.3", date: "2025-01-07", changes: ["Fixed bug with flipping cards."] },
-                { version: "1.0.4", date: "2025-01-10", changes: ["Fixed bug with flipping cards."] },
-                { version: "1.0.5", date: "2025-01-15", changes: ["Fixed bug with flipping cards."] },
-                { version: "1.0.6", date: "2025-01-21", changes: ["Fixed bug with flipping cards."] },
-            ] },
+            { 
+                name: "Card Flipper Bot", 
+                icon: "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512", 
+                description: "", 
+                changelog: [
+                    { version: "1.0.0", date: "2024-12-31", changes: ["Initial release."] },
+                    { version: "1.0.1", date: "2025-01-02", changes: ["Fixed bug with flipping cards."] },
+                    { version: "1.0.2", date: "2025-01-05", changes: ["Fixed bug with flipping cards."] },
+                    { version: "1.0.3", date: "2025-01-07", changes: ["Fixed bug with flipping cards."] },
+                    { version: "1.0.4", date: "2025-01-10", changes: ["Fixed bug with flipping cards."] },
+                    { version: "1.0.5", date: "2025-01-15", changes: ["Fixed bug with flipping cards."] },
+                    { version: "1.0.6", date: "2025-01-21", changes: ["Fixed bug with flipping cards."] }
+                ],
+                tos: {
+                    title: "Terms of Service",
+                    sections: [
+                        { heading: "1. Acceptance of Terms", content: "By using CardFlipper Bot, you agree to these Terms of Service. If you disagree with any part of the terms, you do not have permission to use the Bot." },
+                        { heading: "2. Description of Service", content: "CardFlipper Bot tracks PSA card prices from GameStop, provides price comparisons and profit analysis, creates data visualizations, monitors specific channels for card listings, manages keyword-based notifications, and posts updates to Twitter." },
+                        { heading: "3. Premium Features", content: "Premium features may be offered for additional fees. Payments are processed through Discord's payment system. No refunds will be issued for premium features." },
+                        { heading: "4. Data Usage", content: "The Bot collects and stores card price data, user commands and interactions, server configurations, and button click analytics." }
+                    ]
+                },
+                privacy: {
+                    title: "Privacy Policy",
+                    sections: [
+                        { heading: "1. Data Collection", content: "We collect Discord user IDs, server IDs, channel IDs, command usage data, button interaction data, and card price tracking preferences." },
+                        { heading: "2. Data Usage", content: "Collected data is used to provide bot functionality, track feature usage, improve service quality, maintain user preferences, and generate analytics." },
+                        { heading: "3. Data Security", content: "We implement security measures to protect user data from unauthorized access, modification, disclosure, and destruction." },
+                        { heading: "4. Third-Party Services", content: "The Bot integrates with Twitter, GameStop website, PSA website, and QuickChart API." }
+                    ]
+                }
+            },
             { name: "PSA Bot", icon: "https://cdn.discordapp.com/app-icons/1146642540519505941/ef43a1e7f7000a137793643440a06439.png?size=512", description: "", changelog: [
                 { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] }
             ] },
@@ -173,6 +241,73 @@
             ] }
         ];
 
+        // Add after the changelog section for Card Flipper Bot
+        if (bot.tos) {
+            const tosDropdown = document.createElement("div");
+            tosDropdown.classList.add("legal-dropdown");
+        
+            const tosButton = document.createElement("button");
+            tosButton.textContent = bot.tos.title;
+            tosDropdown.appendChild(tosButton);
+        
+            const tosContent = document.createElement("div");
+            tosContent.classList.add("legal-content");
+        
+            bot.tos.sections.forEach(section => {
+                const sectionDiv = document.createElement("div");
+                sectionDiv.classList.add("legal-section");
+                
+                const heading = document.createElement("h3");
+                heading.textContent = section.heading;
+                sectionDiv.appendChild(heading);
+        
+                const content = document.createElement("p");
+                content.textContent = section.content;
+                sectionDiv.appendChild(content);
+        
+                tosContent.appendChild(sectionDiv);
+            });
+        
+            tosDropdown.appendChild(tosContent);
+            tosButton.addEventListener("click", () => {
+                tosDropdown.classList.toggle("active");
+            });
+            botCard.appendChild(tosDropdown);
+        }
+        
+        if (bot.privacy) {
+            const privacyDropdown = document.createElement("div");
+            privacyDropdown.classList.add("legal-dropdown");
+        
+            const privacyButton = document.createElement("button");
+            privacyButton.textContent = bot.privacy.title;
+            privacyDropdown.appendChild(privacyButton);
+        
+            const privacyContent = document.createElement("div");
+            privacyContent.classList.add("legal-content");
+        
+            bot.privacy.sections.forEach(section => {
+                const sectionDiv = document.createElement("div");
+                sectionDiv.classList.add("legal-section");
+                
+                const heading = document.createElement("h3");
+                heading.textContent = section.heading;
+                sectionDiv.appendChild(heading);
+        
+                const content = document.createElement("p");
+                content.textContent = section.content;
+                sectionDiv.appendChild(content);
+        
+                privacyContent.appendChild(sectionDiv);
+            });
+        
+            privacyDropdown.appendChild(privacyContent);
+            privacyButton.addEventListener("click", () => {
+                privacyDropdown.classList.toggle("active");
+            });
+            botCard.appendChild(privacyDropdown);
+        }
+        
         const botGrid = document.querySelector(".bot-grid");
 
         bots.forEach(bot => {
