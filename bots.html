@@ -30,34 +30,108 @@
         }
         .bot-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
         .bot-card {
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            transition: transform 0.2s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .bot-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
         .bot-card img {
             width: 100%;
             height: 200px;
             object-fit: contain;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
         }
         .bot-card h2 {
-            padding: 20px;
+            padding: 20px 20px 10px;
             margin: 0;
             font-size: 1.5rem;
+            color: #333;
         }
-        .bot-card p {
-            padding: 0 20px 20px;
-            margin: 0;
-            font-size: 1rem;
+        .bot-description {
+            padding: 0 20px 15px;
             color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .bot-features {
+            padding: 0 20px 15px;
+        }
+        .bot-features h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .features-list li {
+            padding: 5px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .screenshot-gallery {
+            margin: 15px 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        .screenshot-gallery h4 {
+            margin: 0 0 15px 0;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        .gallery-item {
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-placeholder {
+            width: 100%;
+            height: 100px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+            text-align: center;
+            border-radius: 6px;
         }
         .changelog-dropdown {
             margin: 10px 20px;
@@ -75,6 +149,7 @@
             border-radius: 5px;
             cursor: pointer;
             text-align: left;
+            font-weight: 500;
         }
         .changelog-content {
             display: none;
@@ -92,6 +167,7 @@
             padding: 20px;
             background-color: #222;
             color: white;
+            margin-top: 40px;
         }
         .footer a {
             color: #fff;
@@ -104,7 +180,6 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        
         .legal-dropdown button {
             width: 100%;
             padding: 10px;
@@ -114,8 +189,8 @@
             border-radius: 5px;
             cursor: pointer;
             text-align: left;
+            font-weight: 500;
         }
-        
         .legal-content {
             display: none;
             padding: 10px;
@@ -124,124 +199,380 @@
             margin-top: 5px;
             border-radius: 5px;
         }
-        
         .legal-dropdown.active .legal-content {
             display: block;
         }
-        
         .legal-section {
             margin: 10px 0;
         }
-        
         .legal-section h3 {
             margin: 5px 0;
             color: #1565C0;
         }
-        
         .legal-section p {
             margin: 5px 0;
             color: #333;
+            line-height: 1.5;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 10px 20px;
+        }
+        .status-active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .status-beta {
+            background-color: #FF9800;
+            color: white;
+        }
+        .status-maintenance {
+            background-color: #f44336;
+            color: white;
+        }
+        /* Modal for enlarged screenshots */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+            object-fit: contain;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #bbb;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Lit Arena Bots</h1>
+        <p>Professional Discord Bots for Gaming, Trading, and Community Management</p>
     </header>
     <div class="container">
         <div class="bot-grid">
             <!-- Bot Cards will be injected here -->
         </div>
     </div>
+    
+    <!-- Modal for screenshot viewing -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
     <footer class="footer">
-        &copy; 2025 Lit Arena Bots. All rights reserved.
+        &copy; 2025 Lit Arena Bots. All rights reserved. | <a href="mailto:support@litarena.com">Support</a>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         const bots = [
-            { name: "What You Craving", icon: "https://cdn.discordapp.com/app-icons/1183614399307595796/cd3f2e093db434ff1572436d9292af42.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-01", changes: ["Initial release."] },
-                { version: "1.1.0", date: "2025-01-15", changes: ["Bug fixes.", "Added new feature X."] }
-            ] },
-            { name: "TCGPlayer Bot", icon: "https://cdn.discordapp.com/app-icons/1194131740072087672/11fd96c048c6dd4cfc4252003ec15adc.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] },
-                { version: "1.2.0", date: "2025-01-20", changes: ["Added support for new API.", "Fixed UI issue."] }
-            ] },
             { 
                 name: "Card Flipper Bot", 
                 icon: "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512", 
-                description: "", 
+                description: "Your ultimate Pokemon card value tracking assistant! Card Flipper Bot analyzes PSA card prices from GameStop, identifies undervalued cards with profit potential, and provides detailed market analytics to help you make informed trading decisions.",
+                status: "active",
+                features: [
+                    "Real-time PSA card price tracking from GameStop",
+                    "Automated profit/loss analysis with percentage calculations", 
+                    "Interactive price trend charts and visualizations",
+                    "Automatic alerts for undervalued cards with profit potential",
+                    "Weekly profit snapshots and comprehensive statistics",
+                    "Grade comparison analysis (PSA 6-10)",
+                    "Social media integration (Twitter/Instagram posting)",
+                    "Advanced card matching with character abbreviations",
+                    "Detailed sales history from PSA auction results",
+                    "Queue management system for high-volume processing"
+                ],
+                screenshots: [
+                    // Add screenshot URLs here when available
+                    // "screenshot1.png",
+                    // "screenshot2.png"
+                ],
                 changelog: [
-                    { version: "1.0.0", date: "2024-12-31", changes: ["Initial release."] },
-                    { version: "1.0.1", date: "2025-01-02", changes: ["Fixed bug with flipping cards."] },
-                    { version: "1.0.2", date: "2025-01-05", changes: ["Fixed bug with flipping cards."] },
-                    { version: "1.0.3", date: "2025-01-07", changes: ["Fixed bug with flipping cards."] },
-                    { version: "1.0.4", date: "2025-01-10", changes: ["Fixed bug with flipping cards."] },
-                    { version: "1.0.5", date: "2025-01-15", changes: ["Fixed bug with flipping cards."] },
-                    { version: "1.0.6", date: "2025-01-21", changes: ["Fixed bug with flipping cards."] }
+                    { version: "2.1.3", date: "2025-01-15", changes: ["Enhanced Instagram integration with rate limiting", "Improved error handling and logging", "Added subscription channel validation"] },
+                    { version: "2.1.0", date: "2025-01-10", changes: ["Added Instagram posting functionality", "Implemented advanced rate limiting", "Enhanced chart creation with QuickChart"] },
+                    { version: "2.0.0", date: "2025-01-05", changes: ["Major rewrite with subscription system", "Added Discord premium features integration", "Improved PSA data scraping"] },
+                    { version: "1.0.6", date: "2025-01-01", changes: ["Fixed bug with card flipping calculations", "Enhanced price comparison accuracy"] }
                 ],
                 tos: {
                     title: "Terms of Service",
                     sections: [
-                        { heading: "1. Acceptance of Terms", content: "By using CardFlipper Bot, you agree to these Terms of Service. If you disagree with any part of the terms, you do not have permission to use the Bot." },
-                        { heading: "2. Description of Service", content: "CardFlipper Bot tracks PSA card prices from GameStop, provides price comparisons and profit analysis, creates data visualizations, monitors specific channels for card listings, manages keyword-based notifications, and posts updates to Twitter." },
-                        { heading: "3. Premium Features", content: "Premium features may be offered for additional fees. Payments are processed through Discord's payment system. No refunds will be issued for premium features." },
-                        { heading: "4. Data Usage", content: "The Bot collects and stores card price data, user commands and interactions, server configurations, and button click analytics." }
+                        { heading: "1. Acceptance of Terms", content: "By using Card Flipper Bot, you agree to these Terms of Service. If you disagree with any part of the terms, you do not have permission to use the Bot." },
+                        { heading: "2. Description of Service", content: "Card Flipper Bot tracks PSA card prices from GameStop, provides price comparisons and profit analysis, creates data visualizations, monitors specific channels for card listings, manages keyword-based notifications, and posts updates to social media platforms." },
+                        { heading: "3. Premium Features", content: "Premium features may be offered for additional fees. Payments are processed through Discord's payment system. Premium subscribers get access to automatic alerts, advanced analytics, and priority processing. No refunds will be issued for premium features." },
+                        { heading: "4. Data Usage", content: "The Bot collects and stores card price data, user commands and interactions, server configurations, button click analytics, and user preferences for notification settings. All data is used solely to provide bot functionality." },
+                        { heading: "5. Limitations", content: "The Bot provides price information for educational purposes only. Users are responsible for verifying all data before making purchasing decisions. We are not liable for any financial losses resulting from bot usage." }
                     ]
                 },
                 privacy: {
                     title: "Privacy Policy",
                     sections: [
-                        { heading: "1. Data Collection", content: "We collect Discord user IDs, server IDs, channel IDs, command usage data, button interaction data, and card price tracking preferences." },
-                        { heading: "2. Data Usage", content: "Collected data is used to provide bot functionality, track feature usage, improve service quality, maintain user preferences, and generate analytics." },
-                        { heading: "3. Data Security", content: "We implement security measures to protect user data from unauthorized access, modification, disclosure, and destruction." },
-                        { heading: "4. Third-Party Services", content: "The Bot integrates with Twitter, GameStop website, PSA website, and QuickChart API." }
+                        { heading: "1. Data Collection", content: "We collect Discord user IDs, server IDs, channel IDs, command usage data, button interaction data, card price tracking preferences, and subscription status information necessary for bot operation." },
+                        { heading: "2. Data Usage", content: "Collected data is used to provide bot functionality, track feature usage, improve service quality, maintain user preferences, generate analytics reports, and manage subscription services." },
+                        { heading: "3. Data Security", content: "We implement appropriate security measures to protect user data from unauthorized access, modification, disclosure, and destruction. Data is stored securely and access is limited to essential operations." },
+                        { heading: "4. Third-Party Services", content: "The Bot integrates with Twitter API, Instagram Basic Display API, GameStop website, PSA website, QuickChart API for visualizations, and Discord's subscription services." },
+                        { heading: "5. Data Retention", content: "User data is retained only as long as necessary to provide services. Users may request data deletion by contacting support, subject to legal and operational requirements." }
                     ]
                 }
             },
-            { name: "PSA Bot", icon: "https://cdn.discordapp.com/app-icons/1146642540519505941/ef43a1e7f7000a137793643440a06439.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] }
-            ] },
-            { name: "130 Bot", icon: "https://cdn.discordapp.com/app-icons/1155192681023152241/802bc4a94cd863d74f322f9eab57ad92.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-10", changes: ["Initial release."] },
-                { version: "1.1.0", date: "2025-01-15", changes: ["Improved processing speed."] }
-            ] },
-            { name: "NBA Bot", icon: "https://cdn.discordapp.com/app-icons/1206872299802853427/ef1a12bf445a3cf5051124b12a8f437a.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-07", changes: ["Initial release."] }
-            ] },
-            { name: "SKU Bot", icon: "https://cdn.discordapp.com/app-icons/1214803110380183612/56e3bdb84c8c1c236bb0620ff7dea05b.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-06", changes: ["Initial release."] },
-                { version: "1.1.0", date: "2025-01-14", changes: ["Added SKU tracking feature."] }
-            ] },
-            { name: "Role Manager", icon: "https://cdn.discordapp.com/app-icons/1218810598171738162/208108f59efb718140bb12f61a430c8f.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-04", changes: ["Initial release."] }
-            ] },
-            { name: "Bricklink", icon: "https://cdn.discordapp.com/app-icons/1235818004441468959/601642b72e74940c21b7530a9798db2d.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] }
-            ] },
-            { name: "Feedback Bot", icon: "https://cdn.discordapp.com/app-icons/1244577770420310056/935c1e8c6ed6a5ae838ac6053b5af3be.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-05", changes: ["Initial release."] },
-                { version: "1.1.0", date: "2025-01-12", changes: ["Fixed feedback bug."] }
-            ] },
-            { name: "Grocery Finder", icon: "https://cdn.discordapp.com/app-icons/1249578998137098310/789b6c240f4838dcc75f1dc22950de87.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-07", changes: ["Initial release."] }
-            ] },
-            { name: "Waifu Bot", icon: "https://cdn.discordapp.com/app-icons/1255750520103243807/b39ddd029ce811b584d7e628c085cb97.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-08", changes: ["Initial release."] }
-            ] },
-            { name: "Social Score", icon: "https://cdn.discordapp.com/app-icons/1323134281807171635/45ac02986104f7130a5f93e5f8f289bf.png?size=512", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-09", changes: ["Initial release."] }
-            ] },
-            { name: "ACO Manager", icon: "https://cdn-icons-png.flaticon.com/512/3789/3789828.png", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-10", changes: ["Initial release."] }
-            ] },
-            { name: "Twitter Restocker", icon: "https://cdn-icons-png.freepik.com/512/15308/15308781.png", description: "", changelog: [
-                { version: "1.0.0", date: "2025-01-06", changes: ["Initial release."] }
-            ] }
+            { 
+                name: "What You Craving", 
+                icon: "https://cdn.discordapp.com/app-icons/1183614399307595796/cd3f2e093db434ff1572436d9292af42.png?size=512", 
+                description: "A food discovery bot that helps users find restaurants and food options based on their cravings and location preferences.",
+                status: "active",
+                features: [
+                    "Restaurant recommendations based on cuisine type",
+                    "Location-based food discovery",
+                    "User preference learning",
+                    "Menu integration and price comparison"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-01", changes: ["Initial release with basic food discovery features."] },
+                    { version: "1.1.0", date: "2025-01-15", changes: ["Added location services", "Improved recommendation algorithm"] }
+                ] 
+            },
+            { 
+                name: "TCGPlayer Bot", 
+                icon: "https://cdn.discordapp.com/app-icons/1194131740072087672/11fd96c048c6dd4cfc4252003ec15adc.png?size=512", 
+                description: "A comprehensive trading card game price tracking bot that monitors TCGPlayer for card values and market trends.",
+                status: "active",
+                features: [
+                    "Real-time TCGPlayer price monitoring",
+                    "Card price alerts and notifications",
+                    "Market trend analysis",
+                    "Set and card database integration"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-05", changes: ["Initial release with basic price tracking."] },
+                    { version: "1.2.0", date: "2025-01-20", changes: ["Added support for new TCGPlayer API", "Fixed UI display issues"] }
+                ] 
+            },
+            { 
+                name: "PSA Bot", 
+                icon: "https://cdn.discordapp.com/app-icons/1146642540519505941/ef43a1e7f7000a137793643440a06439.png?size=512", 
+                description: "Professional Sports Authenticator (PSA) card grading and pricing information bot for collectors and traders.",
+                status: "active",
+                features: [
+                    "PSA card lookup by certification number",
+                    "Grade verification and authenticity checks",
+                    "Market value estimation",
+                    "Grading service information"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-05", changes: ["Initial release with cert lookup functionality."] }
+                ] 
+            },
+            { 
+                name: "130 Bot", 
+                icon: "https://cdn.discordapp.com/app-icons/1155192681023152241/802bc4a94cd863d74f322f9eab57ad92.png?size=512", 
+                description: "A specialized utility bot designed for specific server management and automation tasks.",
+                status: "active",
+                features: [
+                    "Automated server management",
+                    "Custom command processing",
+                    "User activity monitoring",
+                    "Administrative tools"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-10", changes: ["Initial release with core functionality."] },
+                    { version: "1.1.0", date: "2025-01-15", changes: ["Improved processing speed and stability."] }
+                ] 
+            },
+            { 
+                name: "NBA Bot", 
+                icon: "https://cdn.discordapp.com/app-icons/1206872299802853427/ef1a12bf445a3cf5051124b12a8f437a.png?size=512", 
+                description: "NBA statistics, scores, and player information bot for basketball enthusiasts and fantasy league managers.",
+                status: "active",
+                features: [
+                    "Live NBA scores and game updates",
+                    "Player statistics and career information",
+                    "Team standings and schedules",
+                    "Fantasy basketball integration"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-07", changes: ["Initial release with live scores and player stats."] }
+                ] 
+            },
+            { 
+                name: "SKU Bot", 
+                icon: "https://cdn.discordapp.com/app-icons/1214803110380183612/56e3bdb84c8c1c236bb0620ff7dea05b.png?size=512", 
+                description: "Inventory and product SKU management bot for retailers and inventory tracking systems.",
+                status: "active",
+                features: [
+                    "SKU lookup and management",
+                    "Inventory tracking alerts",
+                    "Product information database",
+                    "Stock level monitoring"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-06", changes: ["Initial release with basic SKU lookup."] },
+                    { version: "1.1.0", date: "2025-01-14", changes: ["Added comprehensive SKU tracking features."] }
+                ] 
+            },
+            { 
+                name: "Role Manager", 
+                icon: "https://cdn.discordapp.com/app-icons/1218810598171738162/208108f59efb718140bb12f61a430c8f.png?size=512", 
+                description: "Advanced Discord role management system with automated role assignment and permission controls.",
+                status: "active",
+                features: [
+                    "Automated role assignment based on reactions",
+                    "Temporary role management",
+                    "Permission level controls",
+                    "Role hierarchy management"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-04", changes: ["Initial release with basic role management."] }
+                ] 
+            },
+            { 
+                name: "Bricklink", 
+                icon: "https://cdn.discordapp.com/app-icons/1235818004441468959/601642b72e74940c21b7530a9798db2d.png?size=512", 
+                description: "LEGO marketplace integration bot for tracking BrickLink prices and inventory for LEGO enthusiasts.",
+                status: "active",
+                features: [
+                    "BrickLink marketplace integration",
+                    "LEGO set price tracking",
+                    "Part availability checking",
+                    "Wishlist management"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-05", changes: ["Initial release with BrickLink API integration."] }
+                ] 
+            },
+            { 
+                name: "Feedback Bot", 
+                icon: "https://cdn.discordapp.com/app-icons/1244577770420310056/935c1e8c6ed6a5ae838ac6053b5af3be.png?size=512", 
+                description: "Community feedback collection and management system for server administrators and community managers.",
+                status: "active",
+                features: [
+                    "Anonymous feedback collection",
+                    "Feedback categorization and tagging",
+                    "Administrative review system",
+                    "Response tracking and analytics"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-05", changes: ["Initial release with feedback collection."] },
+                    { version: "1.1.0", date: "2025-01-12", changes: ["Fixed feedback submission bugs and improved UI."] }
+                ] 
+            },
+            { 
+                name: "Grocery Finder", 
+                icon: "https://cdn.discordapp.com/app-icons/1249578998137098310/789b6c240f4838dcc75f1dc22950de87.png?size=512", 
+                description: "Local grocery store finder with price comparison and shopping list management features.",
+                status: "active",
+                features: [
+                    "Store locator by zip code",
+                    "Price comparison across stores",
+                    "Shopping list creation and sharing",
+                    "Deal and coupon notifications"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-07", changes: ["Initial release with store locator functionality."] }
+                ] 
+            },
+            { 
+                name: "Waifu Bot", 
+                icon: "https://cdn.discordapp.com/app-icons/1255750520103243807/b39ddd029ce811b584d7e628c085cb97.png?size=512", 
+                description: "Anime character database and interaction bot with character information and image sharing features.",
+                status: "active",
+                features: [
+                    "Anime character database lookup",
+                    "Random character image generation",
+                    "Character information and stats",
+                    "Favorite character saving"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-08", changes: ["Initial release with character database."] }
+                ] 
+            },
+            { 
+                name: "Social Score", 
+                icon: "https://cdn.discordapp.com/app-icons/1323134281807171635/45ac02986104f7130a5f93e5f8f289bf.png?size=512", 
+                description: "Social activity tracking and gamification bot that monitors user engagement and awards points.",
+                status: "active",
+                features: [
+                    "User activity point system",
+                    "Leaderboards and rankings",
+                    "Achievement badges",
+                    "Social engagement analytics"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-09", changes: ["Initial release with point tracking system."] }
+                ] 
+            },
+            { 
+                name: "ACO Manager", 
+                icon: "https://cdn-icons-png.flaticon.com/512/3789/3789828.png", 
+                description: "Advanced Command Operations management bot for complex server administration and moderation tasks.",
+                status: "beta",
+                features: [
+                    "Advanced moderation commands",
+                    "Automated rule enforcement",
+                    "User behavior analysis",
+                    "Administrative reporting"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-10", changes: ["Initial beta release with core management features."] }
+                ] 
+            },
+            { 
+                name: "Twitter Restocker", 
+                icon: "https://cdn-icons-png.freepik.com/512/15308/15308781.png", 
+                description: "Automated social media management bot for Twitter content scheduling and restock notifications.",
+                status: "beta",
+                features: [
+                    "Automated tweet scheduling",
+                    "Restock notification system",
+                    "Content queue management",
+                    "Engagement analytics"
+                ],
+                screenshots: [],
+                changelog: [
+                    { version: "1.0.0", date: "2025-01-06", changes: ["Initial beta release with Twitter API integration."] }
+                ] 
+            }
         ];
 
-       const botGrid = document.querySelector(".bot-grid");
+        const botGrid = document.querySelector(".bot-grid");
 
         bots.forEach(bot => {
             const botCard = document.createElement("div");
@@ -254,10 +585,81 @@
             const botTitle = document.createElement("h2");
             botTitle.textContent = bot.name;
             botCard.appendChild(botTitle);
+
+            // Add status badge
+            if (bot.status) {
+                const statusBadge = document.createElement("div");
+                statusBadge.classList.add("status-badge");
+                statusBadge.classList.add(`status-${bot.status}`);
+                statusBadge.textContent = bot.status;
+                botCard.appendChild(statusBadge);
+            }
         
-            const botDescription = document.createElement("p");
+            const botDescription = document.createElement("div");
+            botDescription.classList.add("bot-description");
             botDescription.textContent = bot.description;
             botCard.appendChild(botDescription);
+
+            // Add features section
+            if (bot.features && bot.features.length > 0) {
+                const featuresSection = document.createElement("div");
+                featuresSection.classList.add("bot-features");
+
+                const featuresTitle = document.createElement("h4");
+                featuresTitle.textContent = "Key Features";
+                featuresSection.appendChild(featuresTitle);
+
+                const featuresList = document.createElement("ul");
+                featuresList.classList.add("features-list");
+
+                bot.features.forEach(feature => {
+                    const featureItem = document.createElement("li");
+                    featureItem.textContent = feature;
+                    featuresList.appendChild(featureItem);
+                });
+
+                featuresSection.appendChild(featuresList);
+                botCard.appendChild(featuresSection);
+            }
+
+            // Add screenshot gallery
+            if (bot.screenshots) {
+                const gallerySection = document.createElement("div");
+                gallerySection.classList.add("screenshot-gallery");
+
+                const galleryTitle = document.createElement("h4");
+                galleryTitle.textContent = "Screenshots";
+                gallerySection.appendChild(galleryTitle);
+
+                const galleryContainer = document.createElement("div");
+                galleryContainer.classList.add("gallery-container");
+
+                if (bot.screenshots.length > 0) {
+                    bot.screenshots.forEach(screenshot => {
+                        const galleryItem = document.createElement("div");
+                        galleryItem.classList.add("gallery-item");
+
+                        const img = document.createElement("img");
+                        img.src = screenshot;
+                        img.alt = `${bot.name} Screenshot`;
+                        img.onclick = function() {
+                            openModal(screenshot);
+                        };
+
+                        galleryItem.appendChild(img);
+                        galleryContainer.appendChild(galleryItem);
+                    });
+                } else {
+                    // Placeholder for screenshots
+                    const placeholder = document.createElement("div");
+                    placeholder.classList.add("gallery-placeholder");
+                    placeholder.textContent = "Screenshots coming soon...";
+                    galleryContainer.appendChild(placeholder);
+                }
+
+                gallerySection.appendChild(galleryContainer);
+                botCard.appendChild(gallerySection);
+            }
         
             // Add changelog dropdowns
             bot.changelog.forEach(changelog => {
@@ -272,7 +674,7 @@
                 changelogContent.classList.add("changelog-content");
                 changelog.changes.forEach(change => {
                     const changeItem = document.createElement("p");
-                    changeItem.textContent = `- ${change}`;
+                    changeItem.textContent = `• ${change}`;
                     changelogContent.appendChild(changeItem);
                 });
         
@@ -355,6 +757,25 @@
         
             botGrid.appendChild(botCard);
         });
+
+        // Modal functionality for screenshot viewing
+        function openModal(imageSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
+
+        // Close modal when clicking the X or outside the image
+        document.querySelector(".close").onclick = function() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        document.getElementById("imageModal").onclick = function(event) {
+            if (event.target === this) {
+                this.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
