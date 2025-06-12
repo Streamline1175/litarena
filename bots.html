@@ -120,6 +120,20 @@
             height: 100px;
             object-fit: cover;
             display: block;
+            background: #f0f0f0; /* Add background color for failed loads */
+        }
+        .gallery-item img.error {
+            background: #ffebee;
+            border: 2px dashed #f44336;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item img.error::after {
+            content: "Failed to load image";
+            color: #f44336;
+            font-size: 0.8rem;
         }
         .gallery-placeholder {
             width: 100%;
@@ -639,10 +653,44 @@
                         galleryItem.classList.add("gallery-item");
 
                         const img = document.createElement("img");
-                        img.src = screenshot;
+                        
+                        // Fix Imgur URLs - ensure they use direct image links
+                        let imgSrc = screenshot;
+                        if (screenshot.includes('imgur.com') && !screenshot.includes('.jpg') && !screenshot.includes('.png') && !screenshot.includes('.gif')) {
+                            // Convert Imgur page links to direct image links
+                            if (screenshot.includes('/a/')) {
+                                // Album link - needs special handling
+                                imgSrc = screenshot + '.jpg'; // Try adding .jpg extension
+                            } else {
+                                // Single image - add direct link format
+                                const imgId = screenshot.split('/').pop();
+                                imgSrc = `https://i.imgur.com/${imgId}.jpg`;
+                            }
+                        }
+                        
+                        img.src = imgSrc;
                         img.alt = `${bot.name} Screenshot`;
+                        img.crossOrigin = "anonymous"; // Help with CORS issues
+                        
+                        // Add error handling
+                        img.onerror = function() {
+                            console.log(`Failed to load image: ${imgSrc}`);
+                            // Try alternative formats
+                            if (imgSrc.endsWith('.jpg')) {
+                                this.src = imgSrc.replace('.jpg', '.png');
+                            } else if (imgSrc.endsWith('.png')) {
+                                this.src = imgSrc.replace('.png', '.gif');
+                            } else {
+                                // Show error placeholder
+                                this.classList.add('error');
+                                this.style.background = '#ffebee url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23f44336\'%3E%3Cpath d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z\'/%3E%3C/svg%3E") center/50% no-repeat';
+                            }
+                        };
+                        
                         img.onclick = function() {
-                            openModal(screenshot);
+                            if (!this.classList.contains('error')) {
+                                openModal(imgSrc);
+                            }
                         };
 
                         galleryItem.appendChild(img);
