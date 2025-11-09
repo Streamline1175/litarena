@@ -245,10 +245,28 @@ function AdminPanel({ bots, updateBots }) {
                   icon: '',
                   description: '',
                   status: 'active',
+                  installUrl: '',
                   features: [],
                   screenshots: [],
                   videos: [],
-                  pricing: null,
+                  pricing: {
+                    model: 'freemium',
+                    tiers: [
+                      {
+                        name: 'Free',
+                        price: '$0',
+                        period: 'forever',
+                        features: ['Basic bot functionality', 'Standard commands', 'Community support']
+                      },
+                      {
+                        name: 'Premium',
+                        price: '$4.99',
+                        period: 'month',
+                        features: ['Everything in Free', 'Advanced features', 'Priority support', 'Custom configurations'],
+                        popular: true
+                      }
+                    ]
+                  },
                   changelog: [],
                   tos: null,
                   privacy: null
@@ -505,6 +523,78 @@ function BotEditor({ bot, onSave, onClose, isNew }) {
                 className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:border-primary-500 outline-none h-24 font-mono text-sm"
                 placeholder="https://example.com/demo.mp4"
               />
+            </div>
+          </div>
+
+          {/* Install URL */}
+          <div>
+            <label className="block text-sm font-semibold mb-2">
+              Discord Install/Invite URL
+            </label>
+            <input
+              type="url"
+              value={formData.installUrl || ''}
+              onChange={(e) => updateField('installUrl', e.target.value)}
+              className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:border-primary-500 outline-none font-mono text-sm"
+              placeholder="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+            />
+            <p className="text-xs text-gray-400 mt-1">
+              The OAuth2 URL users will use to add this bot to their server
+            </p>
+          </div>
+
+          {/* Pricing Section */}
+          <div className="glass-effect p-6 rounded-xl border border-white/10">
+            <h3 className="text-lg font-semibold mb-4 gradient-text">Pricing Configuration</h3>
+
+            <div className="mb-4">
+              <label className="block text-sm font-semibold mb-2">Pricing Model</label>
+              <select
+                value={formData.pricing?.model || 'freemium'}
+                onChange={(e) => updateField('pricing', { ...formData.pricing, model: e.target.value })}
+                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:border-primary-500 outline-none"
+              >
+                <option value="freemium">Freemium</option>
+                <option value="subscription">Subscription</option>
+                <option value="one-time">One-time Purchase</option>
+                <option value="free">Free</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold mb-2">
+                Pricing Tiers (JSON Format)
+              </label>
+              <textarea
+                value={JSON.stringify(formData.pricing?.tiers || [], null, 2)}
+                onChange={(e) => {
+                  try {
+                    const tiers = JSON.parse(e.target.value);
+                    updateField('pricing', { ...formData.pricing, tiers });
+                  } catch (err) {
+                    // Invalid JSON, don't update
+                  }
+                }}
+                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:border-primary-500 outline-none h-64 font-mono text-xs"
+                placeholder={`[
+  {
+    "name": "Free",
+    "price": "$0",
+    "period": "forever",
+    "features": ["Feature 1", "Feature 2"]
+  },
+  {
+    "name": "Premium",
+    "price": "$4.99",
+    "period": "month",
+    "features": ["All Free features", "Feature 3"],
+    "popular": true
+  }
+]`}
+              />
+              <p className="text-xs text-gray-400 mt-1">
+                Must be valid JSON. Set "popular": true on one tier to highlight it.
+              </p>
             </div>
           </div>
 
