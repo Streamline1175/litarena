@@ -112,57 +112,118 @@ const BotAnalytics = ({ botId }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
+          className="space-y-4"
         >
           <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
             <Activity className="w-5 h-5 text-primary-400" />
-            Mercari Monitoring Stats
+            Mercari Monitoring Activity
           </h4>
+
+          {/* Real-time Metrics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div className="glass-effect p-4 rounded-xl border border-white/10">
               <div className="flex items-center gap-2 mb-2">
                 <Search className="w-4 h-4 text-blue-400" />
                 <span className="text-xs text-gray-400">Listings Found</span>
               </div>
-              <div className="text-xl font-bold text-white">{stats.mercariSpecific.listingsTotal?.toLocaleString()}</div>
-              <div className="text-xs text-green-400 mt-1">+{stats.mercariSpecific.listingsLastMinute}/min</div>
+              <div className="text-2xl font-bold text-white">{stats.mercariSpecific.listingsTotal?.toLocaleString()}</div>
+              <div className="text-xs text-blue-400 mt-1">+{stats.mercariSpecific.listingsLastMinute}/min</div>
             </div>
+
             <div className="glass-effect p-4 rounded-xl border border-white/10">
               <div className="flex items-center gap-2 mb-2">
                 <Bell className="w-4 h-4 text-pink-400" />
                 <span className="text-xs text-gray-400">Notifications</span>
               </div>
-              <div className="text-xl font-bold text-white">{stats.mercariSpecific.notificationsTotal?.toLocaleString()}</div>
-              <div className="text-xs text-green-400 mt-1">+{stats.mercariSpecific.notificationsLastMinute}/min</div>
+              <div className="text-2xl font-bold text-white">{stats.mercariSpecific.notificationsTotal?.toLocaleString()}</div>
+              <div className="text-xs text-pink-400 mt-1">+{stats.mercariSpecific.notificationsLastMinute}/min</div>
             </div>
+
+            <div className="glass-effect p-4 rounded-xl border border-white/10">
+              <div className="flex items-center gap-2 mb-2">
+                <Zap className="w-4 h-4 text-purple-400" />
+                <span className="text-xs text-gray-400">API Requests</span>
+              </div>
+              <div className="text-2xl font-bold text-white">{stats.mercariSpecific.apiRequestsTotal?.toLocaleString()}</div>
+              <div className="text-xs text-purple-400 mt-1">+{stats.mercariSpecific.apiRequestsLastMinute}/min</div>
+            </div>
+
             <div className="glass-effect p-4 rounded-xl border border-white/10">
               <div className="flex items-center gap-2 mb-2">
                 <AlertCircle className="w-4 h-4 text-yellow-400" />
-                <span className="text-xs text-gray-400">Active Alerts</span>
+                <span className="text-xs text-gray-400">Alerts Triggered</span>
               </div>
-              <div className="text-xl font-bold text-white">{stats.mercariSpecific.activeAlerts}</div>
-              <div className="text-xs text-gray-400 mt-1">{stats.mercariSpecific.activeKeywords} keywords</div>
+              <div className="text-2xl font-bold text-white">{stats.mercariSpecific.alertsTotal?.toLocaleString()}</div>
+              <div className="text-xs text-yellow-400 mt-1">+{stats.mercariSpecific.alertsLastMinute}/min</div>
             </div>
+          </div>
+
+          {/* Monitoring Status */}
+          <div className="glass-effect p-4 rounded-xl border border-white/10">
+            <h5 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+              <Activity className="w-4 h-4 text-green-400" />
+              Active Monitoring
+            </h5>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-400">{stats.mercariSpecific.activeKeywords}</div>
+                <div className="text-xs text-gray-400 mt-1">Active Keywords</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-400">{stats.mercariSpecific.activeAlerts}</div>
+                <div className="text-xs text-gray-400 mt-1">Active Alerts</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-400">{stats.mercariSpecific.databaseSize?.toLocaleString()}</div>
+                <div className="text-xs text-gray-400 mt-1">Database Entries</div>
+              </div>
+            </div>
+          </div>
+
+          {/* System Health */}
+          <div className="grid grid-cols-2 gap-3">
             <div className="glass-effect p-4 rounded-xl border border-white/10">
               <div className="flex items-center gap-2 mb-2">
-                <Database className="w-4 h-4 text-purple-400" />
+                <Clock className="w-4 h-4 text-indigo-400" />
+                <span className="text-xs text-gray-400">Bot Uptime</span>
+              </div>
+              <div className="text-2xl font-bold text-white">{stats.mercariSpecific.uptimeFormatted || '0s'}</div>
+              <div className="text-xs text-gray-400 mt-1">{stats.mercariSpecific.uptimeSeconds?.toLocaleString()} seconds</div>
+            </div>
+
+            <div className="glass-effect p-4 rounded-xl border border-white/10">
+              <div className="flex items-center gap-2 mb-2">
+                <Database className="w-4 h-4 text-red-400" />
                 <span className="text-xs text-gray-400">API Errors</span>
               </div>
-              <div className="text-xl font-bold text-white">{stats.mercariSpecific.apiErrors}</div>
-              <div className="text-xs text-gray-400 mt-1">Total errors</div>
+              <div className="text-2xl font-bold text-white">{stats.mercariSpecific.apiErrors}</div>
+              <div className="text-xs text-gray-400 mt-1">+{stats.mercariSpecific.apiErrorsLastMinute} last minute</div>
             </div>
           </div>
 
           {/* Tier Distribution */}
           {stats.mercariSpecific.tierDistribution && (
-            <div className="glass-effect p-6 rounded-xl border border-white/10 mt-4">
-              <h5 className="text-sm font-semibold text-white mb-4">Subscription Tier Distribution</h5>
-              <div className="grid grid-cols-5 gap-2">
-                {Object.entries(stats.mercariSpecific.tierDistribution).map(([tier, count]) => (
-                  <div key={tier} className="text-center">
-                    <div className="text-2xl font-bold text-primary-400">{count}</div>
-                    <div className="text-xs text-gray-400 capitalize">{tier}</div>
-                  </div>
-                ))}
+            <div className="glass-effect p-5 rounded-xl border border-white/10">
+              <h5 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
+                <Server className="w-4 h-4 text-primary-400" />
+                Subscription Tier Distribution
+              </h5>
+              <div className="grid grid-cols-5 gap-3">
+                {Object.entries(stats.mercariSpecific.tierDistribution).map(([tier, count]) => {
+                  const tierColors = {
+                    free: 'text-gray-400',
+                    trial: 'text-blue-400',
+                    basic: 'text-green-400',
+                    premium: 'text-purple-400',
+                    elite: 'text-yellow-400'
+                  };
+                  return (
+                    <div key={tier} className="text-center p-3 rounded-lg bg-white/5">
+                      <div className={`text-3xl font-bold ${tierColors[tier] || 'text-primary-400'}`}>{count}</div>
+                      <div className="text-xs text-gray-400 capitalize mt-1">{tier}</div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

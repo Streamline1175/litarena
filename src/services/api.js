@@ -280,31 +280,47 @@ export async function getBotStatsEnhanced(botId) {
   if (botId === 'mercari-japan-bot') {
     try {
       const mercariData = await getMercariAnalytics();
+      const m = mercariData.analytics.metrics;
+
       // Transform Mercari analytics to match generic bot stats format
       return {
-        servers: mercariData.analytics.metrics.active_servers || 0,
-        users: mercariData.analytics.metrics.database_size || 0,
-        commandsToday: mercariData.analytics.metrics.commands_executed_last_minute * 60 * 24 || 0,
-        commandsTotal: mercariData.analytics.metrics.commands_executed_total || 0,
+        servers: m.active_servers || 0,
+        users: m.database_size || 0,
+        commandsToday: (m.commands_executed_last_minute || 0) * 60 * 24,
+        commandsTotal: m.commands_executed_total || 0,
         uptime: 99.5,
-        averageResponseTime: mercariData.analytics.metrics.avg_api_response_time_ms || 0,
+        averageResponseTime: Math.round(m.avg_api_response_time_ms || 0),
         topCommands: mercariData.analytics.top_commands || [],
-        // Add Mercari-specific metrics
+        // Add Mercari-specific metrics mapped from actual payload
         mercariSpecific: {
-          listingsTotal: mercariData.analytics.metrics.listings_found_total,
-          listingsLastMinute: mercariData.analytics.metrics.listings_found_last_minute,
-          notificationsTotal: mercariData.analytics.metrics.notifications_sent_total,
-          notificationsLastMinute: mercariData.analytics.metrics.notifications_sent_last_minute,
-          alertsTotal: mercariData.analytics.metrics.alerts_triggered_total,
-          activeKeywords: mercariData.analytics.metrics.active_keywords,
-          activeAlerts: mercariData.analytics.metrics.active_alerts,
-          apiErrors: mercariData.analytics.metrics.api_errors_total,
+          // Real-time activity
+          listingsTotal: m.listings_found_total || 0,
+          listingsLastMinute: m.listings_found_last_minute || 0,
+          notificationsTotal: m.notifications_sent_total || 0,
+          notificationsLastMinute: m.notifications_sent_last_minute || 0,
+          apiRequestsTotal: m.api_requests_total || 0,
+          apiRequestsLastMinute: m.api_requests_last_minute || 0,
+          alertsTotal: m.alerts_triggered_total || 0,
+          alertsLastMinute: m.alerts_triggered_last_minute || 0,
+
+          // Monitoring status
+          activeKeywords: m.active_keywords || 0,
+          activeAlerts: m.active_alerts || 0,
+          databaseSize: m.database_size || 0,
+
+          // System health
+          uptimeSeconds: m.bot_uptime_seconds || 0,
+          uptimeFormatted: mercariData.analytics.uptime_formatted || '0s',
+          apiErrors: m.api_errors_total || 0,
+          apiErrorsLastMinute: m.api_errors_last_minute || 0,
+
+          // Tier distribution
           tierDistribution: {
-            free: mercariData.analytics.metrics.free_tier_servers,
-            trial: mercariData.analytics.metrics.trial_tier_servers,
-            basic: mercariData.analytics.metrics.basic_tier_servers,
-            premium: mercariData.analytics.metrics.premium_tier_servers,
-            elite: mercariData.analytics.metrics.elite_tier_servers,
+            free: m.free_tier_servers || 0,
+            trial: m.trial_tier_servers || 0,
+            basic: m.basic_tier_servers || 0,
+            premium: m.premium_tier_servers || 0,
+            elite: m.elite_tier_servers || 0,
           },
         },
       };
