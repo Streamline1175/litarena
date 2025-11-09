@@ -1,8 +1,25 @@
 import { motion } from 'framer-motion';
 import { Moon, Sun, Bot } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function Header({ darkMode, setDarkMode }) {
+  const navigate = useNavigate();
+  const [keySequence, setKeySequence] = useState([]);
+
+  // Secret key combo to access admin: Ctrl+Shift+A
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        e.preventDefault();
+        navigate('/admin');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [navigate]);
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -44,15 +61,7 @@ function Header({ darkMode, setDarkMode }) {
               )}
             </motion.button>
 
-            <Link to="/admin">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all"
-              >
-                Admin Panel
-              </motion.button>
-            </Link>
+            {/* Admin panel button removed - Access via Ctrl+Shift+A */}
           </div>
         </div>
       </div>

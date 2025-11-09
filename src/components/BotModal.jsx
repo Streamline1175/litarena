@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
+import BotAnalytics from './BotAnalytics';
 
 const BotModal = ({ bot, onClose }) => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -13,6 +14,7 @@ const BotModal = ({ bot, onClose }) => {
   const tabs = [
     { id: 'overview', label: 'Overview' },
     { id: 'features', label: 'Features' },
+    { id: 'analytics', label: 'Analytics' },
     { id: 'pricing', label: 'Pricing' },
     { id: 'media', label: 'Screenshots & Videos' },
     { id: 'changelog', label: 'Changelog' },
@@ -198,6 +200,20 @@ const BotModal = ({ bot, onClose }) => {
                           </motion.div>
                         ))}
                       </div>
+                    </motion.div>
+                  )}
+
+                  {/* Analytics Tab */}
+                  {activeTab === 'analytics' && (
+                    <motion.div
+                      key="analytics"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h3 className="text-xl font-semibold text-white mb-6">Live Analytics</h3>
+                      <BotAnalytics botId={bot.id} />
                     </motion.div>
                   )}
 

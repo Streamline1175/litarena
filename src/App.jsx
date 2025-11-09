@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import BotGrid from './components/BotGrid';
 import BotModal from './components/BotModal';
 import AdminPanel from './components/AdminPanel';
@@ -52,32 +54,38 @@ function App() {
           } />
 
           <Route path="/" element={
-            <main className="container mx-auto px-4 py-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <SearchBar
-                  searchQuery={searchQuery}
-                  setSearchQuery={setSearchQuery}
-                />
+            <>
+              <HeroSection />
 
-                <FilterBar
-                  statusFilter={statusFilter}
-                  setStatusFilter={setStatusFilter}
-                />
+              <main id="bots" className="container mx-auto px-4 py-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <SearchBar
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                  />
 
-                <div className="mt-6 mb-4 text-gray-400 text-sm">
-                  Showing {filteredBots.length} of {bots.length} bots
-                </div>
+                  <FilterBar
+                    statusFilter={statusFilter}
+                    setStatusFilter={setStatusFilter}
+                  />
 
-                <BotGrid
-                  bots={filteredBots}
-                  onBotClick={setSelectedBot}
-                />
-              </motion.div>
-            </main>
+                  <div className="mt-6 mb-4 text-gray-400 text-sm">
+                    Showing {filteredBots.length} of {bots.length} bots
+                  </div>
+
+                  <BotGrid
+                    bots={filteredBots}
+                    onBotClick={setSelectedBot}
+                  />
+                </motion.div>
+              </main>
+
+              <TestimonialsSection />
+            </>
           } />
         </Routes>
 
