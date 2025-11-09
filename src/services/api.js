@@ -181,9 +181,14 @@ export async function getTrendingBots() {
  */
 export async function getMercariAnalytics() {
   try {
-    // Your FastAPI likely exposes a GET endpoint to fetch latest analytics
+    // Your FastAPI exposes a GET endpoint to fetch latest analytics
     const data = await fetchWithCache('/analytics/mercari');
-    console.log('Mercari API Response:', data);
+    console.log('[Mercari] API Response received:', {
+      hasAnalytics: !!data?.analytics,
+      hasMetrics: !!data?.analytics?.metrics,
+      activeServers: data?.analytics?.metrics?.active_servers,
+      status: data?.status
+    });
 
     // If API returns data with analytics already at root, normalize it
     // Your API returns: { status, error?, message?, analytics: {...} }
@@ -194,15 +199,15 @@ export async function getMercariAnalytics() {
         timestamp: data.timestamp || new Date().toISOString(),
         analytics: data.analytics
       };
-      console.log('Normalized Mercari data:', normalized);
+      console.log('[Mercari] Using REAL data from API - Active Servers:', normalized.analytics.metrics.active_servers);
       return normalized;
     }
 
     // If it's already in the correct format, return as-is
-    console.log('Using data as-is:', data);
+    console.warn('[Mercari] Unexpected data format, using as-is');
     return data;
   } catch (error) {
-    console.error('Failed to fetch Mercari analytics:', error);
+    console.error('[Mercari] ❌ API call FAILED, using MOCK data fallback:', error.message);
     // Return mock data structure matching your analytics system
     return {
       bot_name: 'mercarijp_bot',
