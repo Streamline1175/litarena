@@ -113,7 +113,7 @@ const BotCard = ({ bot, onClick, index }) => {
 
           {/* Feature pills */}
           {bot.features && bot.features.length > 0 && (
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mb-4">
               {bot.features.slice(0, 3).map((feature, idx) => (
                 <span
                   key={idx}
@@ -129,6 +129,27 @@ const BotCard = ({ bot, onClick, index }) => {
                 </span>
               )}
             </div>
+          )}
+
+          {/* Install Button */}
+          {bot.installUrl && (
+            <motion.a
+              href={bot.installUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="mt-auto w-full py-2.5 px-4 bg-gradient-to-r from-primary-600 to-accent-600
+                       text-white font-semibold rounded-xl text-center text-sm
+                       hover:shadow-lg hover:shadow-primary-500/50 transition-all duration-300
+                       flex items-center justify-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+              </svg>
+              Add to Discord
+            </motion.a>
           )}
         </div>
 

@@ -5,6 +5,7 @@
     "icon": "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512",
     "description": "Your ultimate Pokemon card value tracking assistant! Card Flipper Bot analyzes PSA card prices from GameStop, identifies undervalued cards with profit potential, and provides detailed market analytics to help you make informed trading decisions.",
     "status": "active",
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1325707530436870205",
     "features": [
       "Real-time PSA card price tracking from GameStop",
       "Automated profit/loss analysis with percentage calculations",
@@ -22,7 +23,49 @@
       "https://i.imgur.com/38E8l5C.jpg"
     ],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic card price tracking",
+            "Manual price checks",
+            "Access to price history",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Automatic alerts for undervalued cards",
+            "Advanced analytics and charts",
+            "Priority processing",
+            "Social media integration",
+            "Email support"
+          ],
+          "popular": true
+        },
+        {
+          "name": "Pro",
+          "price": "$9.99",
+          "period": "month",
+          "features": [
+            "Everything in Premium",
+            "Unlimited tracking slots",
+            "Custom notification webhooks",
+            "API access",
+            "Dedicated support channel",
+            "Early access to new features"
+          ]
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "2.1.3",
@@ -155,7 +198,33 @@
       "https://i.imgur.com/mercari-bot-alerts-setup.jpg"
     ],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "5.2.0",
@@ -348,7 +417,8 @@
           "content": "We analyze usage patterns to improve monitoring accuracy, optimize notification systems, enhance translation quality, develop new features, maintain service reliability, and provide better user experiences. All analytics data is anonymized and aggregated."
         }
       ]
-    }
+    },
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "auto-pinger-bot",
@@ -383,7 +453,33 @@
       "https://i.imgur.com/your-screenshot2.jpg"
     ],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "2.0.0",
@@ -476,7 +572,8 @@
           "content": "Users have the right to access their data, request corrections, request deletion (subject to operational requirements), and withdraw consent by removing the bot from their server."
         }
       ]
-    }
+    },
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "what-you-craving",
@@ -492,7 +589,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -511,7 +634,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "tcgplayer-bot",
@@ -551,7 +675,33 @@
       "https://i.imgur.com/your-tcgplayer-screenshot2.jpg"
     ],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "3.5.0",
@@ -684,7 +834,8 @@
           "content": "We may analyze usage patterns to improve features, optimize API performance, enhance search algorithms, and develop new functionality. All analytics data is anonymized and aggregated."
         }
       ]
-    }
+    },
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "psa-bot",
@@ -700,7 +851,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -711,7 +888,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "130-bot",
@@ -756,7 +934,33 @@
       "https://i.imgur.com/your-130bot-screenshot2.jpg"
     ],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "4.2.0",
@@ -911,7 +1115,8 @@
           "content": "We may analyze usage patterns to improve features, optimize processing algorithms, enhance search accuracy, develop new functionality, and maintain service quality. All analytics data is anonymized and aggregated."
         }
       ]
-    }
+    },
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "nba-bot",
@@ -927,7 +1132,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -938,7 +1169,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "sku-bot",
@@ -954,7 +1186,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -972,7 +1230,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "role-manager",
@@ -988,7 +1247,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -999,7 +1284,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "bricklink",
@@ -1015,7 +1301,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -1026,7 +1338,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "feedback-bot",
@@ -1042,7 +1355,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -1060,7 +1399,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "grocery-finder",
@@ -1076,7 +1416,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -1087,7 +1453,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "waifu-bot",
@@ -1103,7 +1470,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -1114,7 +1507,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "social-score",
@@ -1130,7 +1524,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -1141,7 +1561,8 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "the-manager",
@@ -1181,7 +1602,33 @@
       "https://i.imgur.com/your-aco-screenshot2.jpg"
     ],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "3.2.0",
@@ -1307,7 +1754,8 @@
           "content": "The bot integrates with Discord's API, external image hosting services for validation, and Excel/CSV processing libraries. No third-party services have access to sensitive user data beyond what's necessary for functionality."
         }
       ]
-    }
+    },
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
     "id": "twitter-restocker",
@@ -1323,7 +1771,33 @@
     ],
     "screenshots": [],
     "videos": [],
-    "pricing": null,
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic bot functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support",
+            "Custom configurations"
+          ],
+          "popular": true
+        }
+      ]
+    },
     "changelog": [
       {
         "version": "1.0.0",
@@ -1334,6 +1808,7 @@
       }
     ],
     "tos": null,
-    "privacy": null
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   }
 ]
