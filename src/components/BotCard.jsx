@@ -74,7 +74,17 @@ const BotCard = ({ bot, onClick, index }) => {
           <div className="flex items-start justify-between mb-4">
             {/* Bot icon and name */}
             <div className="flex items-center gap-3 flex-1">
-              <div className="text-4xl">{bot.icon}</div>
+              <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/5 flex-shrink-0 ring-2 ring-white/10">
+                <img
+                  src={bot.icon}
+                  alt={`${bot.name} icon`}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-2xl">🤖</div>';
+                  }}
+                />
+              </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-xl font-bold text-white mb-1 truncate group-hover:text-primary-300 transition-colors">
                   {bot.name}

@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
-const BotModal = ({ bot, isOpen, onClose }) => {
+const BotModal = ({ bot, onClose }) => {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedChangelog, setExpandedChangelog] = useState([]);
   const [expandedLegal, setExpandedLegal] = useState({ tos: false, privacy: false });
@@ -43,11 +43,9 @@ const BotModal = ({ bot, isOpen, onClose }) => {
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
+    <>
+      {/* Backdrop */}
+      <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -69,7 +67,17 @@ const BotModal = ({ bot, isOpen, onClose }) => {
               <div className="sticky top-0 z-20 bg-slate-900/90 backdrop-blur-lg border-b border-white/10 p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-4">
-                    <div className="text-5xl">{bot.icon}</div>
+                    <div className="w-16 h-16 rounded-xl overflow-hidden bg-white/5 flex-shrink-0 ring-2 ring-white/20">
+                      <img
+                        src={bot.icon}
+                        alt={`${bot.name} icon`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-4xl">🤖</div>';
+                        }}
+                      />
+                    </div>
                     <div>
                       <h2 className="text-3xl font-bold text-white mb-2">{bot.name}</h2>
                       <span className={`inline-block px-3 py-1 rounded-lg text-sm font-medium border ${statusColors[bot.status]}`}>
@@ -434,8 +442,6 @@ const BotModal = ({ bot, isOpen, onClose }) => {
             )}
           </AnimatePresence>
         </>
-      )}
-    </AnimatePresence>
   );
 };
 
