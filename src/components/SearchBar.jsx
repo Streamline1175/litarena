@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
 
-const SearchBar = ({ value, onChange, placeholder = "Search bots..." }) => {
+const SearchBar = ({ searchQuery, setSearchQuery, placeholder = "Search bots..." }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
@@ -17,8 +17,8 @@ const SearchBar = ({ value, onChange, placeholder = "Search bots..." }) => {
           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary-400 w-5 h-5 pointer-events-none z-10" />
           <input
             type="text"
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={placeholder}
             className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl
                      text-white placeholder-gray-400 outline-none
