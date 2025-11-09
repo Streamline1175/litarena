@@ -1,0 +1,1339 @@
+[
+  {
+    "id": "card-flipper-bot",
+    "name": "Card Flipper Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512",
+    "description": "Your ultimate Pokemon card value tracking assistant! Card Flipper Bot analyzes PSA card prices from GameStop, identifies undervalued cards with profit potential, and provides detailed market analytics to help you make informed trading decisions.",
+    "status": "active",
+    "features": [
+      "Real-time PSA card price tracking from GameStop",
+      "Automated profit/loss analysis with percentage calculations",
+      "Interactive price trend charts and visualizations",
+      "Automatic alerts for undervalued cards with profit potential",
+      "Weekly profit snapshots and comprehensive statistics",
+      "Grade comparison analysis (PSA 6-10)",
+      "Social media integration (Twitter/Instagram posting)",
+      "Advanced card matching with character abbreviations",
+      "Detailed sales history from PSA auction results",
+      "Queue management system for high-volume processing"
+    ],
+    "screenshots": [
+      "https://i.imgur.com/BaPBzgc.jpg",
+      "https://i.imgur.com/38E8l5C.jpg"
+    ],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "2.1.3",
+        "date": "2025-01-15",
+        "changes": [
+          "Enhanced Instagram integration with rate limiting",
+          "Improved error handling and logging",
+          "Added subscription channel validation"
+        ]
+      },
+      {
+        "version": "2.1.0",
+        "date": "2025-01-10",
+        "changes": [
+          "Added Instagram posting functionality",
+          "Implemented advanced rate limiting",
+          "Enhanced chart creation with QuickChart"
+        ]
+      },
+      {
+        "version": "2.0.0",
+        "date": "2025-01-05",
+        "changes": [
+          "Major rewrite with subscription system",
+          "Added Discord premium features integration",
+          "Improved PSA data scraping"
+        ]
+      },
+      {
+        "version": "1.0.6",
+        "date": "2025-01-01",
+        "changes": [
+          "Fixed bug with card flipping calculations",
+          "Enhanced price comparison accuracy"
+        ]
+      }
+    ],
+    "tos": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "content": "By using Card Flipper Bot, you agree to these Terms of Service. If you disagree with any part of the terms, you do not have permission to use the Bot."
+        },
+        {
+          "heading": "2. Description of Service",
+          "content": "Card Flipper Bot tracks PSA card prices from GameStop, provides price comparisons and profit analysis, creates data visualizations, monitors specific channels for card listings, manages keyword-based notifications, and posts updates to social media platforms."
+        },
+        {
+          "heading": "3. Premium Features",
+          "content": "Premium features may be offered for additional fees. Payments are processed through Discord's payment system. Premium subscribers get access to automatic alerts, advanced analytics, and priority processing. No refunds will be issued for premium features."
+        },
+        {
+          "heading": "4. Data Usage",
+          "content": "The Bot collects and stores card price data, user commands and interactions, server configurations, button click analytics, and user preferences for notification settings. All data is used solely to provide bot functionality."
+        },
+        {
+          "heading": "5. Limitations",
+          "content": "The Bot provides price information for educational purposes only. Users are responsible for verifying all data before making purchasing decisions. We are not liable for any financial losses resulting from bot usage."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "1. Data Collection",
+          "content": "We collect Discord user IDs, server IDs, channel IDs, command usage data, button interaction data, card price tracking preferences, and subscription status information necessary for bot operation."
+        },
+        {
+          "heading": "2. Data Usage",
+          "content": "Collected data is used to provide bot functionality, track feature usage, improve service quality, maintain user preferences, generate analytics reports, and manage subscription services."
+        },
+        {
+          "heading": "3. Data Security",
+          "content": "We implement appropriate security measures to protect user data from unauthorized access, modification, disclosure, and destruction. Data is stored securely and access is limited to essential operations."
+        },
+        {
+          "heading": "4. Third-Party Services",
+          "content": "The Bot integrates with Twitter API, Instagram Basic Display API, GameStop website, PSA website, QuickChart API for visualizations, and Discord's subscription services."
+        },
+        {
+          "heading": "5. Data Retention",
+          "content": "User data is retained only as long as necessary to provide services. Users may request data deletion by contacting support, subject to legal and operational requirements."
+        }
+      ]
+    }
+  },
+  {
+    "id": "mercari-japan-bot",
+    "name": "Mercari Japan Bot",
+    "icon": "https://static.mercdn.net/assets/img/common/common/mercari_logo_horizontal.png",
+    "description": "Advanced Mercari Japan monitoring bot with real-time listing alerts, auto-translation, currency conversion, and comprehensive notification systems. Provides personal alerts, server-wide monitoring, role pings, watchlist management, and sophisticated subscription tiers for collectors, resellers, and communities seeking rare Japanese marketplace finds.",
+    "status": "active",
+    "features": [
+      "Real-time Mercari Japan monitoring with dynamic check intervals",
+      "Advanced API integration with protobuf parsing and DPoP authentication",
+      "Intelligent auto-translation from Japanese to English with verification",
+      "Live currency conversion with exchange rate API integration",
+      "Comprehensive subscription tier system (Trial through Tier 5)",
+      "Personal alert system with custom search criteria and exclude terms",
+      "Server-wide keyword monitoring with administrator controls",
+      "Role ping system with keyword and price-based filtering",
+      "Watchlist functionality with item status tracking",
+      "Auction detection and monitoring with end-time alerts",
+      "Flagged seller system with community-driven warnings",
+      "Rich embed formatting with images, pricing, and detailed info",
+      "Interactive button systems for item details and watchlist management",
+      "Webhook delivery support for custom Discord integrations",
+      "Global keyword system with server-specific toggle controls",
+      "Trial feedback collection with rating and analytics systems",
+      "Advanced condition filtering (1-6 scale from new to poor)",
+      "Price range filtering with JPY and USD display",
+      "Seller rating and review integration with quick shipper badges",
+      "Comment system integration with recent activity display",
+      "Category-based filtering with translated category names",
+      "Shipping information display with duration and cost details",
+      "Professional slash command interface with auto-completion",
+      "Comprehensive admin permission system with role-based access",
+      "Database persistence with JSON storage and backup systems",
+      "Statistical analysis with keyword performance tracking",
+      "Exchange rate monitoring with hourly updates",
+      "Comprehensive error handling and logging system",
+      "Mobile-optimized interface with ephemeral message support",
+      "Multi-server support with isolated configurations"
+    ],
+    "screenshots": [
+      "https://i.imgur.com/mercari-bot-listing-example.jpg",
+      "https://i.imgur.com/mercari-bot-dashboard.jpg",
+      "https://i.imgur.com/mercari-bot-alerts-setup.jpg"
+    ],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "5.2.0",
+        "date": "2025-01-15",
+        "changes": [
+          "Implemented flexible monitoring system with dynamic interval control",
+          "Added comprehensive autocomplete for all major slash commands",
+          "Enhanced auction info handling with proper protobuf object parsing",
+          "Added advanced translation verification for keyword management",
+          "Implemented monitoring control commands (start/stop/status/interval)",
+          "Enhanced watchlist system with auction status tracking",
+          "Added currency autocomplete for exchange rate commands",
+          "Improved error handling for auction data extraction"
+        ]
+      },
+      {
+        "version": "5.0.0",
+        "date": "2025-01-10",
+        "changes": [
+          "Complete migration to modern slash commands with deprecation warnings",
+          "Added comprehensive personal alert system with webhook support",
+          "Implemented watchlist functionality with item status monitoring",
+          "Enhanced subscription system with trial feedback collection",
+          "Added flagged seller system with community-driven warnings",
+          "Implemented advanced role ping system with filtering",
+          "Added auction detection and monitoring capabilities",
+          "Enhanced translation system with verification prompts"
+        ]
+      },
+      {
+        "version": "4.5.0",
+        "date": "2025-01-05",
+        "changes": [
+          "Added trial feedback system with comprehensive analytics",
+          "Implemented advanced server statistics and monitoring dashboard",
+          "Enhanced global keyword system with server-specific controls",
+          "Added comprehensive help system with command examples",
+          "Implemented proxy service integration (Japan Rabbit)",
+          "Added exchange rate monitoring with live updates",
+          "Enhanced admin permission system with role-based access",
+          "Added detailed server status checking and reporting"
+        ]
+      },
+      {
+        "version": "4.0.0",
+        "date": "2024-12-20",
+        "changes": [
+          "Integrated Mercari Japan API with advanced authentication",
+          "Added protobuf parsing for comprehensive item data",
+          "Implemented subscription tier system with entitlements API",
+          "Added comprehensive condition and price filtering",
+          "Enhanced embed system with rich formatting and thumbnails",
+          "Implemented database persistence with JSON storage",
+          "Added seller information integration with ratings",
+          "Enhanced error handling and logging system"
+        ]
+      },
+      {
+        "version": "3.0.0",
+        "date": "2024-11-15",
+        "changes": [
+          "Added multi-server support with isolated configurations",
+          "Implemented keyword statistics and performance tracking",
+          "Enhanced translation system with multiple provider support",
+          "Added comprehensive admin controls and permissions",
+          "Implemented global keyword system with toggle controls",
+          "Added detailed item information with seller data",
+          "Enhanced notification system with role mentions",
+          "Added comprehensive configuration management"
+        ]
+      },
+      {
+        "version": "2.0.0",
+        "date": "2024-10-01",
+        "changes": [
+          "Added real-time monitoring with scheduled checks",
+          "Implemented keyword-based filtering system",
+          "Added price range filtering and currency conversion",
+          "Enhanced embed formatting with images and details",
+          "Added basic subscription tier enforcement",
+          "Implemented channel configuration system",
+          "Added translation capabilities for Japanese content",
+          "Enhanced error handling and user feedback"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "date": "2024-09-01",
+        "changes": [
+          "Initial release with basic Mercari Japan scraping",
+          "Simple keyword monitoring and notifications",
+          "Basic Discord integration with embed messages"
+        ]
+      }
+    ],
+    "tos": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "content": "By using Mercari Japan Bot, you agree to these Terms of Service. This bot provides marketplace monitoring and notification services for educational and informational purposes related to Mercari Japan marketplace intelligence."
+        },
+        {
+          "heading": "2. Description of Service",
+          "content": "Mercari Japan Bot provides real-time monitoring of Mercari Japan listings, automated notifications, price tracking, personal alert systems, watchlist management, translation services, and comprehensive marketplace analysis through integration with Mercari Japan's API and related services."
+        },
+        {
+          "heading": "3. Data Sources and Accuracy",
+          "content": "Market data is sourced directly from Mercari Japan's official API. While we strive for accuracy, data may have delays or inaccuracies due to API limitations or network issues. Users should verify all information independently before making purchasing decisions. Real-time monitoring operates on 15-minute intervals."
+        },
+        {
+          "heading": "4. Permitted Use",
+          "content": "Users may use the bot for marketplace research, price monitoring, collecting guidance, educational purposes, and legitimate business research. All usage must comply with Mercari Japan's terms of service and applicable laws. Personal alerts and watchlist features are provided for individual user convenience."
+        },
+        {
+          "heading": "5. Prohibited Activities",
+          "content": "Users may not use the bot for market manipulation, fraudulent activities, excessive automated requests that could impact service availability, violation of Mercari Japan's or Discord's terms of service, harassment of sellers, or any activities that violate applicable laws or regulations."
+        },
+        {
+          "heading": "6. Subscription Tiers and Billing",
+          "content": "The bot operates on a subscription tier system managed through Discord's Server Subscriptions. Trial periods are limited to 7 days per server. Subscription management, billing, and refunds are handled exclusively through Discord's platform. Keyword limits are enforced based on active subscription tier."
+        },
+        {
+          "heading": "7. Personal Alerts and Notifications",
+          "content": "Personal alert systems require user setup and configuration. Webhook URLs must be valid and secure. Users are responsible for managing their alert criteria and delivery preferences. We are not liable for missed notifications due to Discord outages, API limitations, or user configuration errors."
+        },
+        {
+          "heading": "8. Watchlist and Data Management",
+          "content": "Watchlist data is stored securely and associated with Discord user IDs. Users can remove items from their watchlist at any time. Flagged seller data is community-driven and provided for informational purposes only. Users should exercise independent judgment when evaluating sellers."
+        },
+        {
+          "heading": "9. Service Availability",
+          "content": "Service availability depends on Mercari Japan API access, Discord platform availability, and server infrastructure. We reserve the right to modify features, implement usage limits, temporarily suspend service for maintenance, or discontinue the service with reasonable notice to users."
+        },
+        {
+          "heading": "10. Translation Services",
+          "content": "Translation services are provided through third-party APIs and may not be 100% accurate. Users should verify translations independently for critical information. Translation verification prompts are provided to help ensure accuracy, but users are responsible for final translation decisions."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "1. Data Collection",
+          "content": "We collect Discord user IDs, server IDs, guild information, command usage data, search keywords, alert configurations, watchlist data, subscription status, feedback submissions, and interaction analytics necessary for bot operation and service improvement."
+        },
+        {
+          "heading": "2. Marketplace Data Processing",
+          "content": "Marketplace data is sourced from Mercari Japan's official API, processed in real-time, and temporarily cached for performance. Search queries and alert criteria are stored to provide ongoing monitoring services. Item data is cached to prevent duplicate notifications and improve response times."
+        },
+        {
+          "heading": "3. Personal Alert Data",
+          "content": "Personal alert configurations including search terms, price ranges, condition preferences, and delivery methods are stored securely and associated with user IDs. Webhook URLs are encrypted and used only for notification delivery. Users can delete alert data at any time through bot commands."
+        },
+        {
+          "heading": "4. Watchlist Management",
+          "content": "Watchlist data includes item IDs, titles, prices, seller information, and status tracking data. This information is stored to provide ongoing item monitoring and status updates. Users can remove items from their watchlist or clear all watchlist data through bot commands."
+        },
+        {
+          "heading": "5. Subscription and Billing",
+          "content": "Subscription status is tracked through Discord's Entitlements API. We do not store payment information, which is handled exclusively by Discord. Subscription data is used only for feature access control and service provisioning. Trial usage is tracked to prevent abuse."
+        },
+        {
+          "heading": "6. Translation and Language Services",
+          "content": "Translation requests are processed through third-party translation APIs. Search terms and item titles may be temporarily transmitted to translation services for processing. No personal information is included in translation requests, and translated data is not permanently stored by translation providers."
+        },
+        {
+          "heading": "7. Community Features",
+          "content": "Flagged seller data includes seller IDs, flag reasons, and reporting user IDs for moderation purposes. Trial feedback includes ratings, comments, and server information for service improvement. Community data is aggregated and anonymized for analytics purposes."
+        },
+        {
+          "heading": "8. Data Security",
+          "content": "We implement appropriate security measures including encrypted data transmission, secure API authentication with DPoP tokens, access logging and monitoring, regular security audits, secure storage of user configurations, and protection of webhook URLs and sensitive user data."
+        },
+        {
+          "heading": "9. Third-Party Integration",
+          "content": "The bot integrates with Mercari Japan API, Discord's platform and services, translation APIs (Google Translate), exchange rate APIs, GitHub for documentation hosting, webhook services for notifications, and Discord's Entitlements API for subscription management."
+        },
+        {
+          "heading": "10. Data Retention",
+          "content": "Command usage logs are retained for 30 days for debugging purposes. Alert configurations are retained until deleted by users. Watchlist data is maintained for active monitoring. Trial feedback is retained for service improvement. Market data cache is cleared regularly to ensure freshness."
+        },
+        {
+          "heading": "11. User Rights",
+          "content": "Users can request information about their stored data, delete personal alert configurations, clear watchlist data, remove saved searches, request account data deletion, opt out of feedback collection, and remove the bot from their server to stop data collection."
+        },
+        {
+          "heading": "12. Analytics and Improvement",
+          "content": "We analyze usage patterns to improve monitoring accuracy, optimize notification systems, enhance translation quality, develop new features, maintain service reliability, and provide better user experiences. All analytics data is anonymized and aggregated."
+        }
+      ]
+    }
+  },
+  {
+    "id": "auto-pinger-bot",
+    "name": "Auto Pinger Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1340932229450174465/fa14ced29206c9a91945c1d8477b8d4a.png?size=512",
+    "description": "The ultimate Discord keyword monitoring and notification system with advanced role management, interactive request handling, and intelligent message forwarding. Auto Pinger Bot provides comprehensive server automation for communities that need reliable, customizable notification systems with enterprise-grade features.",
+    "status": "active",
+    "features": [
+      "Advanced keyword detection with OR, AND, and EXACT phrase matching",
+      "Interactive request system with approval/denial buttons and persistent views",
+      "Automatic role creation with custom names and hex color support",
+      "Intelligent message forwarding with rich embed preservation",
+      "Multi-channel monitoring with individual cooldown controls",
+      "Auto-ping functionality for complete channel monitoring",
+      "Comprehensive role management and cleanup utilities",
+      "Request history tracking with detailed analytics",
+      "Embed and attachment content scanning for complete coverage",
+      "Permission-aware setup with automatic bot access management",
+      "Manager role hierarchy with administrator controls",
+      "Real-time DM notifications for request status updates",
+      "Backup and recovery system for configuration protection",
+      "Silent forwarding options for discrete monitoring",
+      "Jump links and source tracking in forwarded messages",
+      "Custom emoji detection and Unicode support",
+      "Phrase-based keyword matching with quote support",
+      "Bot-created role tracking and unused role detection",
+      "Interactive help system with comprehensive command documentation",
+      "Persistent button functionality that survives bot restarts"
+    ],
+    "screenshots": [
+      "https://i.imgur.com/your-screenshot1.jpg",
+      "https://i.imgur.com/your-screenshot2.jpg"
+    ],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "2.0.0",
+        "date": "2025-01-15",
+        "changes": [
+          "Complete rewrite with interactive button system",
+          "Added message forwarding with rich embed support",
+          "Implemented automatic role creation with custom colors",
+          "Added persistent view system for bot restart resilience",
+          "Enhanced keyword matching with AND/OR/EXACT logic",
+          "Added comprehensive role management and cleanup",
+          "Implemented request history tracking and analytics",
+          "Added silent forwarding and discrete monitoring options"
+        ]
+      },
+      {
+        "version": "1.5.0",
+        "date": "2024-12-10",
+        "changes": [
+          "Added auto-ping functionality for complete channel monitoring",
+          "Enhanced permission management and bot access controls",
+          "Improved cooldown system with per-channel configuration",
+          "Added embed and attachment content scanning"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "date": "2024-11-01",
+        "changes": [
+          "Initial release with basic keyword pinger functionality",
+          "Manager role system implementation",
+          "Configuration backup and recovery system"
+        ]
+      }
+    ],
+    "tos": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "content": "By using Auto Pinger Bot, you agree to these Terms of Service. If you disagree with any part of the terms, you do not have permission to use the Bot."
+        },
+        {
+          "heading": "2. Description of Service",
+          "content": "Auto Pinger Bot provides keyword monitoring, role management, message forwarding, and notification services for Discord servers. The bot creates and manages roles, monitors messages across channels, sends notifications based on keyword matches, and provides comprehensive server automation tools."
+        },
+        {
+          "heading": "3. User Responsibilities",
+          "content": "Users are responsible for appropriate keyword selection, role management, and ensuring bot permissions are properly configured. Server administrators must set appropriate manager roles and monitor bot usage to prevent spam or abuse."
+        },
+        {
+          "heading": "4. Data Usage",
+          "content": "The Bot collects and stores server configurations, user requests, role information, keyword lists, message metadata for forwarding, and usage analytics. All data is used solely to provide bot functionality and improve service quality."
+        },
+        {
+          "heading": "5. Limitations and Disclaimers",
+          "content": "The Bot provides notification services on a best-effort basis. We are not liable for missed notifications, false positives, or any consequences resulting from bot usage. Users should verify critical notifications through alternative means."
+        },
+        {
+          "heading": "6. Service Modifications",
+          "content": "We reserve the right to modify, suspend, or discontinue the service at any time. Users will be notified of significant changes when possible. Continued use constitutes acceptance of modifications."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "1. Data Collection",
+          "content": "We collect Discord server IDs, channel IDs, user IDs, role information, keyword configurations, message metadata for forwarding purposes, request history, and bot interaction data necessary for service operation."
+        },
+        {
+          "heading": "2. Data Usage",
+          "content": "Collected data is used to provide keyword monitoring, role management, message forwarding, request processing, service analytics, and feature improvements. Data is not shared with third parties except as required for bot functionality."
+        },
+        {
+          "heading": "3. Data Security",
+          "content": "We implement appropriate security measures including encrypted storage, backup systems, access controls, and regular security audits to protect user data from unauthorized access, modification, or disclosure."
+        },
+        {
+          "heading": "4. Data Retention",
+          "content": "Server configurations are retained while the bot is active in your server. Request history is maintained for administrative purposes. Users may request data deletion by removing the bot from their server or contacting support."
+        },
+        {
+          "heading": "5. Third-Party Services",
+          "content": "The Bot integrates with Discord's API and services. No other third-party services have access to your data. All processing occurs within Discord's infrastructure or our secure servers."
+        },
+        {
+          "heading": "6. User Rights",
+          "content": "Users have the right to access their data, request corrections, request deletion (subject to operational requirements), and withdraw consent by removing the bot from their server."
+        }
+      ]
+    }
+  },
+  {
+    "id": "what-you-craving",
+    "name": "What You Craving",
+    "icon": "https://cdn.discordapp.com/app-icons/1183614399307595796/cd3f2e093db434ff1572436d9292af42.png?size=512",
+    "description": "A food discovery bot that helps users find restaurants and food options based on their cravings and location preferences.",
+    "status": "active",
+    "features": [
+      "Restaurant recommendations based on cuisine type",
+      "Location-based food discovery",
+      "User preference learning",
+      "Menu integration and price comparison"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-01",
+        "changes": [
+          "Initial release with basic food discovery features."
+        ]
+      },
+      {
+        "version": "1.1.0",
+        "date": "2025-01-15",
+        "changes": [
+          "Added location services",
+          "Improved recommendation algorithm"
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "tcgplayer-bot",
+    "name": "TCGPlayer Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1194131740072087672/11fd96c048c6dd4cfc4252003ec15adc.png?size=512",
+    "description": "Advanced Trading Card Game price tracking and market analysis bot with comprehensive TCGPlayer integration. Provides real-time card pricing, sales analytics, illustration rare investment analysis, and automated data processing for collectors, traders, and investors seeking competitive market intelligence.",
+    "status": "active",
+    "features": [
+      "Real-time TCGPlayer price monitoring and search functionality",
+      "Advanced illustration rare investment analysis with risk assessment",
+      "Comprehensive sales data tracking with 3-month historical analysis",
+      "Interactive product selection with button-based interface",
+      "Dynamic sales charts with condition-based price visualization",
+      "Market timing indicators and investment opportunity scoring",
+      "Risk-adjusted return calculations for informed decision making",
+      "Liquidity analysis with sales velocity and volatility metrics",
+      "Excel/CSV bulk processing with automated price updates",
+      "Template generation system for efficient data management",
+      "Multi-condition filtering (Near Mint, Lightly Played, etc.)",
+      "Set-based analysis with comprehensive Pokemon TCG database",
+      "Investment quadrant analysis (Low/High Risk vs Reward)",
+      "Top opportunities ranking with detailed performance metrics",
+      "Current marketplace listings with seller information",
+      "Automated chart generation using QuickChart API integration",
+      "Progress tracking for long-running data operations",
+      "Comprehensive error handling and logging system",
+      "Market direction analysis with bullish/bearish indicators",
+      "Price trend analysis with percentage change calculations",
+      "Sales volume thresholds for market liquidity assessment",
+      "Professional embed formatting with thumbnail integration",
+      "Real-time API token management and refresh handling",
+      "Pagination support for large dataset processing",
+      "Interactive file upload system with validation"
+    ],
+    "screenshots": [
+      "https://i.imgur.com/your-tcgplayer-screenshot1.jpg",
+      "https://i.imgur.com/your-tcgplayer-screenshot2.jpg"
+    ],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "3.5.0",
+        "date": "2025-01-15",
+        "changes": [
+          "Added comprehensive illustration rare investment analysis system",
+          "Implemented risk-adjusted return calculations and opportunity scoring",
+          "Enhanced market timing indicators with bullish/bearish analysis",
+          "Added investment quadrant analysis for risk vs reward assessment",
+          "Implemented liquidity scoring and sales velocity calculations",
+          "Added price volatility metrics and stability indicators",
+          "Enhanced chart generation with condition-based visualizations"
+        ]
+      },
+      {
+        "version": "3.0.0",
+        "date": "2025-01-10",
+        "changes": [
+          "Complete rewrite with advanced sales analytics",
+          "Added interactive button-based product selection",
+          "Implemented comprehensive Pokemon TCG set database",
+          "Enhanced Excel processing with market price automation",
+          "Added dynamic chart generation with QuickChart integration",
+          "Improved pagination and large dataset handling",
+          "Added professional progress tracking and status updates"
+        ]
+      },
+      {
+        "version": "2.5.0",
+        "date": "2025-01-05",
+        "changes": [
+          "Added bulk file processing for Excel/CSV uploads",
+          "Implemented template generation and download system",
+          "Enhanced error handling and logging capabilities",
+          "Added multi-condition filtering and analysis",
+          "Improved API token management and refresh handling"
+        ]
+      },
+      {
+        "version": "2.0.0",
+        "date": "2024-12-20",
+        "changes": [
+          "Integrated official TCGPlayer API with authentication",
+          "Added comprehensive marketplace listing analysis",
+          "Implemented historical sales data tracking",
+          "Enhanced search functionality with fuzzy matching",
+          "Added seller information and rating display"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "date": "2024-11-01",
+        "changes": [
+          "Initial release with basic price tracking",
+          "Simple card search and price display",
+          "Basic embed formatting and thumbnail support"
+        ]
+      }
+    ],
+    "tos": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "content": "By using TCGPlayer Bot, you agree to these Terms of Service. This bot provides market data and analysis tools for educational and informational purposes related to trading card game investments and collecting."
+        },
+        {
+          "heading": "2. Description of Service",
+          "content": "TCGPlayer Bot provides real-time card pricing data, sales analytics, market trend analysis, investment opportunity scoring, file processing capabilities, and comprehensive market intelligence tools through integration with TCGPlayer's official API and marketplace data."
+        },
+        {
+          "heading": "3. Investment Disclaimer",
+          "content": "All market analysis, investment scores, and recommendations provided are for informational purposes only. Users are responsible for conducting their own due diligence before making any financial decisions. Past performance does not guarantee future results. The bot is not liable for investment losses."
+        },
+        {
+          "heading": "4. Data Accuracy and Limitations",
+          "content": "While we strive for accuracy, market data may have delays or inaccuracies. Price information is sourced from TCGPlayer and may not reflect real-time changes. Users should verify all data independently before making purchasing or selling decisions."
+        },
+        {
+          "heading": "5. Permitted Use",
+          "content": "Users may use the bot for personal research, market analysis, portfolio tracking, and educational purposes. The data provided should be used responsibly and in compliance with TCGPlayer's terms of service and applicable laws."
+        },
+        {
+          "heading": "6. Prohibited Activities",
+          "content": "Users may not use the bot for market manipulation, fraudulent activities, automated trading systems without proper authorization, excessive API usage that could impact service availability, or any activities that violate Discord's or TCGPlayer's terms of service."
+        },
+        {
+          "heading": "7. Data Processing and Files",
+          "content": "File uploads are processed temporarily and deleted after completion. Users are responsible for ensuring uploaded files contain accurate data. We are not liable for errors in processed data or any consequences from using processed information."
+        },
+        {
+          "heading": "8. Service Availability",
+          "content": "Service availability depends on TCGPlayer API status and Discord platform availability. We reserve the right to modify features, implement usage limits, or temporarily suspend service for maintenance without prior notice."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "1. Data Collection",
+          "content": "We collect Discord user IDs, server IDs, command usage data, search queries, file upload data (temporarily), button interaction analytics, and API usage metrics necessary for bot operation and service improvement."
+        },
+        {
+          "heading": "2. Market Data Usage",
+          "content": "Market data is sourced from TCGPlayer's official API and processed in real-time. No personal financial information is stored. Search queries and analysis results are used to improve service quality and user experience."
+        },
+        {
+          "heading": "3. File Processing",
+          "content": "Uploaded files (Excel/CSV) are processed temporarily on our servers and deleted immediately after completion. File contents are not stored permanently. Users should ensure sensitive data is removed before upload."
+        },
+        {
+          "heading": "4. Data Security",
+          "content": "We implement appropriate security measures including secure API connections, encrypted data transmission, temporary file handling with automatic cleanup, access logging and monitoring, and regular security audits."
+        },
+        {
+          "heading": "5. Third-Party Integration",
+          "content": "The bot integrates with TCGPlayer API, QuickChart API for chart generation, Discord's API and services, and temporary file storage systems. No personal data is shared beyond what's necessary for functionality."
+        },
+        {
+          "heading": "6. Data Retention",
+          "content": "Command usage logs are retained for 30 days for debugging purposes. Search queries are not permanently stored. API usage metrics are retained for service optimization. No financial or personal trading data is stored long-term."
+        },
+        {
+          "heading": "7. User Rights",
+          "content": "Users can request information about their data usage, request deletion of any stored data, opt out of usage analytics, and remove the bot from their server at any time to stop data collection."
+        },
+        {
+          "heading": "8. Analytics and Improvement",
+          "content": "We may analyze usage patterns to improve features, optimize API performance, enhance search algorithms, and develop new functionality. All analytics data is anonymized and aggregated."
+        }
+      ]
+    }
+  },
+  {
+    "id": "psa-bot",
+    "name": "PSA Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1146642540519505941/ef43a1e7f7000a137793643440a06439.png?size=512",
+    "description": "Professional Sports Authenticator (PSA) card grading and pricing information bot for collectors and traders.",
+    "status": "active",
+    "features": [
+      "PSA card lookup by certification number",
+      "Grade verification and authenticity checks",
+      "Market value estimation",
+      "Grading service information"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-05",
+        "changes": [
+          "Initial release with cert lookup functionality."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "130-bot",
+    "name": "130 Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1155192681023152241/802bc4a94cd863d74f322f9eab57ad92.png?size=512",
+    "description": "Advanced eBay sold listings analytics and market intelligence bot with comprehensive data processing, automated GitHub Pages hosting, and sophisticated queue management. 130 Bot provides real-time market analysis, bulk processing capabilities, and professional visualization tools for collectors, resellers, and market researchers seeking competitive intelligence.",
+    "status": "active",
+    "features": [
+      "Real-time eBay sold listings scraping with 130Point integration",
+      "Advanced keyword matching with percentage-based relevance scoring",
+      "Intelligent search variation generation with permutation algorithms",
+      "Best offer price extraction with currency conversion support",
+      "Automated outlier filtering using statistical analysis (0.5 std dev)",
+      "Dynamic keyword threshold adjustment (90% to 60% matching)",
+      "Comprehensive market analytics with monthly and weekly comparisons",
+      "Interactive QuickChart visualizations with price trend analysis",
+      "Automated GitHub Pages hosting for detailed search results",
+      "Bulk file processing with Excel, CSV, and TXT support",
+      "Advanced queue management system with timeout handling",
+      "Profit calculation with customizable fee percentages (12% default)",
+      "Breakeven price analysis with visual threshold indicators",
+      "Currency conversion support for international listings",
+      "Saved search functionality with interactive pagination",
+      "Message link processing for webhook integration",
+      "Progress tracking with real-time ETA calculations",
+      "Professional embed formatting with thumbnail integration",
+      "Interactive button systems for retry and cancel operations",
+      "Comprehensive error handling and logging system",
+      "Automated price formatting and validation",
+      "Multi-format date parsing and standardization",
+      "Statistical analysis including min, max, median, and averages",
+      "Auction format detection (Bid vs Buy Now/OBO)",
+      "Image URL extraction and validation",
+      "VPN status monitoring and IP address tracking",
+      "Memory management with garbage collection optimization",
+      "Session-based data persistence with UUID tracking",
+      "Concurrent processing with semaphore controls",
+      "Webhook integration for Discord channel automation"
+    ],
+    "screenshots": [
+      "https://i.imgur.com/your-130bot-screenshot1.jpg",
+      "https://i.imgur.com/your-130bot-screenshot2.jpg"
+    ],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "4.2.0",
+        "date": "2025-01-15",
+        "changes": [
+          "Added advanced bulk processing with fastitems command",
+          "Implemented real-time progress tracking with ETA calculations",
+          "Enhanced GitHub Pages integration with automatic file uploads",
+          "Added comprehensive error handling and timeout management",
+          "Implemented advanced queue system with position tracking",
+          "Added statistical outlier filtering with configurable thresholds",
+          "Enhanced currency conversion with exchange rate API integration",
+          "Added VPN monitoring and IP address tracking capabilities"
+        ]
+      },
+      {
+        "version": "4.0.0",
+        "date": "2025-01-10",
+        "changes": [
+          "Complete rewrite with advanced analytics and visualization",
+          "Added QuickChart integration for professional chart generation",
+          "Implemented keyword matching percentage system",
+          "Enhanced search variation generation with permutation algorithms",
+          "Added comprehensive market trend analysis",
+          "Implemented automated GitHub Pages hosting",
+          "Added profit calculation and breakeven analysis",
+          "Enhanced embed formatting with detailed statistics"
+        ]
+      },
+      {
+        "version": "3.5.0",
+        "date": "2025-01-05",
+        "changes": [
+          "Added saved search functionality with interactive pagination",
+          "Implemented webhook URL processing for message links",
+          "Enhanced file processing with Excel and CSV support",
+          "Added best offer price extraction with currency conversion",
+          "Improved error handling and user feedback systems",
+          "Added thumbnail extraction and image validation",
+          "Enhanced progress tracking with visual indicators"
+        ]
+      },
+      {
+        "version": "3.0.0",
+        "date": "2024-12-20",
+        "changes": [
+          "Integrated 130Point API for comprehensive sold listings data",
+          "Added advanced statistical analysis and market comparisons",
+          "Implemented queue management system with timeout handling",
+          "Enhanced search string processing with negative keywords",
+          "Added monthly and weekly trend analysis",
+          "Implemented automated outlier detection and filtering",
+          "Added comprehensive logging and debugging features"
+        ]
+      },
+      {
+        "version": "2.0.0",
+        "date": "2024-11-15",
+        "changes": [
+          "Added bulk processing capabilities with file upload support",
+          "Implemented advanced keyword matching algorithms",
+          "Enhanced data visualization with chart generation",
+          "Added profit calculation with fee analysis",
+          "Implemented search result caching and optimization",
+          "Added comprehensive error handling and user guidance"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "date": "2024-10-01",
+        "changes": [
+          "Initial release with basic eBay sold listings scraping",
+          "Simple price analysis and average calculations",
+          "Basic embed formatting and Discord integration"
+        ]
+      }
+    ],
+    "tos": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "content": "By using 130 Bot, you agree to these Terms of Service. This bot provides market research and data analysis tools for educational and informational purposes related to eBay marketplace intelligence."
+        },
+        {
+          "heading": "2. Description of Service",
+          "content": "130 Bot provides eBay sold listings analysis, market trend analysis, price intelligence, bulk data processing, automated visualization tools, and comprehensive market research capabilities through integration with 130Point and other data sources."
+        },
+        {
+          "heading": "3. Data Sources and Accuracy",
+          "content": "Market data is sourced from 130Point and eBay sold listings. While we strive for accuracy, data may have delays or inaccuracies. Users should verify all information independently before making business or purchasing decisions. Past performance does not guarantee future results."
+        },
+        {
+          "heading": "4. Permitted Use",
+          "content": "Users may use the bot for market research, price analysis, trend identification, educational purposes, and personal collecting guidance. All usage must comply with eBay's terms of service and applicable laws. Commercial use is permitted for legitimate business research."
+        },
+        {
+          "heading": "5. Prohibited Activities",
+          "content": "Users may not use the bot for market manipulation, fraudulent activities, excessive automated requests that could impact service availability, violation of eBay's or 130Point's terms of service, or any activities that violate applicable laws or regulations."
+        },
+        {
+          "heading": "6. Queue and Processing",
+          "content": "The bot uses a queue system to manage requests fairly. Processing times may vary based on data complexity and server load. Timeout limits are enforced to ensure service availability for all users. Users should be patient during bulk processing operations."
+        },
+        {
+          "heading": "7. File Processing and Data",
+          "content": "Uploaded files are processed temporarily and deleted after completion. Users are responsible for ensuring uploaded files contain accurate data and comply with privacy requirements. We are not liable for errors in processed data or consequences from using processed information."
+        },
+        {
+          "heading": "8. Service Availability",
+          "content": "Service availability depends on third-party data sources, GitHub Pages hosting, and Discord platform availability. We reserve the right to modify features, implement usage limits, or temporarily suspend service for maintenance without prior notice."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "1. Data Collection",
+          "content": "We collect Discord user IDs, server IDs, command usage data, search queries, file upload data (temporarily), interaction analytics, queue position data, and IP address information for VPN monitoring necessary for bot operation and service improvement."
+        },
+        {
+          "heading": "2. Market Data Processing",
+          "content": "Market data is sourced from 130Point and eBay sold listings, processed in real-time, and temporarily stored for analysis. Search queries and results are used to improve service quality and user experience. No personal financial information is permanently stored."
+        },
+        {
+          "heading": "3. File Processing",
+          "content": "Uploaded files (Excel/CSV/TXT) are processed temporarily on our servers and deleted immediately after completion. File contents are not stored permanently. Users should ensure sensitive data is removed before upload and comply with privacy requirements."
+        },
+        {
+          "heading": "4. GitHub Integration",
+          "content": "Search results are automatically uploaded to GitHub Pages for hosting and sharing. These files contain public market data only and do not include personal user information. Files are publicly accessible through GitHub Pages URLs."
+        },
+        {
+          "heading": "5. Data Security",
+          "content": "We implement appropriate security measures including secure API connections, encrypted data transmission, temporary file handling with automatic cleanup, access logging and monitoring, VPN status tracking, and regular security audits."
+        },
+        {
+          "heading": "6. Third-Party Integration",
+          "content": "The bot integrates with 130Point API, eBay data sources, GitHub Pages hosting, QuickChart API for visualizations, Exchange Rate API for currency conversion, Discord's API and services, and VPN monitoring services."
+        },
+        {
+          "heading": "7. Data Retention",
+          "content": "Command usage logs are retained for 30 days for debugging purposes. Search queries are not permanently stored unless saved by user choice. Market analysis results are temporarily cached for performance. Queue data is cleared after processing completion."
+        },
+        {
+          "heading": "8. User Rights",
+          "content": "Users can request information about their data usage, request deletion of any stored data, opt out of usage analytics, remove saved searches, and remove the bot from their server at any time to stop data collection."
+        },
+        {
+          "heading": "9. Analytics and Improvement",
+          "content": "We may analyze usage patterns to improve features, optimize processing algorithms, enhance search accuracy, develop new functionality, and maintain service quality. All analytics data is anonymized and aggregated."
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-bot",
+    "name": "NBA Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1206872299802853427/ef1a12bf445a3cf5051124b12a8f437a.png?size=512",
+    "description": "NBA statistics, scores, and player information bot for basketball enthusiasts and fantasy league managers.",
+    "status": "active",
+    "features": [
+      "Live NBA scores and game updates",
+      "Player statistics and career information",
+      "Team standings and schedules",
+      "Fantasy basketball integration"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-07",
+        "changes": [
+          "Initial release with live scores and player stats."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "sku-bot",
+    "name": "SKU Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1214803110380183612/56e3bdb84c8c1c236bb0620ff7dea05b.png?size=512",
+    "description": "Inventory and product SKU management bot for retailers and inventory tracking systems.",
+    "status": "active",
+    "features": [
+      "SKU lookup and management",
+      "Inventory tracking alerts",
+      "Product information database",
+      "Stock level monitoring"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-06",
+        "changes": [
+          "Initial release with basic SKU lookup."
+        ]
+      },
+      {
+        "version": "1.1.0",
+        "date": "2025-01-14",
+        "changes": [
+          "Added comprehensive SKU tracking features."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "role-manager",
+    "name": "Role Manager",
+    "icon": "https://cdn.discordapp.com/app-icons/1218810598171738162/208108f59efb718140bb12f61a430c8f.png?size=512",
+    "description": "Advanced Discord role management system with automated role assignment and permission controls.",
+    "status": "active",
+    "features": [
+      "Automated role assignment based on reactions",
+      "Temporary role management",
+      "Permission level controls",
+      "Role hierarchy management"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-04",
+        "changes": [
+          "Initial release with basic role management."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "bricklink",
+    "name": "Bricklink",
+    "icon": "https://cdn.discordapp.com/app-icons/1235818004441468959/601642b72e74940c21b7530a9798db2d.png?size=512",
+    "description": "LEGO marketplace integration bot for tracking BrickLink prices and inventory for LEGO enthusiasts.",
+    "status": "active",
+    "features": [
+      "BrickLink marketplace integration",
+      "LEGO set price tracking",
+      "Part availability checking",
+      "Wishlist management"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-05",
+        "changes": [
+          "Initial release with BrickLink API integration."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "feedback-bot",
+    "name": "Feedback Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1244577770420310056/935c1e8c6ed6a5ae838ac6053b5af3be.png?size=512",
+    "description": "Community feedback collection and management system for server administrators and community managers.",
+    "status": "active",
+    "features": [
+      "Anonymous feedback collection",
+      "Feedback categorization and tagging",
+      "Administrative review system",
+      "Response tracking and analytics"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-05",
+        "changes": [
+          "Initial release with feedback collection."
+        ]
+      },
+      {
+        "version": "1.1.0",
+        "date": "2025-01-12",
+        "changes": [
+          "Fixed feedback submission bugs and improved UI."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "grocery-finder",
+    "name": "Grocery Finder",
+    "icon": "https://cdn.discordapp.com/app-icons/1249578998137098310/789b6c240f4838dcc75f1dc22950de87.png?size=512",
+    "description": "Local grocery store finder with price comparison and shopping list management features.",
+    "status": "active",
+    "features": [
+      "Store locator by zip code",
+      "Price comparison across stores",
+      "Shopping list creation and sharing",
+      "Deal and coupon notifications"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-07",
+        "changes": [
+          "Initial release with store locator functionality."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "waifu-bot",
+    "name": "Waifu Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1255750520103243807/b39ddd029ce811b584d7e628c085cb97.png?size=512",
+    "description": "Anime character database and interaction bot with character information and image sharing features.",
+    "status": "active",
+    "features": [
+      "Anime character database lookup",
+      "Random character image generation",
+      "Character information and stats",
+      "Favorite character saving"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-08",
+        "changes": [
+          "Initial release with character database."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "social-score",
+    "name": "Social Score",
+    "icon": "https://cdn.discordapp.com/app-icons/1323134281807171635/45ac02986104f7130a5f93e5f8f289bf.png?size=512",
+    "description": "Social activity tracking and gamification bot that monitors user engagement and awards points.",
+    "status": "active",
+    "features": [
+      "User activity point system",
+      "Leaderboards and rankings",
+      "Achievement badges",
+      "Social engagement analytics"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-09",
+        "changes": [
+          "Initial release with point tracking system."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  },
+  {
+    "id": "the-manager",
+    "name": "The Manager",
+    "icon": "https://cdn.discordapp.com/app-icons/1323134432403525694/42696023f5df1324ee16871fe6ec1120.png?size=512",
+    "description": "Professional ACO (Add-to-Cart Opportunity) management system for sneaker and streetwear communities. Create comprehensive product release forms with interactive features, bulk upload capabilities, automated thread management, and advanced permission controls for organized community collaboration.",
+    "status": "active",
+    "features": [
+      "Interactive ACO form creation with 11+ customizable fields",
+      "Bulk upload system with Excel template support (up to 10 forms)",
+      "Advanced date validation with TBD (To Be Determined) support",
+      "Automated price formatting with flexible range support ($200-250, $300+)",
+      "Popular bot integration database with semicolon separation",
+      "Real-time image URL validation and accessibility checking",
+      "Automatic discussion thread creation for each ACO form",
+      "Interactive voting system with upvote/downvote functionality",
+      "Anonymous feedback and comment collection system",
+      "Drop date reminder system with user notifications",
+      "Draft saving and resumption for incomplete forms",
+      "Live form editing with field-specific modal dialogs",
+      "Role-based permission management for form creation/deletion",
+      "Auto-thread locking 7 days after drop date",
+      "Thread management with manual lock/unlock controls",
+      "Direct signup integration with external form URLs",
+      "Persistent view system that survives bot restarts",
+      "Rich embed formatting with Discord timestamp integration",
+      "Form deletion with confirmation dialogs and cleanup",
+      "Session-based data management with backup recovery",
+      "Administrative role configuration with server-specific settings",
+      "Image attachment support with size and format validation",
+      "Bot compatibility tracking for popular sneaker tools",
+      "Risk assessment and PAS (Personal Access Sale) management",
+      "Comprehensive logging and error handling system"
+    ],
+    "screenshots": [
+      "https://i.imgur.com/your-aco-screenshot1.jpg",
+      "https://i.imgur.com/your-aco-screenshot2.jpg"
+    ],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "3.2.0",
+        "date": "2025-01-15",
+        "changes": [
+          "Added Excel bulk upload system with template generation",
+          "Enhanced image validation with real-time URL checking",
+          "Implemented TBD date support for uncertain drop dates",
+          "Added popular bot database with improved selection guidance",
+          "Enhanced price formatting with range and plus notation support",
+          "Improved error handling and user feedback systems",
+          "Added comprehensive logging and debugging features"
+        ]
+      },
+      {
+        "version": "3.1.0",
+        "date": "2025-01-10",
+        "changes": [
+          "Implemented persistent view system for bot restart resilience",
+          "Added automatic thread locking after 7 days past drop date",
+          "Enhanced role management with server-specific configurations",
+          "Improved draft system with better data persistence",
+          "Added form validation with required field enforcement",
+          "Enhanced embed formatting with better visual hierarchy"
+        ]
+      },
+      {
+        "version": "3.0.0",
+        "date": "2025-01-05",
+        "changes": [
+          "Complete rewrite with interactive button and modal system",
+          "Added comprehensive field editing with dropdown selection",
+          "Implemented voting system with upvote/downvote functionality",
+          "Added comment and feedback collection system",
+          "Enhanced permission system with role-based access control",
+          "Added thread management and discussion features",
+          "Implemented draft saving and resumption capabilities"
+        ]
+      },
+      {
+        "version": "2.0.0",
+        "date": "2024-12-15",
+        "changes": [
+          "Added bulk creation with CSV upload support",
+          "Implemented template download system",
+          "Enhanced date validation with multiple format support",
+          "Added image URL validation and formatting",
+          "Improved error handling and user guidance"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "date": "2024-11-20",
+        "changes": [
+          "Initial release with basic ACO form creation",
+          "Simple embed-based form display",
+          "Basic permission management"
+        ]
+      }
+    ],
+    "tos": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "content": "By using ACO Manager Bot, you agree to these Terms of Service. This bot is designed for legitimate add-to-cart opportunity sharing within sneaker and streetwear communities."
+        },
+        {
+          "heading": "2. Description of Service",
+          "content": "ACO Manager provides form creation, bulk upload capabilities, interactive voting, discussion thread management, and administrative tools for organizing product release opportunities. The bot facilitates community collaboration around legitimate retail opportunities."
+        },
+        {
+          "heading": "3. Permitted Use",
+          "content": "Users may create ACO forms for legitimate retail opportunities, share accurate product information, participate in community discussions, and use administrative features responsibly. All shared opportunities must comply with retailer terms of service."
+        },
+        {
+          "heading": "4. Prohibited Activities",
+          "content": "Users may not share fraudulent opportunities, manipulate voting systems, spam forms or comments, misuse administrative privileges, or engage in any activity that violates Discord's Terms of Service or applicable laws."
+        },
+        {
+          "heading": "5. Data Management",
+          "content": "The Bot collects form data, user interactions, voting records, comments, session information, and administrative configurations. All data is used solely for bot functionality and community organization."
+        },
+        {
+          "heading": "6. Content Responsibility",
+          "content": "Users are responsible for the accuracy of information in their ACO forms, appropriate use of images and links, compliance with retailer policies, and respectful community interaction. False or misleading information may result in form removal."
+        },
+        {
+          "heading": "7. Administrative Rights",
+          "content": "Server administrators and designated role holders have the right to manage permissions, delete inappropriate content, lock discussions, and configure bot settings. These privileges should be used responsibly for community benefit."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "1. Data Collection",
+          "content": "We collect Discord server IDs, user IDs, ACO form content, voting records, comments and feedback, session data, administrative configurations, and interaction logs necessary for bot operation and community management."
+        },
+        {
+          "heading": "2. Data Usage",
+          "content": "Collected data is used to provide ACO form management, facilitate community discussions, enable voting and feedback systems, maintain session persistence, generate analytics for improvement, and support administrative functions."
+        },
+        {
+          "heading": "3. Data Storage and Security",
+          "content": "Data is stored securely with appropriate encryption and access controls. Session data is backed up regularly to prevent loss. Administrative configurations are protected and only accessible to authorized personnel."
+        },
+        {
+          "heading": "4. Data Sharing",
+          "content": "ACO form information is shared within the Discord server as intended. Voting records and comments are visible to server members. No personal data is shared with external services except Discord's API as required for functionality."
+        },
+        {
+          "heading": "5. Data Retention",
+          "content": "ACO forms and associated data are retained while active in the server. Session data is maintained for functionality. Administrative configurations persist until manually changed. Users may request data deletion by removing the bot."
+        },
+        {
+          "heading": "6. User Rights",
+          "content": "Users can edit their ACO forms, delete their content, view their voting history, access their saved drafts, and request data removal. Server administrators have additional rights to manage community content and settings."
+        },
+        {
+          "heading": "7. Third-Party Integration",
+          "content": "The bot integrates with Discord's API, external image hosting services for validation, and Excel/CSV processing libraries. No third-party services have access to sensitive user data beyond what's necessary for functionality."
+        }
+      ]
+    }
+  },
+  {
+    "id": "twitter-restocker",
+    "name": "Twitter Restocker",
+    "icon": "https://cdn-icons-png.freepik.com/512/15308/15308781.png",
+    "description": "Automated social media management bot for Twitter content scheduling and restock notifications.",
+    "status": "beta",
+    "features": [
+      "Automated tweet scheduling",
+      "Restock notification system",
+      "Content queue management",
+      "Engagement analytics"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": null,
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-06",
+        "changes": [
+          "Initial beta release with Twitter API integration."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null
+  }
+]
