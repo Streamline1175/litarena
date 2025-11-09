@@ -237,14 +237,14 @@ const BotModal = ({ bot, onClose }) => {
                       </div>
 
                       {bot.pricing && bot.pricing.tiers && bot.pricing.tiers.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
                           {bot.pricing.tiers.map((tier, index) => (
                             <motion.div
                               key={index}
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: index * 0.1 }}
-                              className={`relative flex flex-col h-full rounded-3xl overflow-hidden transition-all duration-300 ${
+                              className={`relative flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-300 ${
                                 tier.popular
                                   ? 'shadow-2xl shadow-primary-500/30'
                                   : 'shadow-xl'
@@ -256,7 +256,7 @@ const BotModal = ({ bot, onClose }) => {
                               )}
 
                               {/* Card content */}
-                              <div className={`relative flex flex-col h-full p-8 ${
+                              <div className={`relative flex flex-col h-full p-5 ${
                                 tier.popular
                                   ? 'bg-gradient-to-br from-slate-800/95 to-slate-900/95 border-2 border-primary-500/50'
                                   : 'bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-white/10'
@@ -264,52 +264,52 @@ const BotModal = ({ bot, onClose }) => {
 
                                 {/* Popular badge */}
                                 {tier.popular && (
-                                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
-                                    <div className="px-6 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white text-sm font-bold rounded-full shadow-lg">
+                                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                    <div className="px-4 py-1.5 bg-gradient-to-r from-primary-500 to-accent-500 text-white text-xs font-bold rounded-full shadow-lg">
                                       ⭐ MOST POPULAR
                                     </div>
                                   </div>
                                 )}
 
                                 {/* Tier header */}
-                                <div className="text-center mb-8 pt-4">
-                                  <h4 className="text-2xl font-bold text-white mb-4">{tier.name}</h4>
-                                  <div className="mb-2">
-                                    <span className="text-5xl font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                                <div className="text-center mb-5 pt-2">
+                                  <h4 className="text-xl font-bold text-white mb-3">{tier.name}</h4>
+                                  <div className="mb-1">
+                                    <span className="text-4xl font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                                       {tier.price}
                                     </span>
                                   </div>
                                   {tier.period && tier.period !== 'forever' && (
-                                    <p className="text-gray-400 text-sm font-medium">
+                                    <p className="text-gray-400 text-xs font-medium">
                                       per {tier.period}
                                     </p>
                                   )}
                                   {tier.period === 'forever' && (
-                                    <p className="text-green-400 text-sm font-semibold">
+                                    <p className="text-green-400 text-xs font-semibold">
                                       Forever free
                                     </p>
                                   )}
                                 </div>
 
                                 {/* Divider */}
-                                <div className={`h-px mb-6 ${
+                                <div className={`h-px mb-4 ${
                                   tier.popular
                                     ? 'bg-gradient-to-r from-transparent via-primary-400 to-transparent'
                                     : 'bg-gradient-to-r from-transparent via-white/20 to-transparent'
                                 }`} />
 
                                 {/* Features list */}
-                                <ul className="space-y-4 mb-8 flex-grow">
+                                <ul className="space-y-2.5 mb-5 flex-grow">
                                   {tier.features.map((feature, idx) => (
-                                    <li key={idx} className="flex items-start gap-3">
-                                      <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
+                                    <li key={idx} className="flex items-start gap-2">
+                                      <div className={`flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-0.5 ${
                                         tier.popular ? 'bg-primary-500/20' : 'bg-white/10'
                                       }`}>
-                                        <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg className="w-2.5 h-2.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                         </svg>
                                       </div>
-                                      <span className="text-gray-200 text-sm leading-relaxed">{feature}</span>
+                                      <span className="text-gray-200 text-xs leading-snug">{feature}</span>
                                     </li>
                                   ))}
                                 </ul>
@@ -321,7 +321,7 @@ const BotModal = ({ bot, onClose }) => {
                                   rel="noopener noreferrer"
                                   whileHover={{ scale: 1.02, y: -2 }}
                                   whileTap={{ scale: 0.98 }}
-                                  className={`block w-full py-4 px-6 rounded-xl text-center font-bold text-base transition-all shadow-lg ${
+                                  className={`block w-full py-3 px-4 rounded-lg text-center font-bold text-sm transition-all shadow-lg ${
                                     tier.popular
                                       ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white hover:shadow-primary-500/50 hover:shadow-xl'
                                       : 'bg-white/10 text-white hover:bg-white/20 border-2 border-white/20 hover:border-white/30'
