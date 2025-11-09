@@ -25,6 +25,7 @@ async function fetchWithCache(endpoint, options = {}) {
       ...options,
       headers: {
         'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true', // Bypass ngrok browser warning for API requests
         ...options.headers,
       },
     });

@@ -55,7 +55,11 @@
             resultEl.textContent = '';
 
             try {
-                const response = await fetch(API_URL);
+                const response = await fetch(API_URL, {
+                    headers: {
+                        'ngrok-skip-browser-warning': 'true'
+                    }
+                });
 
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}: ${response.statusText}`);

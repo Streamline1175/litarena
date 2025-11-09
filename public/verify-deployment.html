@@ -346,7 +346,12 @@
 
                 for (const url of testUrls) {
                     try {
-                        const response = await fetch(url, { method: 'HEAD' });
+                        const response = await fetch(url, {
+                            method: 'HEAD',
+                            headers: {
+                                'ngrok-skip-browser-warning': 'true'
+                            }
+                        });
                         if (response.ok || response.status === 405) { // 405 means endpoint exists but HEAD not allowed
                             workingUrl = url;
                             break;
@@ -397,7 +402,11 @@
             const endpoint = apiBaseUrl + '/analytics/mercari';
 
             try {
-                const response = await fetch(endpoint);
+                const response = await fetch(endpoint, {
+                    headers: {
+                        'ngrok-skip-browser-warning': 'true'
+                    }
+                });
                 const responseTime = Date.now() - startTime;
 
                 document.getElementById('api-response-time').textContent = `${responseTime}ms`;
