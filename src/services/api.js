@@ -182,7 +182,25 @@ export async function getTrendingBots() {
 export async function getMercariAnalytics() {
   try {
     // Your FastAPI likely exposes a GET endpoint to fetch latest analytics
-    return await fetchWithCache('/analytics/mercari');
+    const data = await fetchWithCache('/analytics/mercari');
+    console.log('Mercari API Response:', data);
+
+    // If API returns data with analytics already at root, normalize it
+    // Your API returns: { status, error?, message?, analytics: {...} }
+    if (data && data.analytics) {
+      const normalized = {
+        bot_name: data.bot_name || 'mercarijp_bot',
+        bot_type: data.bot_type || 'mercari_monitor',
+        timestamp: data.timestamp || new Date().toISOString(),
+        analytics: data.analytics
+      };
+      console.log('Normalized Mercari data:', normalized);
+      return normalized;
+    }
+
+    // If it's already in the correct format, return as-is
+    console.log('Using data as-is:', data);
+    return data;
   } catch (error) {
     console.error('Failed to fetch Mercari analytics:', error);
     // Return mock data structure matching your analytics system

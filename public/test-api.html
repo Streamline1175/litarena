@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercari API Test</title>
+    <style>
+        body {
+            font-family: system-ui;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #0ea5e9;
+            border: none;
+            color: white;
+            border-radius: 8px;
+        }
+        button:hover {
+            background: #0284c7;
+        }
+        pre {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .success { color: #22c55e; }
+        .error { color: #ef4444; }
+    </style>
+</head>
+<body>
+    <h1>Mercari API Connection Test</h1>
+
+    <button onclick="testAPI()">Test API Endpoint</button>
+
+    <div id="status"></div>
+    <pre id="result"></pre>
+
+    <script>
+        const API_URL = 'https://vast-dynamic-muskrat.ngrok-free.app/analytics/mercari';
+
+        async function testAPI() {
+            const statusEl = document.getElementById('status');
+            const resultEl = document.getElementById('result');
+
+            statusEl.innerHTML = '<p>🔄 Testing API connection...</p>';
+            resultEl.textContent = '';
+
+            try {
+                const response = await fetch(API_URL);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+
+                statusEl.innerHTML = '<p class="success">✅ API Connection Successful!</p>';
+                resultEl.textContent = JSON.stringify(data, null, 2);
+
+                // Additional checks
+                console.log('API Response:', data);
+                console.log('Has analytics?', !!data.analytics);
+                console.log('Active servers:', data.analytics?.metrics?.active_servers);
+
+            } catch (error) {
+                statusEl.innerHTML = `<p class="error">❌ API Connection Failed!</p>
+                    <p>Error: ${error.message}</p>`;
+                resultEl.textContent = error.stack || error.toString();
+                console.error('API Error:', error);
+            }
+        }
+
+        // Auto-test on page load
+        window.addEventListener('load', () => {
+            console.log('Testing API endpoint:', API_URL);
+            testAPI();
+        });
+    </script>
+</body>
+</html>
