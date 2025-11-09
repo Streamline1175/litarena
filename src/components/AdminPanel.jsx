@@ -548,7 +548,7 @@ function BotEditor({ bot, onSave, onClose, isNew }) {
           <div className="glass-effect p-6 rounded-xl border border-white/10">
             <h3 className="text-lg font-semibold mb-4 gradient-text">Pricing Configuration</h3>
 
-            <div className="mb-4">
+            <div className="mb-6">
               <label className="block text-sm font-semibold mb-2">Pricing Model</label>
               <select
                 value={formData.pricing?.model || 'freemium'}
@@ -563,39 +563,111 @@ function BotEditor({ bot, onSave, onClose, isNew }) {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">
-                Pricing Tiers (JSON Format)
-              </label>
-              <textarea
-                value={JSON.stringify(formData.pricing?.tiers || [], null, 2)}
-                onChange={(e) => {
-                  try {
-                    const tiers = JSON.parse(e.target.value);
-                    updateField('pricing', { ...formData.pricing, tiers });
-                  } catch (err) {
-                    // Invalid JSON, don't update
-                  }
-                }}
-                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:border-primary-500 outline-none h-64 font-mono text-xs"
-                placeholder={`[
-  {
-    "name": "Free",
-    "price": "$0",
-    "period": "forever",
-    "features": ["Feature 1", "Feature 2"]
-  },
-  {
-    "name": "Premium",
-    "price": "$4.99",
-    "period": "month",
-    "features": ["All Free features", "Feature 3"],
-    "popular": true
-  }
-]`}
-              />
-              <p className="text-xs text-gray-400 mt-1">
-                Must be valid JSON. Set "popular": true on one tier to highlight it.
-              </p>
+              <div className="flex items-center justify-between mb-4">
+                <label className="text-sm font-semibold">Pricing Tiers</label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const tiers = formData.pricing?.tiers || [];
+                    updateField('pricing', {
+                      ...formData.pricing,
+                      tiers: [...tiers, { name: '', price: '', period: 'month', features: [], popular: false }]
+                    });
+                  }}
+                  className="px-3 py-1 bg-primary-600 hover:bg-primary-500 rounded-lg text-sm flex items-center gap-1"
+                >
+                  <Plus size={16} />
+                  Add Tier
+                </button>
+              </div>
+
+              <div className="space-y-4">
+                {(formData.pricing?.tiers || []).map((tier, index) => (
+                  <div key={index} className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-3">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <input
+                          type="text"
+                          value={tier.name}
+                          onChange={(e) => {
+                            const tiers = [...(formData.pricing?.tiers || [])];
+                            tiers[index].name = e.target.value;
+                            updateField('pricing', { ...formData.pricing, tiers });
+                          }}
+                          placeholder="Tier Name"
+                          className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:border-primary-500 outline-none text-sm"
+                        />
+                        <input
+                          type="text"
+                          value={tier.price}
+                          onChange={(e) => {
+                            const tiers = [...(formData.pricing?.tiers || [])];
+                            tiers[index].price = e.target.value;
+                            updateField('pricing', { ...formData.pricing, tiers });
+                          }}
+                          placeholder="$0"
+                          className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:border-primary-500 outline-none text-sm"
+                        />
+                        <select
+                          value={tier.period}
+                          onChange={(e) => {
+                            const tiers = [...(formData.pricing?.tiers || [])];
+                            tiers[index].period = e.target.value;
+                            updateField('pricing', { ...formData.pricing, tiers });
+                          }}
+                          className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:border-primary-500 outline-none text-sm"
+                        >
+                          <option value="forever">Forever</option>
+                          <option value="month">Per Month</option>
+                          <option value="year">Per Year</option>
+                          <option value="one-time">One-time</option>
+                        </select>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const tiers = (formData.pricing?.tiers || []).filter((_, i) => i !== index);
+                          updateField('pricing', { ...formData.pricing, tiers });
+                        }}
+                        className="p-2 text-red-400 hover:bg-red-500/20 rounded-lg"
+                      >
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
+
+                    <textarea
+                      value={(tier.features || []).join('\n')}
+                      onChange={(e) => {
+                        const tiers = [...(formData.pricing?.tiers || [])];
+                        tiers[index].features = e.target.value.split('\n').filter(f => f.trim());
+                        updateField('pricing', { ...formData.pricing, tiers });
+                      }}
+                      placeholder="Features (one per line)"
+                      className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:border-primary-500 outline-none text-sm h-20"
+                    />
+
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={tier.popular || false}
+                        onChange={(e) => {
+                          const tiers = [...(formData.pricing?.tiers || [])];
+                          tiers[index].popular = e.target.checked;
+                          updateField('pricing', { ...formData.pricing, tiers });
+                        }}
+                        className="w-4 h-4 rounded accent-primary-500"
+                      />
+                      <span className="text-sm text-gray-300">Mark as Popular</span>
+                    </label>
+                  </div>
+                ))}
+
+                {(!formData.pricing?.tiers || formData.pricing.tiers.length === 0) && (
+                  <div className="text-center py-8 text-gray-400 text-sm">
+                    No pricing tiers yet. Click "Add Tier" to create one.
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
