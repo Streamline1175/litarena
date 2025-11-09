@@ -1,15 +1,7 @@
 import { motion } from 'framer-motion';
 import BotCard from './BotCard';
 
-const BotGrid = ({ bots, onBotClick, searchTerm, activeFilter }) => {
-  // Filter bots based on search term and active filter
-  const filteredBots = bots.filter(bot => {
-    const matchesSearch = bot.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         bot.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = activeFilter === 'all' || bot.status === activeFilter;
-    return matchesSearch && matchesFilter;
-  });
-
+const BotGrid = ({ bots, onBotClick }) => {
   // Container animation
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -22,7 +14,7 @@ const BotGrid = ({ bots, onBotClick, searchTerm, activeFilter }) => {
   };
 
   // No results state
-  if (filteredBots.length === 0) {
+  if (bots.length === 0) {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -45,7 +37,7 @@ const BotGrid = ({ bots, onBotClick, searchTerm, activeFilter }) => {
       animate="visible"
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
     >
-      {filteredBots.map((bot, index) => (
+      {bots.map((bot, index) => (
         <BotCard
           key={bot.id}
           bot={bot}

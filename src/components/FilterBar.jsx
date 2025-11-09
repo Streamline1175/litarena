@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const FilterBar = ({ activeFilter, onFilterChange }) => {
+const FilterBar = ({ statusFilter, setStatusFilter }) => {
   const filters = [
     { id: 'all', label: 'All Bots', color: 'primary' },
     { id: 'active', label: 'Active', color: 'green' },
@@ -39,7 +39,7 @@ const FilterBar = ({ activeFilter, onFilterChange }) => {
       className="flex flex-wrap gap-3 justify-center items-center"
     >
       {filters.map((filter, index) => {
-        const isActive = activeFilter === filter.id;
+        const isActive = statusFilter === filter.id;
 
         return (
           <motion.button
@@ -49,7 +49,7 @@ const FilterBar = ({ activeFilter, onFilterChange }) => {
             transition={{ delay: index * 0.1 }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => onFilterChange(filter.id)}
+            onClick={() => setStatusFilter(filter.id)}
             className={`
               px-6 py-2.5 rounded-xl border backdrop-blur-lg
               font-medium text-sm transition-all duration-300
