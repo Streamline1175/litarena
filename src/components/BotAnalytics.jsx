@@ -1,17 +1,18 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { TrendingUp, Users, Server, Clock, Zap } from 'lucide-react';
-import { getBotStats } from '../services/api';
+import { TrendingUp, Users, Server, Clock, Zap, Bell, Search, AlertCircle, Database, Activity } from 'lucide-react';
+import { getBotStatsEnhanced } from '../services/api';
 
 const BotAnalytics = ({ botId }) => {
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const isMercariBot = botId === 'mercari-japan-bot';
 
   useEffect(() => {
     async function loadStats() {
       setIsLoading(true);
       try {
-        const data = await getBotStats(botId);
+        const data = await getBotStatsEnhanced(botId);
         setStats(data);
       } catch (error) {
         console.error('Failed to load bot stats:', error);
@@ -105,12 +106,75 @@ const BotAnalytics = ({ botId }) => {
         ))}
       </div>
 
+      {/* Mercari-Specific Stats */}
+      {isMercariBot && stats.mercariSpecific && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+        >
+          <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+            <Activity className="w-5 h-5 text-primary-400" />
+            Mercari Monitoring Stats
+          </h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="glass-effect p-4 rounded-xl border border-white/10">
+              <div className="flex items-center gap-2 mb-2">
+                <Search className="w-4 h-4 text-blue-400" />
+                <span className="text-xs text-gray-400">Listings Found</span>
+              </div>
+              <div className="text-xl font-bold text-white">{stats.mercariSpecific.listingsTotal?.toLocaleString()}</div>
+              <div className="text-xs text-green-400 mt-1">+{stats.mercariSpecific.listingsLastMinute}/min</div>
+            </div>
+            <div className="glass-effect p-4 rounded-xl border border-white/10">
+              <div className="flex items-center gap-2 mb-2">
+                <Bell className="w-4 h-4 text-pink-400" />
+                <span className="text-xs text-gray-400">Notifications</span>
+              </div>
+              <div className="text-xl font-bold text-white">{stats.mercariSpecific.notificationsTotal?.toLocaleString()}</div>
+              <div className="text-xs text-green-400 mt-1">+{stats.mercariSpecific.notificationsLastMinute}/min</div>
+            </div>
+            <div className="glass-effect p-4 rounded-xl border border-white/10">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertCircle className="w-4 h-4 text-yellow-400" />
+                <span className="text-xs text-gray-400">Active Alerts</span>
+              </div>
+              <div className="text-xl font-bold text-white">{stats.mercariSpecific.activeAlerts}</div>
+              <div className="text-xs text-gray-400 mt-1">{stats.mercariSpecific.activeKeywords} keywords</div>
+            </div>
+            <div className="glass-effect p-4 rounded-xl border border-white/10">
+              <div className="flex items-center gap-2 mb-2">
+                <Database className="w-4 h-4 text-purple-400" />
+                <span className="text-xs text-gray-400">API Errors</span>
+              </div>
+              <div className="text-xl font-bold text-white">{stats.mercariSpecific.apiErrors}</div>
+              <div className="text-xs text-gray-400 mt-1">Total errors</div>
+            </div>
+          </div>
+
+          {/* Tier Distribution */}
+          {stats.mercariSpecific.tierDistribution && (
+            <div className="glass-effect p-6 rounded-xl border border-white/10 mt-4">
+              <h5 className="text-sm font-semibold text-white mb-4">Subscription Tier Distribution</h5>
+              <div className="grid grid-cols-5 gap-2">
+                {Object.entries(stats.mercariSpecific.tierDistribution).map(([tier, count]) => (
+                  <div key={tier} className="text-center">
+                    <div className="text-2xl font-bold text-primary-400">{count}</div>
+                    <div className="text-xs text-gray-400 capitalize">{tier}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </motion.div>
+      )}
+
       {/* Top Commands */}
       {stats.topCommands && stats.topCommands.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: isMercariBot ? 0.4 : 0.3 }}
           className="glass-effect p-6 rounded-xl border border-white/10"
         >
           <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
@@ -123,16 +187,16 @@ const BotAnalytics = ({ botId }) => {
               const percentage = (command.count / maxCount) * 100;
 
               return (
-                <div key={command.name} className="space-y-1">
+                <div key={command.name || command.command} className="space-y-1">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-300 font-mono">/{command.name}</span>
+                    <span className="text-gray-300 font-mono">/{command.name || command.command}</span>
                     <span className="text-gray-400">{command.count.toLocaleString()} uses</span>
                   </div>
                   <div className="h-2 bg-white/5 rounded-full overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${percentage}%` }}
-                      transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
+                      transition={{ duration: 0.8, delay: (isMercariBot ? 0.5 : 0.4) + index * 0.1 }}
                       className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"
                     />
                   </div>

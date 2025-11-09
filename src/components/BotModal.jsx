@@ -246,7 +246,7 @@ const BotModal = ({ bot, onClose }) => {
                               transition={{ delay: index * 0.1 }}
                               className={`relative flex flex-col h-full rounded-3xl overflow-hidden transition-all duration-300 ${
                                 tier.popular
-                                  ? 'transform scale-105 shadow-2xl shadow-primary-500/30'
+                                  ? 'shadow-2xl shadow-primary-500/30'
                                   : 'shadow-xl'
                               }`}
                             >
