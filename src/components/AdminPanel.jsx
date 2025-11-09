@@ -417,16 +417,17 @@ function BotEditor({ bot, onSave, onClose, isNew }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 overflow-y-auto"
       onClick={onClose}
     >
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        onClick={(e) => e.stopPropagation()}
-        className="glass-effect p-8 rounded-2xl max-w-4xl w-full my-8 max-h-[90vh] overflow-y-auto custom-scrollbar"
-      >
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          onClick={(e) => e.stopPropagation()}
+          className="glass-effect p-8 rounded-2xl max-w-4xl w-full my-8"
+        >
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold gradient-text">
             {isNew ? 'Add New Bot' : 'Edit Bot'}
@@ -621,6 +622,7 @@ function BotEditor({ bot, onSave, onClose, isNew }) {
           </div>
         </form>
       </motion.div>
+      </div>
     </motion.div>
   );
 }

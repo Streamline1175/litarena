@@ -12,6 +12,7 @@ function Header({ darkMode, setDarkMode }) {
     const handleKeyPress = (e) => {
       if (e.ctrlKey && e.shiftKey && e.key === 'A') {
         e.preventDefault();
+        // Navigate to admin (password check happens there)
         navigate('/admin');
       }
     };
