@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Verification - Mercari API Integration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b4e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #0ea5e9 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .status-success { background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+        .status-warning { background: #f59e0b; box-shadow: 0 0 10px #f59e0b; }
+        .status-error { background: #ef4444; box-shadow: 0 0 10px #ef4444; }
+        .status-loading { background: #3b82f6; box-shadow: 0 0 10px #3b82f6; animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        .value {
+            font-weight: 600;
+            text-align: right;
+        }
+        .value-success { color: #22c55e; }
+        .value-error { color: #ef4444; }
+        .value-warning { color: #f59e0b; }
+        button {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-top: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .metric {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0ea5e9 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .metric-label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+        .alert {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+        }
+        .alert-success {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: #22c55e;
+        }
+        .alert h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Deployment Verification</h1>
+        <p class="subtitle">Mercari Japan Bot API Integration Status</p>
+
+        <div class="grid">
+            <!-- Environment Detection -->
+            <div class="card">
+                <h2>
+                    <span class="status-indicator status-loading" id="env-status"></span>
+                    Environment
+                </h2>
+                <div class="info-row">
+                    <span class="label">Location</span>
+                    <span class="value" id="env-location">Detecting...</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Hostname</span>
+                    <span class="value" id="env-hostname">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Protocol</span>
+                    <span class="value" id="env-protocol">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Port</span>
+                    <span class="value" id="env-port">-</span>
+                </div>
+            </div>
+
+            <!-- API Configuration -->
+            <div class="card">
+                <h2>
+                    <span class="status-indicator status-loading" id="api-config-status"></span>
+                    API Configuration
+                </h2>
+                <div class="info-row">
+                    <span class="label">Base URL</span>
+                    <span class="value" id="api-base-url">Checking...</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Full Endpoint</span>
+                    <span class="value" id="api-full-endpoint">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Source</span>
+                    <span class="value" id="api-source">-</span>
+                </div>
+            </div>
+
+            <!-- API Connection -->
+            <div class="card">
+                <h2>
+                    <span class="status-indicator status-loading" id="api-status"></span>
+                    API Connection
+                </h2>
+                <div class="info-row">
+                    <span class="label">Status</span>
+                    <span class="value" id="api-connection-status">Testing...</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Response Time</span>
+                    <span class="value" id="api-response-time">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">HTTP Status</span>
+                    <span class="value" id="api-http-status">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">CORS</span>
+                    <span class="value" id="api-cors">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Data Metrics -->
+        <div class="card">
+            <h2>
+                <span class="status-indicator status-loading" id="data-status"></span>
+                Live Mercari Analytics Data
+            </h2>
+            <div class="metric-grid">
+                <div class="metric">
+                    <div class="metric-value" id="metric-servers">-</div>
+                    <div class="metric-label">Active Servers</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="metric-listings">-</div>
+                    <div class="metric-label">Listings Found</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="metric-notifications">-</div>
+                    <div class="metric-label">Notifications</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="metric-keywords">-</div>
+                    <div class="metric-label">Active Keywords</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="metric-database">-</div>
+                    <div class="metric-label">Database Size</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" id="metric-api-response">-</div>
+                    <div class="metric-label">Avg API Response</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="card">
+            <h2>Actions</h2>
+            <button onclick="runTests()">🔄 Re-run Tests</button>
+            <button onclick="clearCache()">🗑️ Clear Cache</button>
+            <button onclick="toggleRawData()">📊 Toggle Raw Data</button>
+            <button onclick="window.location.href='/litarena/'">🏠 Go to Main Site</button>
+        </div>
+
+        <!-- Raw Response -->
+        <div class="card" id="raw-data-card" style="display: none;">
+            <h2>Raw API Response</h2>
+            <pre id="raw-response">No data yet...</pre>
+        </div>
+
+        <!-- Alerts/Instructions -->
+        <div id="alerts-container"></div>
+    </div>
+
+    <script>
+        const EXPECTED_API_URL = 'https://vast-dynamic-muskrat.ngrok-free.app';
+        const DEFAULT_API_URL = 'https://your-api-domain.com/api';
+
+        let apiBaseUrl = '';
+        let rawData = null;
+
+        // Detect environment
+        function detectEnvironment() {
+            const hostname = window.location.hostname;
+            const protocol = window.location.protocol;
+            const port = window.location.port;
+
+            document.getElementById('env-hostname').textContent = hostname;
+            document.getElementById('env-protocol').textContent = protocol;
+            document.getElementById('env-port').textContent = port || 'default';
+
+            let envType, envStatus;
+
+            if (hostname === 'localhost' || hostname === '127.0.0.1') {
+                envType = '🏠 Local Development';
+                envStatus = 'success';
+            } else if (hostname.includes('github.io')) {
+                envType = '🌐 GitHub Pages';
+                envStatus = 'warning';
+            } else {
+                envType = '🔧 Other';
+                envStatus = 'warning';
+            }
+
+            document.getElementById('env-location').textContent = envType;
+            updateStatus('env-status', envStatus);
+        }
+
+        // Check API configuration (simulated since we can't access build-time env vars directly)
+        async function checkAPIConfiguration() {
+            // We'll determine this by making a test request and seeing where it goes
+            const testEndpoint = '/analytics/mercari';
+
+            try {
+                // Try to construct the URL like the app does
+                // Note: In production build, import.meta.env won't be available here
+                // We'll test the actual endpoint instead
+
+                const testUrls = [
+                    EXPECTED_API_URL + testEndpoint,
+                    DEFAULT_API_URL + testEndpoint
+                ];
+
+                let workingUrl = null;
+
+                for (const url of testUrls) {
+                    try {
+                        const response = await fetch(url, { method: 'HEAD' });
+                        if (response.ok || response.status === 405) { // 405 means endpoint exists but HEAD not allowed
+                            workingUrl = url;
+                            break;
+                        }
+                    } catch (e) {
+                        // CORS or network error, try next
+                    }
+                }
+
+                if (workingUrl && workingUrl.includes(EXPECTED_API_URL)) {
+                    apiBaseUrl = EXPECTED_API_URL;
+                    document.getElementById('api-base-url').textContent = EXPECTED_API_URL;
+                    document.getElementById('api-full-endpoint').textContent = apiBaseUrl + testEndpoint;
+                    document.getElementById('api-source').textContent = '✅ Environment Variable';
+                    updateStatus('api-config-status', 'success');
+                } else if (workingUrl && workingUrl.includes(DEFAULT_API_URL)) {
+                    apiBaseUrl = DEFAULT_API_URL;
+                    document.getElementById('api-base-url').textContent = DEFAULT_API_URL;
+                    document.getElementById('api-full-endpoint').textContent = apiBaseUrl + testEndpoint;
+                    document.getElementById('api-source').textContent = '⚠️ Default/Fallback';
+                    updateStatus('api-config-status', 'error');
+
+                    showAlert('error', 'Using Default API URL',
+                        'The application is using the default API URL instead of the ngrok URL. ' +
+                        (window.location.hostname.includes('github.io')
+                            ? 'Please add the GitHub Secret VITE_API_BASE_URL to your repository settings.'
+                            : 'Please check that .env.local exists and restart the dev server.')
+                    );
+                } else {
+                    // Fallback to expected URL for testing
+                    apiBaseUrl = EXPECTED_API_URL;
+                    document.getElementById('api-base-url').textContent = 'Unknown (testing with expected)';
+                    document.getElementById('api-full-endpoint').textContent = apiBaseUrl + testEndpoint;
+                    document.getElementById('api-source').textContent = '❓ Unable to detect';
+                    updateStatus('api-config-status', 'warning');
+                }
+            } catch (error) {
+                apiBaseUrl = EXPECTED_API_URL; // Fallback
+                document.getElementById('api-base-url').textContent = 'Detection failed';
+                document.getElementById('api-source').textContent = '❌ Error';
+                updateStatus('api-config-status', 'error');
+            }
+        }
+
+        // Test API connection
+        async function testAPIConnection() {
+            const startTime = Date.now();
+            const endpoint = apiBaseUrl + '/analytics/mercari';
+
+            try {
+                const response = await fetch(endpoint);
+                const responseTime = Date.now() - startTime;
+
+                document.getElementById('api-response-time').textContent = `${responseTime}ms`;
+                document.getElementById('api-http-status').textContent = response.status;
+
+                if (response.ok) {
+                    document.getElementById('api-connection-status').innerHTML = '<span class="value-success">✅ Connected</span>';
+                    document.getElementById('api-cors').innerHTML = '<span class="value-success">✅ Allowed</span>';
+                    updateStatus('api-status', 'success');
+
+                    const data = await response.json();
+                    rawData = data;
+                    displayMetrics(data);
+
+                    showAlert('success', 'API Connection Successful',
+                        `Successfully connected to ${apiBaseUrl}. Real-time data is flowing correctly.`
+                    );
+                } else {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+            } catch (error) {
+                document.getElementById('api-connection-status').innerHTML = '<span class="value-error">❌ Failed</span>';
+                document.getElementById('api-cors').innerHTML = '<span class="value-error">❌ Blocked</span>';
+                updateStatus('api-status', 'error');
+                updateStatus('data-status', 'error');
+
+                showAlert('error', 'API Connection Failed',
+                    `Could not connect to ${endpoint}. Error: ${error.message}`
+                );
+            }
+        }
+
+        // Display metrics from API response
+        function displayMetrics(data) {
+            if (data && data.analytics && data.analytics.metrics) {
+                const m = data.analytics.metrics;
+
+                document.getElementById('metric-servers').textContent = m.active_servers?.toLocaleString() || '-';
+                document.getElementById('metric-listings').textContent = m.listings_found_total?.toLocaleString() || '-';
+                document.getElementById('metric-notifications').textContent = m.notifications_sent_total?.toLocaleString() || '-';
+                document.getElementById('metric-keywords').textContent = m.active_keywords?.toLocaleString() || '-';
+                document.getElementById('metric-database').textContent = m.database_size?.toLocaleString() || '-';
+                document.getElementById('metric-api-response').textContent = m.avg_api_response_time_ms ? `${m.avg_api_response_time_ms}ms` : '-';
+
+                updateStatus('data-status', 'success');
+
+                // Check if data looks like mock data
+                if (m.active_servers === 15 && m.listings_found_total === 1234) {
+                    showAlert('warning', 'Possible Mock Data Detected',
+                        'The data looks like it might be using mock/fallback values. Check that your API is returning real data.'
+                    );
+                }
+            } else {
+                updateStatus('data-status', 'error');
+                showAlert('error', 'Invalid Data Format',
+                    'The API returned data but it\'s not in the expected format. Check the raw response below.'
+                );
+            }
+
+            document.getElementById('raw-response').textContent = JSON.stringify(data, null, 2);
+        }
+
+        // Helper functions
+        function updateStatus(elementId, status) {
+            const el = document.getElementById(elementId);
+            el.className = 'status-indicator status-' + status;
+        }
+
+        function showAlert(type, title, message) {
+            const container = document.getElementById('alerts-container');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.innerHTML = `<h3>${title}</h3><p>${message}</p>`;
+            container.appendChild(alert);
+        }
+
+        function clearCache() {
+            localStorage.clear();
+            sessionStorage.clear();
+            location.reload(true);
+        }
+
+        function toggleRawData() {
+            const card = document.getElementById('raw-data-card');
+            card.style.display = card.style.display === 'none' ? 'block' : 'none';
+        }
+
+        async function runTests() {
+            // Clear previous alerts
+            document.getElementById('alerts-container').innerHTML = '';
+
+            // Reset statuses
+            updateStatus('env-status', 'loading');
+            updateStatus('api-config-status', 'loading');
+            updateStatus('api-status', 'loading');
+            updateStatus('data-status', 'loading');
+
+            // Run tests sequentially
+            detectEnvironment();
+            await checkAPIConfiguration();
+            await testAPIConnection();
+        }
+
+        // Run tests on page load
+        window.addEventListener('load', runTests);
+    </script>
+</body>
+</html>
