@@ -264,7 +264,7 @@ const BotModal = ({ bot, onClose }) => {
 
                                 {/* Popular badge */}
                                 {tier.popular && (
-                                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                  <div className="flex justify-center mb-3">
                                     <div className="px-4 py-1.5 bg-gradient-to-r from-primary-500 to-accent-500 text-white text-xs font-bold rounded-full shadow-lg">
                                       ⭐ MOST POPULAR
                                     </div>
@@ -272,7 +272,7 @@ const BotModal = ({ bot, onClose }) => {
                                 )}
 
                                 {/* Tier header */}
-                                <div className="text-center mb-5 pt-2">
+                                <div className="text-center mb-5">
                                   <h4 className="text-xl font-bold text-white mb-3">{tier.name}</h4>
                                   <div className="mb-1">
                                     <span className="text-4xl font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
