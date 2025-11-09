@@ -208,19 +208,21 @@ const BotAnalytics = ({ botId }) => {
                 <Server className="w-4 h-4 text-primary-400" />
                 Subscription Tier Distribution
               </h5>
-              <div className="grid grid-cols-5 gap-3">
+              <div className="grid grid-cols-6 gap-3">
                 {Object.entries(stats.mercariSpecific.tierDistribution).map(([tier, count]) => {
-                  const tierColors = {
-                    free: 'text-gray-400',
-                    trial: 'text-blue-400',
-                    basic: 'text-green-400',
-                    premium: 'text-purple-400',
-                    elite: 'text-yellow-400'
+                  const tierConfig = {
+                    trial: { color: 'text-gray-400', label: 'Trial' },
+                    tier_1: { color: 'text-blue-400', label: 'Tier 1' },
+                    tier_2: { color: 'text-green-400', label: 'Tier 2' },
+                    tier_3: { color: 'text-purple-400', label: 'Tier 3' },
+                    tier_4: { color: 'text-yellow-400', label: 'Tier 4' },
+                    tier_5: { color: 'text-pink-400', label: 'Tier 5' },
                   };
+                  const config = tierConfig[tier] || { color: 'text-primary-400', label: tier };
                   return (
                     <div key={tier} className="text-center p-3 rounded-lg bg-white/5">
-                      <div className={`text-3xl font-bold ${tierColors[tier] || 'text-primary-400'}`}>{count}</div>
-                      <div className="text-xs text-gray-400 capitalize mt-1">{tier}</div>
+                      <div className={`text-3xl font-bold ${config.color}`}>{count}</div>
+                      <div className="text-xs text-gray-400 mt-1">{config.label}</div>
                     </div>
                   );
                 })}
