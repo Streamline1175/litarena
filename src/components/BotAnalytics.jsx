@@ -307,21 +307,6 @@ const BotAnalytics = ({ botId }) => {
         </motion.div>
       )}
 
-      {/* Performance Badge */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5 }}
-        className="glass-effect p-6 rounded-xl border border-white/10 text-center"
-      >
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full border border-green-400/30 mb-2">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-green-300 font-semibold text-sm">Operational</span>
-        </div>
-        <p className="text-gray-400 text-sm mt-2">
-          {stats.uptime >= 99 ? 'Excellent' : stats.uptime >= 95 ? 'Good' : 'Fair'} uptime performance
-        </p>
-      </motion.div>
     </div>
   );
 };
