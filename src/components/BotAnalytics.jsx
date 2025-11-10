@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { TrendingUp, Users, Server, Clock, Zap, Bell, Search, AlertCircle, Database, Activity } from 'lucide-react';
+import { TrendingUp, Server, Clock, Zap, Bell, Search, AlertCircle, Database, Activity } from 'lucide-react';
 import { getBotStatsEnhanced } from '../services/api';
 
 const BotAnalytics = ({ botId }) => {
@@ -44,105 +44,8 @@ const BotAnalytics = ({ botId }) => {
     );
   }
 
-  const statCards = isMercariBot && stats.mercariSpecific ? [
-    {
-      icon: Server,
-      label: 'Active Servers',
-      value: stats.servers?.toLocaleString() || '0',
-      color: 'from-blue-500 to-cyan-500',
-    },
-    {
-      icon: Search,
-      label: 'Listings Found',
-      value: stats.mercariSpecific.listingsTotal?.toLocaleString() || '0',
-      color: 'from-purple-500 to-pink-500',
-    },
-    {
-      icon: Bell,
-      label: 'Notifications',
-      value: stats.mercariSpecific.notificationsTotal?.toLocaleString() || '0',
-      color: 'from-yellow-500 to-orange-500',
-    },
-    {
-      icon: Database,
-      label: 'Database Size',
-      value: stats.mercariSpecific.databaseSize?.toLocaleString() || '0',
-      color: 'from-green-500 to-emerald-500',
-    },
-    {
-      icon: Clock,
-      label: 'Uptime',
-      value: stats.mercariSpecific.uptimeFormatted || '0s',
-      color: 'from-indigo-500 to-purple-500',
-    },
-    {
-      icon: Zap,
-      label: 'Avg API Response',
-      value: `${Math.round(stats.averageResponseTime) || '0'}ms`,
-      color: 'from-red-500 to-pink-500',
-    },
-  ] : [
-    {
-      icon: Server,
-      label: 'Servers',
-      value: stats.servers?.toLocaleString() || '0',
-      color: 'from-blue-500 to-cyan-500',
-    },
-    {
-      icon: Users,
-      label: 'Active Users',
-      value: stats.users?.toLocaleString() || '0',
-      color: 'from-purple-500 to-pink-500',
-    },
-    {
-      icon: Zap,
-      label: 'Commands Today',
-      value: stats.commandsToday?.toLocaleString() || '0',
-      color: 'from-yellow-500 to-orange-500',
-    },
-    {
-      icon: TrendingUp,
-      label: 'Total Commands',
-      value: stats.commandsTotal?.toLocaleString() || '0',
-      color: 'from-green-500 to-emerald-500',
-    },
-    {
-      icon: Clock,
-      label: 'Uptime',
-      value: `${stats.uptime?.toFixed(2) || '0'}%`,
-      color: 'from-indigo-500 to-purple-500',
-    },
-    {
-      icon: Zap,
-      label: 'Avg Response',
-      value: `${stats.averageResponseTime || '0'}ms`,
-      color: 'from-red-500 to-pink-500',
-    },
-  ];
-
   return (
     <div className="space-y-6">
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {statCards.map((stat, index) => (
-          <motion.div
-            key={stat.label}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
-            className="glass-effect p-4 rounded-xl border border-white/10 hover:border-white/20 transition-all group"
-          >
-            <div className="flex items-center gap-3 mb-2">
-              <div className={`p-2 rounded-lg bg-gradient-to-br ${stat.color} bg-opacity-10`}>
-                <stat.icon className={`w-5 h-5 bg-gradient-to-br ${stat.color} text-transparent bg-clip-text`} />
-              </div>
-              <div className="text-xs text-gray-400 font-medium">{stat.label}</div>
-            </div>
-            <div className="text-2xl font-bold text-white">{stat.value}</div>
-          </motion.div>
-        ))}
-      </div>
-
       {/* Mercari-Specific Stats */}
       {isMercariBot && stats.mercariSpecific && (
         <motion.div
