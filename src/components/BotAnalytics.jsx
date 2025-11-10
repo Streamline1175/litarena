@@ -44,7 +44,44 @@ const BotAnalytics = ({ botId }) => {
     );
   }
 
-  const statCards = [
+  const statCards = isMercariBot && stats.mercariSpecific ? [
+    {
+      icon: Server,
+      label: 'Active Servers',
+      value: stats.servers?.toLocaleString() || '0',
+      color: 'from-blue-500 to-cyan-500',
+    },
+    {
+      icon: Search,
+      label: 'Listings Found',
+      value: stats.mercariSpecific.listingsTotal?.toLocaleString() || '0',
+      color: 'from-purple-500 to-pink-500',
+    },
+    {
+      icon: Bell,
+      label: 'Notifications',
+      value: stats.mercariSpecific.notificationsTotal?.toLocaleString() || '0',
+      color: 'from-yellow-500 to-orange-500',
+    },
+    {
+      icon: Database,
+      label: 'Database Size',
+      value: stats.mercariSpecific.databaseSize?.toLocaleString() || '0',
+      color: 'from-green-500 to-emerald-500',
+    },
+    {
+      icon: Clock,
+      label: 'Uptime',
+      value: stats.mercariSpecific.uptimeFormatted || '0s',
+      color: 'from-indigo-500 to-purple-500',
+    },
+    {
+      icon: Zap,
+      label: 'Avg API Response',
+      value: `${Math.round(stats.averageResponseTime) || '0'}ms`,
+      color: 'from-red-500 to-pink-500',
+    },
+  ] : [
     {
       icon: Server,
       label: 'Servers',
