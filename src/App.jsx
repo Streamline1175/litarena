@@ -98,13 +98,26 @@ function App() {
           )}
         </AnimatePresence>
 
-        <footer className="mt-20 py-8 border-t border-white/10 text-center text-gray-400">
-          <p>&copy; 2025 Lit Arena Bots. All rights reserved.</p>
-          <p className="mt-2 text-sm">
-            <a href="mailto:support@litarena.com" className="hover:text-primary-400 transition-colors">
-              Support
-            </a>
-          </p>
+        <footer className="mt-20 py-12 border-t border-white/10">
+          <div className="max-w-4xl mx-auto px-4">
+            {/* Privacy Notice */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 mb-6">
+              <h3 className="text-white font-semibold text-lg mb-3">Privacy & Data Collection</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                None of our bots collect, store, or process any personal user data. All bot interactions are handled through third-party platforms (Discord, Mercari, etc.) and we do not have access to or retain any user information beyond what is necessary for the bot's immediate functionality.
+              </p>
+            </div>
+
+            {/* Copyright and Contact */}
+            <div className="text-center text-gray-400">
+              <p className="text-sm">&copy; 2025 Lit Arena Bots. All rights reserved.</p>
+              <p className="mt-3 text-sm">
+                <a href="mailto:support@litarena.com" className="hover:text-primary-400 transition-colors">
+                  Contact Support
+                </a>
+              </p>
+            </div>
+          </div>
         </footer>
       </div>
     </Router>
