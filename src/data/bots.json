@@ -19,8 +19,7 @@
       "Queue management system for high-volume processing"
     ],
     "screenshots": [
-      "https://i.imgur.com/BaPBzgc.jpg",
-      "https://i.imgur.com/38E8l5C.jpg"
+      "/litarena/screenshots/cardflipper/screenshot-1.heic"
     ],
     "videos": [],
     "pricing": {
@@ -193,9 +192,11 @@
       "Multi-server support with isolated configurations"
     ],
     "screenshots": [
-      "https://i.imgur.com/mercari-bot-listing-example.jpg",
-      "https://i.imgur.com/mercari-bot-dashboard.jpg",
-      "https://i.imgur.com/mercari-bot-alerts-setup.jpg"
+      "/litarena/screenshots/mercari-japan/screenshot-1.heic",
+      "/litarena/screenshots/mercari-japan/screenshot-2.heic",
+      "/litarena/screenshots/mercari-japan/screenshot-3.heic",
+      "/litarena/screenshots/mercari-japan/screenshot-4.heic",
+      "/litarena/screenshots/mercari-japan/screenshot-5.heic"
     ],
     "videos": [],
     "pricing": {
@@ -449,8 +450,8 @@
       "Persistent button functionality that survives bot restarts"
     ],
     "screenshots": [
-      "https://i.imgur.com/your-screenshot1.jpg",
-      "https://i.imgur.com/your-screenshot2.jpg"
+      "/litarena/screenshots/auto-pinger/screenshot-1.heic",
+      "/litarena/screenshots/auto-pinger/screenshot-2.heic"
     ],
     "videos": [],
     "pricing": {
@@ -670,10 +671,7 @@
       "Pagination support for large dataset processing",
       "Interactive file upload system with validation"
     ],
-    "screenshots": [
-      "https://i.imgur.com/your-tcgplayer-screenshot1.jpg",
-      "https://i.imgur.com/your-tcgplayer-screenshot2.jpg"
-    ],
+    "screenshots": [],
     "videos": [],
     "pricing": {
       "model": "freemium",
@@ -930,8 +928,7 @@
       "Webhook integration for Discord channel automation"
     ],
     "screenshots": [
-      "https://i.imgur.com/your-130bot-screenshot1.jpg",
-      "https://i.imgur.com/your-130bot-screenshot2.jpg"
+      "/litarena/screenshots/130-bot/screenshot-1.heic"
     ],
     "videos": [],
     "pricing": {
@@ -1597,10 +1594,7 @@
       "Risk assessment and PAS (Personal Access Sale) management",
       "Comprehensive logging and error handling system"
     ],
-    "screenshots": [
-      "https://i.imgur.com/your-aco-screenshot1.jpg",
-      "https://i.imgur.com/your-aco-screenshot2.jpg"
-    ],
+    "screenshots": [],
     "videos": [],
     "pricing": {
       "model": "freemium",
