@@ -19,7 +19,7 @@
       "Queue management system for high-volume processing"
     ],
     "screenshots": [
-      "/litarena/screenshots/cardflipper/screenshot-1.png"
+      "/litarena/screenshots/card-flipper-bot/screenshot-1.png"
     ],
     "videos": [],
     "pricing": {
@@ -192,11 +192,11 @@
       "Multi-server support with isolated configurations"
     ],
     "screenshots": [
-      "/litarena/screenshots/mercari-japan/screenshot-1.png",
-      "/litarena/screenshots/mercari-japan/screenshot-2.png",
-      "/litarena/screenshots/mercari-japan/screenshot-3.png",
-      "/litarena/screenshots/mercari-japan/screenshot-4.png",
-      "/litarena/screenshots/mercari-japan/screenshot-5.png"
+      "/litarena/screenshots/mercari-japan-bot/screenshot-1.png",
+      "/litarena/screenshots/mercari-japan-bot/screenshot-2.png",
+      "/litarena/screenshots/mercari-japan-bot/screenshot-3.png",
+      "/litarena/screenshots/mercari-japan-bot/screenshot-4.png",
+      "/litarena/screenshots/mercari-japan-bot/screenshot-5.png"
     ],
     "videos": [],
     "pricing": {
@@ -450,8 +450,8 @@
       "Persistent button functionality that survives bot restarts"
     ],
     "screenshots": [
-      "/litarena/screenshots/auto-pinger/screenshot-1.png",
-      "/litarena/screenshots/auto-pinger/screenshot-2.png"
+      "/litarena/screenshots/auto-pinger-bot/screenshot-1.png",
+      "/litarena/screenshots/auto-pinger-bot/screenshot-2.png"
     ],
     "videos": [],
     "pricing": {

@@ -14,10 +14,7 @@ import {
   GripVertical,
   Eye,
   EyeOff,
-  ArrowLeft,
-  ImagePlus,
-  Video,
-  FolderDown
+  ArrowLeft
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -400,8 +397,6 @@ function AdminPanel({ bots, updateBots }) {
 // Bot Editor Modal Component
 function BotEditor({ bot, onSave, onClose, isNew }) {
   const [formData, setFormData] = useState(bot);
-  const [uploadedFiles, setUploadedFiles] = useState({ screenshots: [], videos: [] });
-  const [showUploadInstructions, setShowUploadInstructions] = useState(false);
 
   const updateField = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -410,80 +405,6 @@ function BotEditor({ bot, onSave, onClose, isNew }) {
   const updateArrayField = (field, value) => {
     const items = value.split('\n').filter(item => item.trim());
     updateField(field, items);
-  };
-
-  const handleFileUpload = (e, type) => {
-    const files = Array.from(e.target.files);
-    const botId = formData.id || formData.name.toLowerCase().replace(/\s+/g, '-');
-
-    files.forEach((file, index) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const extension = file.name.split('.').pop();
-        const fileName = `screenshot-${uploadedFiles[type].length + index + 1}.${extension}`;
-        const filePath = `/litarena/screenshots/${botId}/${fileName}`;
-
-        setUploadedFiles(prev => ({
-          ...prev,
-          [type]: [...prev[type], {
-            name: fileName,
-            path: filePath,
-            data: reader.result,
-            originalName: file.name
-          }]
-        }));
-
-        // Add the path to the form data
-        const currentPaths = formData[type] || [];
-        updateField(type, [...currentPaths, filePath]);
-      };
-      reader.readAsDataURL(file);
-    });
-  };
-
-  const removeUploadedFile = (type, index) => {
-    setUploadedFiles(prev => ({
-      ...prev,
-      [type]: prev[type].filter((_, i) => i !== index)
-    }));
-
-    const newPaths = formData[type].filter((_, i) => i !== index);
-    updateField(type, newPaths);
-  };
-
-  const downloadUploadedFiles = () => {
-    const botId = formData.id || formData.name.toLowerCase().replace(/\s+/g, '-');
-    let instructions = `# File Upload Instructions for ${formData.name}\n\n`;
-    instructions += `## Steps to add your uploaded files to the repository:\n\n`;
-    instructions += `1. Create the screenshots directory:\n`;
-    instructions += `   mkdir -p public/screenshots/${botId}\n\n`;
-    instructions += `2. Save the downloaded files to:\n`;
-    instructions += `   public/screenshots/${botId}/\n\n`;
-    instructions += `3. Commit the changes:\n`;
-    instructions += `   git add public/screenshots/${botId}/\n`;
-    instructions += `   git add src/data/bots.json\n`;
-    instructions += `   git commit -m "Add screenshots for ${formData.name}"\n`;
-    instructions += `   git push\n\n`;
-    instructions += `## Files to download:\n\n`;
-
-    [...uploadedFiles.screenshots, ...uploadedFiles.videos].forEach(file => {
-      instructions += `- ${file.name} (save as: public/screenshots/${botId}/${file.name})\n`;
-
-      // Create download link for each file
-      const link = document.createElement('a');
-      link.href = file.data;
-      link.download = file.name;
-      link.click();
-    });
-
-    // Download instructions file
-    const instructionsBlob = new Blob([instructions], { type: 'text/plain' });
-    const instructionsLink = document.createElement('a');
-    instructionsLink.href = URL.createObjectURL(instructionsBlob);
-    instructionsLink.download = `upload-instructions-${botId}.txt`;
-    instructionsLink.click();
-
-    setShowUploadInstructions(true);
   };
 
   const handleSubmit = (e) => {
@@ -580,152 +501,16 @@ function BotEditor({ bot, onSave, onClose, isNew }) {
             />
           </div>
 
-          {/* Media Upload Section */}
-          <div className="glass-effect p-6 rounded-xl border border-white/10">
-            <h3 className="text-lg font-semibold mb-4 gradient-text flex items-center gap-2">
-              <ImagePlus size={20} />
-              Media Files (Screenshots & Videos)
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Screenshot Upload */}
-              <div>
-                <label className="block text-sm font-semibold mb-2">Upload Screenshots</label>
-                <div className="space-y-3">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={(e) => handleFileUpload(e, 'screenshots')}
-                    className="hidden"
-                    id="screenshot-upload"
-                  />
-                  <label
-                    htmlFor="screenshot-upload"
-                    className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-primary-600/20 border-2 border-dashed border-primary-500/50 rounded-xl hover:border-primary-500 hover:bg-primary-600/30 transition-all cursor-pointer"
-                  >
-                    <ImagePlus size={20} />
-                    <span className="text-sm font-medium">Choose Images</span>
-                  </label>
-
-                  {uploadedFiles.screenshots.length > 0 && (
-                    <div className="space-y-2">
-                      {uploadedFiles.screenshots.map((file, index) => (
-                        <div key={index} className="flex items-center justify-between p-2 bg-white/5 rounded-lg">
-                          <span className="text-sm text-gray-300 truncate flex-1">{file.originalName}</span>
-                          <button
-                            type="button"
-                            onClick={() => removeUploadedFile('screenshots', index)}
-                            className="p-1 text-red-400 hover:bg-red-500/20 rounded"
-                          >
-                            <X size={16} />
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <div className="mt-3">
-                  <label className="block text-xs font-semibold mb-2 text-gray-400">
-                    Or enter URLs (one per line)
-                  </label>
-                  <textarea
-                    value={formData.screenshots.join('\n')}
-                    onChange={(e) => updateArrayField('screenshots', e.target.value)}
-                    className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:border-primary-500 outline-none h-20 font-mono text-xs"
-                    placeholder="https://example.com/screenshot1.jpg"
-                  />
-                </div>
-              </div>
-
-              {/* Video Upload */}
-              <div>
-                <label className="block text-sm font-semibold mb-2">Upload Videos</label>
-                <div className="space-y-3">
-                  <input
-                    type="file"
-                    accept="video/*"
-                    multiple
-                    onChange={(e) => handleFileUpload(e, 'videos')}
-                    className="hidden"
-                    id="video-upload"
-                  />
-                  <label
-                    htmlFor="video-upload"
-                    className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-accent-600/20 border-2 border-dashed border-accent-500/50 rounded-xl hover:border-accent-500 hover:bg-accent-600/30 transition-all cursor-pointer"
-                  >
-                    <Video size={20} />
-                    <span className="text-sm font-medium">Choose Videos</span>
-                  </label>
-
-                  {uploadedFiles.videos.length > 0 && (
-                    <div className="space-y-2">
-                      {uploadedFiles.videos.map((file, index) => (
-                        <div key={index} className="flex items-center justify-between p-2 bg-white/5 rounded-lg">
-                          <span className="text-sm text-gray-300 truncate flex-1">{file.originalName}</span>
-                          <button
-                            type="button"
-                            onClick={() => removeUploadedFile('videos', index)}
-                            className="p-1 text-red-400 hover:bg-red-500/20 rounded"
-                          >
-                            <X size={16} />
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <div className="mt-3">
-                  <label className="block text-xs font-semibold mb-2 text-gray-400">
-                    Or enter URLs (one per line)
-                  </label>
-                  <textarea
-                    value={formData.videos.join('\n')}
-                    onChange={(e) => updateArrayField('videos', e.target.value)}
-                    className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:border-primary-500 outline-none h-20 font-mono text-xs"
-                    placeholder="https://example.com/demo.mp4"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Download Files Button */}
-            {(uploadedFiles.screenshots.length > 0 || uploadedFiles.videos.length > 0) && (
-              <div className="mt-6 p-4 bg-primary-500/10 border border-primary-500/30 rounded-xl">
-                <div className="flex items-start gap-3">
-                  <FolderDown className="text-primary-400 flex-shrink-0 mt-1" size={20} />
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-primary-300 mb-1">Files Ready for Download</h4>
-                    <p className="text-sm text-gray-400 mb-3">
-                      Click below to download your uploaded files and get instructions on how to add them to your repository.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={downloadUploadedFiles}
-                      className="px-4 py-2 bg-primary-600 hover:bg-primary-500 rounded-lg text-sm font-medium flex items-center gap-2"
-                    >
-                      <Download size={16} />
-                      Download Files & Instructions
-                    </button>
-                  </div>
-                </div>
-
-                {showUploadInstructions && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="mt-4 pt-4 border-t border-primary-500/30"
-                  >
-                    <p className="text-sm text-green-400 flex items-center gap-2">
-                      <span className="text-lg">✓</span>
-                      Files and instructions downloaded! Follow the instructions file to add them to your repo.
-                    </p>
-                  </motion.div>
-                )}
-              </div>
-            )}
+          {/* Screenshots Info */}
+          <div className="glass-effect p-4 rounded-xl border border-white/10">
+            <h3 className="text-sm font-semibold mb-2 text-gray-300">📸 Screenshots & Videos</h3>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              Screenshots are automatically loaded from <code className="text-primary-400 bg-white/5 px-1 rounded">/public/screenshots/{'{bot-id}'}/</code>
+              <br />
+              Add files as: <code className="text-primary-400 bg-white/5 px-1 rounded">screenshot-1.png</code>, <code className="text-primary-400 bg-white/5 px-1 rounded">screenshot-2.png</code>, etc.
+              <br />
+              The paths are hardcoded in <code className="text-primary-400 bg-white/5 px-1 rounded">src/data/bots.json</code>
+            </p>
           </div>
 
           {/* Install URL */}
