@@ -1,87 +1,7 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { Bot, Users, Server, Zap } from 'lucide-react';
-import { getGlobalStats } from '../services/api';
+import { Bot, Users } from 'lucide-react';
 
 const HeroSection = () => {
-  const [stats, setStats] = useState({
-    totalServers: 0,
-    totalUsers: 0,
-    totalCommands: 0,
-    uptime: 0,
-  });
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadStats() {
-      try {
-        const data = await getGlobalStats();
-        setStats(data);
-      } catch (error) {
-        console.error('Failed to load stats:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    loadStats();
-  }, []);
-
-  const statItems = [
-    {
-      icon: Server,
-      label: 'Active Servers',
-      value: stats.totalServers,
-      suffix: '+',
-      color: 'from-blue-500 to-cyan-500',
-    },
-    {
-      icon: Users,
-      label: 'Happy Users',
-      value: stats.totalUsers,
-      suffix: '+',
-      color: 'from-purple-500 to-pink-500',
-    },
-    {
-      icon: Zap,
-      label: 'Commands Executed',
-      value: stats.totalCommands,
-      suffix: '+',
-      color: 'from-yellow-500 to-orange-500',
-    },
-    {
-      icon: Bot,
-      label: 'Uptime',
-      value: stats.uptime,
-      suffix: '%',
-      color: 'from-green-500 to-emerald-500',
-    },
-  ];
-
-  // Animated counter component
-  const AnimatedCounter = ({ value, duration = 2000 }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-      if (isLoading) return;
-
-      let startTime;
-      const animateCount = (timestamp) => {
-        if (!startTime) startTime = timestamp;
-        const progress = (timestamp - startTime) / duration;
-
-        if (progress < 1) {
-          setCount(Math.floor(value * progress));
-          requestAnimationFrame(animateCount);
-        } else {
-          setCount(value);
-        }
-      };
-
-      requestAnimationFrame(animateCount);
-    }, [value, duration, isLoading]);
-
-    return <>{count.toLocaleString()}</>;
-  };
 
   return (
     <div className="relative overflow-hidden py-20 mb-12">
@@ -157,47 +77,6 @@ const HeroSection = () => {
           >
             From card trading to community management, our suite of specialized bots delivers enterprise-grade features with a focus on reliability and innovation.
           </motion.p>
-        </motion.div>
-
-        {/* Stats Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {statItems.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="relative group"
-            >
-              <div className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-all">
-                {/* Gradient glow effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity rounded-2xl`} />
-
-                <div className="relative">
-                  <stat.icon className={`w-8 h-8 mb-3 bg-gradient-to-br ${stat.color} text-transparent bg-clip-text`} strokeWidth={2.5} />
-
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                    {isLoading ? (
-                      <div className="h-10 bg-white/10 rounded animate-pulse" />
-                    ) : (
-                      <>
-                        <AnimatedCounter value={stat.value} />
-                        {stat.suffix}
-                      </>
-                    )}
-                  </div>
-
-                  <div className="text-sm text-gray-400 font-medium">{stat.label}</div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* CTA Buttons */}
