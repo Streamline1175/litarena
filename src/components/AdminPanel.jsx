@@ -14,7 +14,9 @@ import {
   GripVertical,
   Eye,
   EyeOff,
-  ArrowLeft
+  ArrowLeft,
+  AlertCircle,
+  GitBranch
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -91,6 +93,38 @@ function AdminPanel({ bots, updateBots }) {
     link.href = url;
     link.download = `bots-${new Date().toISOString().split('T')[0]}.json`;
     link.click();
+
+    // Also download instructions
+    const instructions = `# Steps to Deploy Your Bot Changes to GitHub
+
+## 1. Save the Downloaded JSON File
+The file "bots-${new Date().toISOString().split('T')[0]}.json" has been downloaded.
+
+## 2. Replace the Existing File
+Move the downloaded file to your project:
+   cp ~/Downloads/bots-${new Date().toISOString().split('T')[0]}.json /path/to/litarena/src/data/bots.json
+
+## 3. Commit to GitHub
+Run these commands in your terminal:
+   cd /path/to/litarena
+   git add src/data/bots.json
+   git commit -m "Update bot data from admin panel"
+   git push
+
+## 4. Deploy (if not auto-deployed)
+Your changes will be live once the site redeploys from GitHub.
+
+---
+Note: Changes made in the admin panel are stored ONLY in your browser's localStorage.
+They are NOT visible to other users until you complete these steps.
+`;
+
+    const instructionsBlob = new Blob([instructions], { type: 'text/plain' });
+    const instructionsUrl = URL.createObjectURL(instructionsBlob);
+    const instructionsLink = document.createElement('a');
+    instructionsLink.href = instructionsUrl;
+    instructionsLink.download = `DEPLOYMENT-INSTRUCTIONS-${new Date().toISOString().split('T')[0]}.txt`;
+    setTimeout(() => instructionsLink.click(), 100);
   };
 
   const handleImportData = (e) => {
@@ -191,6 +225,30 @@ function AdminPanel({ bots, updateBots }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
+        {/* Warning Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 p-4 bg-yellow-500/10 border-2 border-yellow-500/30 rounded-xl"
+        >
+          <div className="flex items-start gap-3">
+            <AlertCircle className="text-yellow-400 flex-shrink-0 mt-0.5" size={24} />
+            <div className="flex-1">
+              <h3 className="font-bold text-yellow-300 mb-1">⚠️ Changes are Local Only</h3>
+              <p className="text-sm text-yellow-200/80 leading-relaxed">
+                All edits are saved to your browser's <code className="bg-yellow-500/20 px-1 rounded">localStorage</code> only.
+                Other users cannot see your changes until you export the JSON and push to GitHub.
+              </p>
+              <div className="mt-3 flex items-center gap-2">
+                <GitBranch className="text-yellow-400" size={16} />
+                <span className="text-xs text-yellow-300 font-medium">
+                  Status: <span className="text-yellow-400">Not Synced to Repository</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
@@ -228,10 +286,11 @@ function AdminPanel({ bots, updateBots }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleExportData}
-              className="p-3 glass-effect glass-hover rounded-xl"
-              title="Export JSON"
+              className="px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl font-semibold hover:shadow-lg hover:shadow-green-500/50 transition-all flex items-center gap-2"
+              title="Download JSON for GitHub"
             >
               <Download size={20} />
+              <span className="hidden sm:inline">Download for GitHub</span>
             </motion.button>
 
             <motion.button
