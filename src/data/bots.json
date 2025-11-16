@@ -23,45 +23,17 @@
     ],
     "videos": [],
     "pricing": {
-      "model": "freemium",
+      "model": "subscription",
       "tiers": [
         {
-          "name": "Free",
-          "price": "$0",
-          "period": "forever",
-          "features": [
-            "Basic card price tracking",
-            "Manual price checks",
-            "Access to price history",
-            "Community support"
-          ]
-        },
-        {
-          "name": "Premium",
-          "price": "$4.99",
+          "name": "Slab Flips",
+          "price": "$29.99",
           "period": "month",
           "features": [
-            "Everything in Free",
             "Automatic alerts for undervalued cards",
-            "Advanced analytics and charts",
-            "Priority processing",
-            "Social media integration",
-            "Email support"
+            "Advanced analytics and charts"
           ],
           "popular": true
-        },
-        {
-          "name": "Pro",
-          "price": "$9.99",
-          "period": "month",
-          "features": [
-            "Everything in Premium",
-            "Unlimited tracking slots",
-            "Custom notification webhooks",
-            "API access",
-            "Dedicated support channel",
-            "Early access to new features"
-          ]
         }
       ]
     },
@@ -151,7 +123,8 @@
           "content": "User data is retained only as long as necessary to provide services. Users may request data deletion by contacting support, subject to legal and operational requirements."
         }
       ]
-    }
+    },
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1325707530436870205"
   },
   {
     "id": "mercari-japan-bot",
@@ -205,7 +178,7 @@
         {
           "name": "Trial",
           "price": "$0",
-          "period": "limited time",
+          "period": "7 days",
           "features": [
             "Test all features",
             "Limited duration access",
@@ -220,7 +193,8 @@
             "Basic monitoring",
             "Personal alerts",
             "Standard support"
-          ]
+          ],
+          "popular": true
         },
         {
           "name": "Tier 2",
@@ -240,8 +214,7 @@
             "Everything in Tier 2",
             "Watchlist management",
             "Priority processing"
-          ],
-          "popular": true
+          ]
         },
         {
           "name": "Tier 4",
@@ -459,7 +432,7 @@
         }
       ]
     },
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1354826669885489292"
   },
   {
     "id": "auto-pinger-bot",
@@ -495,29 +468,17 @@
     ],
     "videos": [],
     "pricing": {
-      "model": "freemium",
+      "model": "free",
       "tiers": [
         {
           "name": "Free",
           "price": "$0",
           "period": "forever",
           "features": [
-            "Basic bot functionality",
-            "Standard commands",
+            "All bot features",
+            "Unlimited servers",
             "Community support"
           ]
-        },
-        {
-          "name": "Premium",
-          "price": "$4.99",
-          "period": "month",
-          "features": [
-            "Everything in Free",
-            "Advanced features",
-            "Priority support",
-            "Custom configurations"
-          ],
-          "popular": true
         }
       ]
     },
@@ -614,14 +575,14 @@
         }
       ]
     },
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1340932229450174465"
   },
   {
     "id": "what-you-craving",
     "name": "What You Craving",
     "icon": "https://cdn.discordapp.com/app-icons/1183614399307595796/cd3f2e093db434ff1572436d9292af42.png?size=512",
     "description": "A food discovery bot that helps users find restaurants and food options based on their cravings and location preferences.",
-    "status": "active",
+    "status": "maintenance",
     "features": [
       "Restaurant recommendations based on cuisine type",
       "Location-based food discovery",
@@ -683,7 +644,7 @@
     "name": "TCGPlayer Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1194131740072087672/11fd96c048c6dd4cfc4252003ec15adc.png?size=512",
     "description": "Advanced Trading Card Game price tracking and market analysis bot with comprehensive TCGPlayer integration. Provides real-time card pricing, sales analytics, illustration rare investment analysis, and automated data processing for collectors, traders, and investors seeking competitive market intelligence.",
-    "status": "active",
+    "status": "maintenance",
     "features": [
       "Real-time TCGPlayer price monitoring and search functionality",
       "Advanced illustration rare investment analysis with risk assessment",
@@ -880,7 +841,7 @@
     "name": "PSA Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1146642540519505941/ef43a1e7f7000a137793643440a06439.png?size=512",
     "description": "Professional Sports Authenticator (PSA) card grading and pricing information bot for collectors and traders.",
-    "status": "active",
+    "status": "maintenance",
     "features": [
       "PSA card lookup by certification number",
       "Grade verification and authenticity checks",
@@ -972,29 +933,17 @@
     ],
     "videos": [],
     "pricing": {
-      "model": "freemium",
+      "model": "free",
       "tiers": [
         {
           "name": "Free",
           "price": "$0",
           "period": "forever",
           "features": [
-            "Basic bot functionality",
-            "Standard commands",
+            "All bot features",
+            "Unlimited servers",
             "Community support"
           ]
-        },
-        {
-          "name": "Premium",
-          "price": "$4.99",
-          "period": "month",
-          "features": [
-            "Everything in Free",
-            "Advanced features",
-            "Priority support",
-            "Custom configurations"
-          ],
-          "popular": true
         }
       ]
     },
@@ -1153,14 +1102,14 @@
         }
       ]
     },
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1155192681023152241"
   },
   {
     "id": "nba-bot",
     "name": "NBA Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1206872299802853427/ef1a12bf445a3cf5051124b12a8f437a.png?size=512",
     "description": "NBA statistics, scores, and player information bot for basketball enthusiasts and fantasy league managers.",
-    "status": "active",
+    "status": "maintenance",
     "features": [
       "Live NBA scores and game updates",
       "Player statistics and career information",
@@ -1214,7 +1163,7 @@
     "name": "SKU Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1214803110380183612/56e3bdb84c8c1c236bb0620ff7dea05b.png?size=512",
     "description": "Inventory and product SKU management bot for retailers and inventory tracking systems.",
-    "status": "active",
+    "status": "beta",
     "features": [
       "SKU lookup and management",
       "Inventory tracking alerts",
@@ -1275,7 +1224,7 @@
     "name": "Role Manager",
     "icon": "https://cdn.discordapp.com/app-icons/1218810598171738162/208108f59efb718140bb12f61a430c8f.png?size=512",
     "description": "Advanced Discord role management system with automated role assignment and permission controls.",
-    "status": "active",
+    "status": "beta",
     "features": [
       "Automated role assignment based on reactions",
       "Temporary role management",
@@ -1329,7 +1278,7 @@
     "name": "Bricklink",
     "icon": "https://cdn.discordapp.com/app-icons/1235818004441468959/601642b72e74940c21b7530a9798db2d.png?size=512",
     "description": "LEGO marketplace integration bot for tracking BrickLink prices and inventory for LEGO enthusiasts.",
-    "status": "active",
+    "status": "beta",
     "features": [
       "BrickLink marketplace integration",
       "LEGO set price tracking",
@@ -1383,7 +1332,7 @@
     "name": "Feedback Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1244577770420310056/935c1e8c6ed6a5ae838ac6053b5af3be.png?size=512",
     "description": "Community feedback collection and management system for server administrators and community managers.",
-    "status": "active",
+    "status": "beta",
     "features": [
       "Anonymous feedback collection",
       "Feedback categorization and tagging",
@@ -1444,7 +1393,7 @@
     "name": "Grocery Finder",
     "icon": "https://cdn.discordapp.com/app-icons/1249578998137098310/789b6c240f4838dcc75f1dc22950de87.png?size=512",
     "description": "Local grocery store finder with price comparison and shopping list management features.",
-    "status": "active",
+    "status": "beta",
     "features": [
       "Store locator by zip code",
       "Price comparison across stores",
@@ -1508,29 +1457,17 @@
     "screenshots": [],
     "videos": [],
     "pricing": {
-      "model": "freemium",
+      "model": "free",
       "tiers": [
         {
           "name": "Free",
           "price": "$0",
           "period": "forever",
           "features": [
-            "Basic bot functionality",
-            "Standard commands",
+            "All bot features",
+            "Unlimited servers",
             "Community support"
           ]
-        },
-        {
-          "name": "Premium",
-          "price": "$4.99",
-          "period": "month",
-          "features": [
-            "Everything in Free",
-            "Advanced features",
-            "Priority support",
-            "Custom configurations"
-          ],
-          "popular": true
         }
       ]
     },
@@ -1545,14 +1482,14 @@
     ],
     "tos": null,
     "privacy": null,
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1255750520103243807"
   },
   {
     "id": "social-score",
     "name": "Social Score",
     "icon": "https://cdn.discordapp.com/app-icons/1323134281807171635/45ac02986104f7130a5f93e5f8f289bf.png?size=512",
     "description": "Social activity tracking and gamification bot that monitors user engagement and awards points.",
-    "status": "active",
+    "status": "beta",
     "features": [
       "User activity point system",
       "Leaderboards and rankings",
@@ -1789,7 +1726,7 @@
         }
       ]
     },
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1323134432403525694"
   },
   {
     "id": "twitter-restocker",
@@ -1846,9 +1783,9 @@
     "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
   },
   {
-    "id": "scratch-bot",
-    "name": "Scratch Bot",
-    "icon": "https://via.placeholder.com/512",
+    "id": "scratch-off-bot",
+    "name": "Scratch Off Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1408793269642727434/2baa768c7721594c037ddfbecffb1634.png?size=512",
     "description": "Add a description for Scratch Bot here.",
     "status": "active",
     "features": [
@@ -1887,18 +1824,19 @@
     "changelog": [],
     "tos": null,
     "privacy": null,
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1408793269642727434"
   },
   {
     "id": "coc-watcher",
     "name": "CoC Watcher",
-    "icon": "https://via.placeholder.com/512",
-    "description": "Add a description for CoC Watcher here.",
+    "icon": "https://cdn.discordapp.com/app-icons/1406242315336683692/5a51f232198bf29a81c69a94db1b48c2.png?size=512",
+    "description": "CoC Watcher provides real-time monitoring and analytics for Clash of Clans wars.",
     "status": "active",
     "features": [
-      "Feature 1",
-      "Feature 2",
-      "Feature 3"
+      "Real-time war status monitoring",
+      "Detailed war analytics and history",
+      "League War overview and tracking",
+      "Player performance statistics"
     ],
     "screenshots": [],
     "videos": [],
@@ -1910,33 +1848,52 @@
           "price": "$0",
           "period": "forever",
           "features": [
-            "Basic functionality",
-            "Standard commands",
-            "Community support"
+            "Current War Status & Basic Analytics",
+            "Current League War overview"
           ]
         },
         {
           "name": "Premium",
-          "price": "$4.99",
+          "price": "$1.99",
           "period": "month",
           "features": [
-            "Everything in Free",
-            "Advanced features",
-            "Priority support"
+            "Complete War History & Analytics",
+            "Access last 10 regular wars",
+            "Capital Raids season tracking",
+            "Last 10 CWL seasons data",
+            "Individual player statistics",
+            "Missed attacks identification",
+            "Performance charts & graphs"
           ],
           "popular": true
+        },
+        {
+          "name": "Premium Plus",
+          "price": "$2.99",
+          "period": "month",
+          "features": [
+            "Advanced Performance Management",
+            "Top/Bottom 8 player rankings",
+            "Performance overview dashboard",
+            "Activity-based scoring system",
+            "Medal distribution insights",
+            "Identify underperformers",
+            "Advanced analytics engine",
+            "All Premium features included"
+          ],
+          "popular": false
         }
       ]
     },
     "changelog": [],
     "tos": null,
     "privacy": null,
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1406242315336683692"
   },
   {
     "id": "saveit",
     "name": "SaveIt",
-    "icon": "https://via.placeholder.com/512",
+    "icon": "https://cdn.discordapp.com/app-icons/1433229400769429625/71b1ec889af984f844bf3a8048746119.png?size=512",
     "description": "Add a description for SaveIt here.",
     "status": "active",
     "features": [
@@ -1975,12 +1932,12 @@
     "changelog": [],
     "tos": null,
     "privacy": null,
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1433229400769429625"
   },
   {
     "id": "anonymous-art",
     "name": "Anonymous Art",
-    "icon": "https://via.placeholder.com/512",
+    "icon": "https://cdn.discordapp.com/app-icons/1432939933454041233/7f8b4f3f437b1d8c4add66ff4737f072.png?size=512",
     "description": "Add a description for Anonymous Art here.",
     "status": "active",
     "features": [
@@ -2019,6 +1976,6 @@
     "changelog": [],
     "tos": null,
     "privacy": null,
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1432939933454041233"
   }
 ]
