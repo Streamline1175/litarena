@@ -1838,7 +1838,14 @@
       "League War overview and tracking",
       "Player performance statistics"
     ],
-    "screenshots": [],
+    "screenshots": [
+      "/litarena/screenshots/coc-watcher/screenshot-1.png",
+      "/litarena/screenshots/coc-watcher/screenshot-2.png",
+      "/litarena/screenshots/coc-watcher/screenshot-3.png",
+      "/litarena/screenshots/coc-watcher/screenshot-4.png",
+      "/litarena/screenshots/coc-watcher/screenshot-5.png",
+      "/litarena/screenshots/coc-watcher/screenshot-6.png"
+    ],
     "videos": [],
     "pricing": {
       "model": "freemium",
