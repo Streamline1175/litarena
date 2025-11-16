@@ -36,7 +36,7 @@ const FilterBar = ({ statusFilter, setStatusFilter }) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="flex flex-wrap gap-4 justify-center items-center mb-2"
+      className="flex flex-wrap gap-4 justify-center items-center mt-8 mb-4"
     >
       {filters.map((filter, index) => {
         const isActive = statusFilter === filter.id;
