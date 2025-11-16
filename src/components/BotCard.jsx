@@ -23,6 +23,32 @@ const BotCard = ({ bot, onClick, index }) => {
     deprecated: 'bg-gray-500/20 text-gray-300 border-gray-400/50'
   };
 
+  // Determine pricing type
+  const getPricingBadge = () => {
+    if (!bot.pricing || !bot.pricing.tiers) return null;
+
+    const hasFree = bot.pricing.tiers.some(tier =>
+      tier.price === '$0' || tier.name.toLowerCase() === 'free'
+    );
+    const hasTrial = bot.pricing.tiers.some(tier =>
+      tier.name.toLowerCase().includes('trial')
+    );
+    const hasPaid = bot.pricing.tiers.some(tier =>
+      tier.price !== '$0' && !tier.name.toLowerCase().includes('trial')
+    );
+
+    if (hasFree && !hasPaid) {
+      return { label: 'Free', color: 'bg-green-500/20 text-green-300 border-green-400/50' };
+    } else if (hasTrial) {
+      return { label: 'Free Trial', color: 'bg-blue-500/20 text-blue-300 border-blue-400/50' };
+    } else if (hasPaid) {
+      return { label: 'Paid', color: 'bg-purple-500/20 text-purple-300 border-purple-400/50' };
+    }
+    return null;
+  };
+
+  const pricingBadge = getPricingBadge();
+
   // Truncate description
   const truncateText = (text, maxLength = 100) => {
     if (text.length <= maxLength) return text;
@@ -89,10 +115,17 @@ const BotCard = ({ bot, onClick, index }) => {
                 <h3 className="text-xl font-bold text-white mb-1 truncate group-hover:text-primary-300 transition-colors">
                   {bot.name}
                 </h3>
-                {/* Status badge */}
-                <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-medium border ${statusColors[bot.status]}`}>
-                  {bot.status}
-                </span>
+                {/* Status and Pricing badges */}
+                <div className="flex gap-2">
+                  <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-medium border ${statusColors[bot.status]}`}>
+                    {bot.status}
+                  </span>
+                  {pricingBadge && (
+                    <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-medium border ${pricingBadge.color}`}>
+                      {pricingBadge.label}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 

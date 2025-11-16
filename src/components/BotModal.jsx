@@ -1,12 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
-import BotAnalytics from './BotAnalytics';
 
 const BotModal = ({ bot, onClose }) => {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedChangelog, setExpandedChangelog] = useState([]);
-  const [expandedLegal, setExpandedLegal] = useState({ tos: false, privacy: false });
   const [lightboxImage, setLightboxImage] = useState(null);
 
   if (!bot) return null;
@@ -14,11 +12,9 @@ const BotModal = ({ bot, onClose }) => {
   const tabs = [
     { id: 'overview', label: 'Overview' },
     { id: 'features', label: 'Features' },
-    { id: 'analytics', label: 'Analytics' },
-    { id: 'pricing', label: 'Pricing' },
     { id: 'media', label: 'Screenshots & Videos' },
-    { id: 'changelog', label: 'Changelog' },
-    { id: 'legal', label: 'Legal' }
+    { id: 'pricing', label: 'Pricing' },
+    { id: 'changelog', label: 'Changelog' }
   ];
 
   const statusColors = {
@@ -32,10 +28,6 @@ const BotModal = ({ bot, onClose }) => {
     setExpandedChangelog(prev =>
       prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
     );
-  };
-
-  const toggleLegal = (section) => {
-    setExpandedLegal(prev => ({ ...prev, [section]: !prev[section] }));
   };
 
   // Backdrop click handler
@@ -200,20 +192,6 @@ const BotModal = ({ bot, onClose }) => {
                           </motion.div>
                         ))}
                       </div>
-                    </motion.div>
-                  )}
-
-                  {/* Analytics Tab */}
-                  {activeTab === 'analytics' && (
-                    <motion.div
-                      key="analytics"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <h3 className="text-xl font-semibold text-white mb-6">Live Analytics</h3>
-                      <BotAnalytics botId={bot.id} />
                     </motion.div>
                   )}
 
@@ -470,84 +448,6 @@ const BotModal = ({ bot, onClose }) => {
                             <p className="text-gray-400">No changelog available yet.</p>
                           </div>
                         )}
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Legal Tab */}
-                  {activeTab === 'legal' && (
-                    <motion.div
-                      key="legal"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.3 }}
-                      className="space-y-4"
-                    >
-                      {/* Terms of Service */}
-                      <div className="bg-white/5 rounded-lg border border-white/10 overflow-hidden">
-                        <button
-                          onClick={() => toggleLegal('tos')}
-                          className="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors"
-                        >
-                          <h3 className="text-lg font-semibold text-white">Terms of Service</h3>
-                          {expandedLegal.tos ? (
-                            <ChevronUp className="w-5 h-5 text-gray-400" />
-                          ) : (
-                            <ChevronDown className="w-5 h-5 text-gray-400" />
-                          )}
-                        </button>
-
-                        <AnimatePresence>
-                          {expandedLegal.tos && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="border-t border-white/10"
-                            >
-                              <div className="p-4 prose prose-invert max-w-none">
-                                <p className="text-gray-300 leading-relaxed">
-                                  {bot.legal?.tos || 'Terms of Service content will be displayed here.'}
-                                </p>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-
-                      {/* Privacy Policy */}
-                      <div className="bg-white/5 rounded-lg border border-white/10 overflow-hidden">
-                        <button
-                          onClick={() => toggleLegal('privacy')}
-                          className="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors"
-                        >
-                          <h3 className="text-lg font-semibold text-white">Privacy Policy</h3>
-                          {expandedLegal.privacy ? (
-                            <ChevronUp className="w-5 h-5 text-gray-400" />
-                          ) : (
-                            <ChevronDown className="w-5 h-5 text-gray-400" />
-                          )}
-                        </button>
-
-                        <AnimatePresence>
-                          {expandedLegal.privacy && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="border-t border-white/10"
-                            >
-                              <div className="p-4 prose prose-invert max-w-none">
-                                <p className="text-gray-300 leading-relaxed">
-                                  {bot.legal?.privacy || 'Privacy Policy content will be displayed here.'}
-                                </p>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
                       </div>
                     </motion.div>
                   )}
