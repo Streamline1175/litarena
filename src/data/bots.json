@@ -156,7 +156,7 @@
   {
     "id": "mercari-japan-bot",
     "name": "Mercari Japan Bot",
-    "icon": "https://static.mercdn.net/assets/img/common/common/mercari_logo_horizontal.png",
+    "icon": "https://cdn.discordapp.com/app-icons/1354826669885489292/5ed6992e17e2e92783df5f0599908d0f.png?size=512",
     "description": "Advanced Mercari Japan monitoring bot with real-time listing alerts, auto-translation, currency conversion, and comprehensive notification systems. Provides personal alerts, server-wide monitoring, role pings, watchlist management, and sophisticated subscription tiers for collectors, resellers, and communities seeking rare Japanese marketplace finds.",
     "status": "active",
     "features": [
@@ -200,29 +200,69 @@
     ],
     "videos": [],
     "pricing": {
-      "model": "freemium",
+      "model": "subscription",
       "tiers": [
         {
-          "name": "Free",
+          "name": "Trial",
           "price": "$0",
-          "period": "forever",
+          "period": "limited time",
           "features": [
-            "Basic bot functionality",
-            "Standard commands",
-            "Community support"
+            "Test all features",
+            "Limited duration access",
+            "Full monitoring capabilities"
           ]
         },
         {
-          "name": "Premium",
+          "name": "Tier 1",
           "price": "$4.99",
           "period": "month",
           "features": [
-            "Everything in Free",
-            "Advanced features",
-            "Priority support",
-            "Custom configurations"
+            "Basic monitoring",
+            "Personal alerts",
+            "Standard support"
+          ]
+        },
+        {
+          "name": "Tier 2",
+          "price": "$9.99",
+          "period": "month",
+          "features": [
+            "Everything in Tier 1",
+            "Server-wide monitoring",
+            "Role ping system"
+          ]
+        },
+        {
+          "name": "Tier 3",
+          "price": "$14.99",
+          "period": "month",
+          "features": [
+            "Everything in Tier 2",
+            "Watchlist management",
+            "Priority processing"
           ],
           "popular": true
+        },
+        {
+          "name": "Tier 4",
+          "price": "$29.99",
+          "period": "month",
+          "features": [
+            "Everything in Tier 3",
+            "Advanced filtering",
+            "Dedicated support"
+          ]
+        },
+        {
+          "name": "Tier 5",
+          "price": "$39.99",
+          "period": "month",
+          "features": [
+            "Everything in Tier 4",
+            "Premium features",
+            "VIP support",
+            "Custom configurations"
+          ]
         }
       ]
     },
@@ -1564,7 +1604,7 @@
   {
     "id": "the-manager",
     "name": "The Manager",
-    "icon": "https://cdn.discordapp.com/app-icons/1323134432403525694/42696023f5df1324ee16871fe6ec1120.png?size=512",
+    "icon": "https://cdn.discordapp.com/app-icons/1323134432403525694/4176f7f5c30e06a0c2e175600abc5796.png?size=512",
     "description": "Professional ACO (Add-to-Cart Opportunity) management system for sneaker and streetwear communities. Create comprehensive product release forms with interactive features, bulk upload capabilities, automated thread management, and advanced permission controls for organized community collaboration.",
     "status": "active",
     "features": [
@@ -1801,6 +1841,182 @@
         ]
       }
     ],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+  },
+  {
+    "id": "scratch-bot",
+    "name": "Scratch Bot",
+    "icon": "https://via.placeholder.com/512",
+    "description": "Add a description for Scratch Bot here.",
+    "status": "active",
+    "features": [
+      "Feature 1",
+      "Feature 2",
+      "Feature 3"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support"
+          ],
+          "popular": true
+        }
+      ]
+    },
+    "changelog": [],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+  },
+  {
+    "id": "coc-watcher",
+    "name": "CoC Watcher",
+    "icon": "https://via.placeholder.com/512",
+    "description": "Add a description for CoC Watcher here.",
+    "status": "active",
+    "features": [
+      "Feature 1",
+      "Feature 2",
+      "Feature 3"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support"
+          ],
+          "popular": true
+        }
+      ]
+    },
+    "changelog": [],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+  },
+  {
+    "id": "saveit",
+    "name": "SaveIt",
+    "icon": "https://via.placeholder.com/512",
+    "description": "Add a description for SaveIt here.",
+    "status": "active",
+    "features": [
+      "Feature 1",
+      "Feature 2",
+      "Feature 3"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support"
+          ],
+          "popular": true
+        }
+      ]
+    },
+    "changelog": [],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"
+  },
+  {
+    "id": "anonymous-art",
+    "name": "Anonymous Art",
+    "icon": "https://via.placeholder.com/512",
+    "description": "Add a description for Anonymous Art here.",
+    "status": "active",
+    "features": [
+      "Feature 1",
+      "Feature 2",
+      "Feature 3"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Basic functionality",
+            "Standard commands",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$4.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced features",
+            "Priority support"
+          ],
+          "popular": true
+        }
+      ]
+    },
+    "changelog": [],
     "tos": null,
     "privacy": null,
     "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID"

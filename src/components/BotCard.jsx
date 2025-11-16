@@ -118,7 +118,7 @@ const BotCard = ({ bot, onClick, index }) => {
                 {/* Status and Pricing badges */}
                 <div className="flex gap-2">
                   <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-medium border ${statusColors[bot.status]}`}>
-                    {bot.status}
+                    {bot.status.charAt(0).toUpperCase() + bot.status.slice(1)}
                   </span>
                   {pricingBadge && (
                     <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-medium border ${pricingBadge.color}`}>
