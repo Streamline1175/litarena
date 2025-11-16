@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Moon, Sun, Bot } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -31,11 +31,14 @@ function Header({ darkMode, setDarkMode }) {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3 group">
             <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.6 }}
-              className="p-2 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             >
-              <Bot className="w-8 h-8 text-white" />
+              <img
+                src="/litarena/logo.png"
+                alt="Lit Arena Logo"
+                className="w-16 h-16 rounded-xl"
+              />
             </motion.div>
             <div>
               <h1 className="text-3xl font-bold gradient-text">

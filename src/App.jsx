@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
-import HeroSection from './components/HeroSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import BotGrid from './components/BotGrid';
 import BotModal from './components/BotModal';
@@ -55,9 +54,7 @@ function App() {
 
           <Route path="/" element={
             <>
-              <HeroSection />
-
-              <main id="bots" className="container mx-auto px-4 py-8">
+              <main id="bots" className="container mx-auto px-4 py-8 mt-8">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
