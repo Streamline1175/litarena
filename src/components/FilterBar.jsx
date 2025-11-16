@@ -36,7 +36,7 @@ const FilterBar = ({ statusFilter, setStatusFilter }) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="flex flex-wrap gap-3 justify-center items-center"
+      className="flex flex-wrap gap-4 justify-center items-center mb-2"
     >
       {filters.map((filter, index) => {
         const isActive = statusFilter === filter.id;
@@ -51,9 +51,9 @@ const FilterBar = ({ statusFilter, setStatusFilter }) => {
             whileTap={{ scale: 0.95 }}
             onClick={() => setStatusFilter(filter.id)}
             className={`
-              px-6 py-2.5 rounded-xl border backdrop-blur-lg
+              px-6 py-3 rounded-xl border backdrop-blur-lg
               font-medium text-sm transition-all duration-300
-              shadow-lg
+              shadow-lg min-w-[120px]
               ${getColorClasses(filter.color, isActive)}
               ${isActive ? 'ring-2 ring-offset-2 ring-offset-transparent' : ''}
             `}
