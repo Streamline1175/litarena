@@ -581,6 +581,61 @@
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1340932229450174465"
   },
   {
+    "id": "aquamark",
+    "name": "AquaMark",
+    "icon": "https://cdn.discordapp.com/app-icons/1440594456490414225/c9d2685d2bc25fa91f136ebf43d9e17a.png?size=512",
+    "bannerImage": "/litarena/screenshots/aquamark/banner.png",
+    "description": "Professional image watermarking bot with advanced customization options for protecting digital content, branding images, and maintaining intellectual property rights.",
+    "status": "active",
+    "features": [
+      "Text watermarks with full typography control",
+      "Logo watermarks for brand placement",
+      "Invisible steganographic watermarks (LSB technique)",
+      "Batch processing for up to 10 images simultaneously",
+      "Multiple positioning options (center, corners, tiled)",
+      "Adjustable opacity, rotation, and color settings",
+      "Professional presets (Photography, Copyright, Subtle, Bold)",
+      "Save up to 10 custom watermark configurations",
+      "Preview mode for low-resolution previews",
+      "Metadata preservation and format optimization"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "free",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "All watermarking features",
+            "Batch processing up to 10 images",
+            "10 saved preferences per user",
+            "All preset configurations",
+            "Unlimited servers"
+          ]
+        }
+      ]
+    },
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-01",
+        "changes": [
+          "Initial release with text and logo watermarking",
+          "Batch processing support",
+          "User preference management",
+          "Professional preset configurations",
+          "Invisible watermark steganography"
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1440594456490414225"
+  },
+  {
     "id": "localtrust",
     "name": "LocalTrust",
     "icon": "https://cdn.discordapp.com/app-icons/1444097653821542410/8d5e24c70f068c32795932452fe32858.png?size=512",
@@ -680,7 +735,7 @@
     ],
     "tos": null,
     "privacy": null,
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=275415247936&scope=bot%20applications.commands"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1444097653821542410"
   },
   {
     "id": "130-bot",
