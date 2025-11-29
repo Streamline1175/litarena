@@ -685,8 +685,8 @@
   {
     "id": "130-bot",
     "name": "130 Bot",
-    "icon": "",
-    "bannerImage": "",
+    "icon": "https://cdn.discordapp.com/app-icons/1155192681023152241/802bc4a94cd863d74f322f9eab57ad92.png?size=512",
+    "bannerImage": "/litarena/screenshots/130-bot/banner.png",
     "description": "Professional eBay market analysis bot powered by 130point.com data. Provides comprehensive sold listing analysis, price trends, market sentiment, and profitability calculations for resellers, collectors, and businesses.",
     "status": "active",
     "features": [
@@ -746,7 +746,7 @@
     ],
     "tos": null,
     "privacy": null,
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID_HERE"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1155192681023152241"
   },
   {
     "id": "waifu-bot",
