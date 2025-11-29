@@ -863,7 +863,7 @@
     "id": "coc-watcher",
     "name": "CoC Watcher",
     "icon": "https://cdn.discordapp.com/app-icons/1406242315336683692/5a51f232198bf29a81c69a94db1b48c2.png?size=512",
-    "bannerImage": "/litarena/screenshots/coc-watcher/screenshot-1.png",
+    "bannerImage": "/litarena/screenshots/coc-watcher/banner.png",
     "description": "CoC Watcher provides real-time monitoring and analytics for Clash of Clans wars.",
     "status": "active",
     "features": [
