@@ -1,30 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import BotGrid from './components/BotGrid';
 import BotModal from './components/BotModal';
-import AdminPanel from './components/AdminPanel';
 import SearchBar from './components/SearchBar';
 import FilterBar from './components/FilterBar';
 import botsData from './data/bots.json';
 
 function App() {
-  const [bots, setBots] = useState(() => {
-    // Try to load from localStorage first
-    const savedBots = localStorage.getItem('bots');
-    return savedBots ? JSON.parse(savedBots) : botsData;
-  });
-
+  const [bots] = useState(botsData);
   const [selectedBot, setSelectedBot] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [darkMode, setDarkMode] = useState(true);
-
-  // Save bots to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('bots', JSON.stringify(bots));
-  }, [bots]);
 
   // Filter bots based on search and status
   const filteredBots = bots.filter(bot => {
@@ -37,20 +26,12 @@ function App() {
     return matchesSearch && matchesStatus;
   });
 
-  const updateBots = (newBots) => {
-    setBots(newBots);
-  };
-
   return (
     <Router basename="/litarena">
       <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
         <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
         <Routes>
-          <Route path="/admin" element={
-            <AdminPanel bots={bots} updateBots={updateBots} />
-          } />
-
           <Route path="/" element={
             <>
               <main id="bots" className="container mx-auto px-4 py-8 mt-8">

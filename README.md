@@ -81,8 +81,7 @@ litarena/
 │   │   ├── FilterBar.jsx       # Status filters
 │   │   ├── BotGrid.jsx         # Grid layout
 │   │   ├── BotCard.jsx         # Individual bot cards
-│   │   ├── BotModal.jsx        # Detailed bot view
-│   │   └── AdminPanel.jsx      # Admin interface
+│   │   └── BotModal.jsx        # Detailed bot view
 │   ├── data/
 │   │   └── bots.json           # Bot database
 │   ├── App.jsx                 # Main application
