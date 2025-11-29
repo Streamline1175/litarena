@@ -1,12 +1,21 @@
 import { motion } from 'framer-motion';
 
-const FilterBar = ({ statusFilter, setStatusFilter }) => {
-  const filters = [
+const FilterBar = ({ statusFilter, setStatusFilter, category = 'bots' }) => {
+  const botFilters = [
     { id: 'all', label: 'All Bots', color: 'primary' },
     { id: 'active', label: 'Active', color: 'green' },
     { id: 'beta', label: 'Beta', color: 'yellow' },
     { id: 'maintenance', label: 'Maintenance', color: 'red' }
   ];
+
+  const toolFilters = [
+    { id: 'all', label: 'All Tools', color: 'primary' },
+    { id: 'active', label: 'Available', color: 'green' },
+    { id: 'coming-soon', label: 'Coming Soon', color: 'blue' },
+    { id: 'beta', label: 'Beta', color: 'yellow' }
+  ];
+
+  const filters = category === 'bots' ? botFilters : toolFilters;
 
   const getColorClasses = (color, isActive) => {
     const colors = {
@@ -17,6 +26,10 @@ const FilterBar = ({ statusFilter, setStatusFilter }) => {
       green: {
         active: 'bg-green-500/20 border-green-400/50 text-green-300 shadow-green-500/30',
         inactive: 'bg-white/5 border-white/10 text-gray-400 hover:bg-green-500/10 hover:border-green-500/30'
+      },
+      blue: {
+        active: 'bg-blue-500/20 border-blue-400/50 text-blue-300 shadow-blue-500/30',
+        inactive: 'bg-white/5 border-white/10 text-gray-400 hover:bg-blue-500/10 hover:border-blue-500/30'
       },
       yellow: {
         active: 'bg-yellow-500/20 border-yellow-400/50 text-yellow-300 shadow-yellow-500/30',

@@ -4,16 +4,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import BotGrid from './components/BotGrid';
 import BotModal from './components/BotModal';
+import ToolGrid from './components/ToolGrid';
+import ToolModal from './components/ToolModal';
 import SearchBar from './components/SearchBar';
 import FilterBar from './components/FilterBar';
+import CategoryToggle from './components/CategoryToggle';
 import botsData from './data/bots.json';
+import toolsData from './data/tools.json';
 
 function App() {
   const [bots] = useState(botsData);
+  const [tools] = useState(toolsData);
   const [selectedBot, setSelectedBot] = useState(null);
+  const [selectedTool, setSelectedTool] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [darkMode, setDarkMode] = useState(true);
+  const [activeCategory, setActiveCategory] = useState('bots');
 
   // Filter bots based on search and status
   const filteredBots = bots.filter(bot => {
@@ -22,6 +29,19 @@ function App() {
                          bot.features.some(f => f.toLowerCase().includes(searchQuery.toLowerCase()));
 
     const matchesStatus = statusFilter === 'all' || bot.status === statusFilter;
+
+    return matchesSearch && matchesStatus;
+  });
+
+  // Filter tools based on search and status
+  const filteredTools = tools.filter(tool => {
+    const matchesSearch = tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         tool.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         tool.features.some(f => f.toLowerCase().includes(searchQuery.toLowerCase()));
+
+    const matchesStatus = statusFilter === 'all' || 
+                         tool.status === statusFilter ||
+                         (statusFilter === 'active' && tool.status === 'coming-soon');
 
     return matchesSearch && matchesStatus;
   });
@@ -40,35 +60,87 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
+                  {/* Category Toggle */}
+                  <CategoryToggle 
+                    activeCategory={activeCategory} 
+                    setActiveCategory={(cat) => {
+                      setActiveCategory(cat);
+                      setSearchQuery('');
+                      setStatusFilter('all');
+                    }} 
+                  />
+
                   <SearchBar
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
+                    placeholder={activeCategory === 'bots' ? 'Search bots...' : 'Search tools...'}
                   />
 
                   <FilterBar
                     statusFilter={statusFilter}
                     setStatusFilter={setStatusFilter}
+                    category={activeCategory}
                   />
 
                   <div className="mt-6 mb-4 text-gray-400 text-sm">
-                    Showing {filteredBots.length} of {bots.length} bots
+                    {activeCategory === 'bots' 
+                      ? `Showing ${filteredBots.length} of ${bots.length} bots`
+                      : `Showing ${filteredTools.length} of ${tools.length} tools`
+                    }
                   </div>
 
-                  <BotGrid
-                    bots={filteredBots}
-                    onBotClick={setSelectedBot}
-                  />
+                  {/* Animated content switch */}
+                  <AnimatePresence mode="wait">
+                    {activeCategory === 'bots' ? (
+                      <motion.div
+                        key="bots"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <BotGrid
+                          bots={filteredBots}
+                          onBotClick={setSelectedBot}
+                        />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="tools"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ToolGrid
+                          tools={filteredTools}
+                          onToolClick={setSelectedTool}
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               </main>
             </>
           } />
         </Routes>
 
+        {/* Bot Modal */}
         <AnimatePresence>
           {selectedBot && (
             <BotModal
               bot={selectedBot}
               onClose={() => setSelectedBot(null)}
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Tool Modal */}
+        <AnimatePresence>
+          {selectedTool && (
+            <ToolModal
+              tool={selectedTool}
+              onClose={() => setSelectedTool(null)}
             />
           )}
         </AnimatePresence>

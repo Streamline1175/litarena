@@ -1,0 +1,128 @@
+[
+  {
+    "id": "file-organizer",
+    "name": "File Organizer",
+    "icon": "📁",
+    "bannerImage": null,
+    "description": "Automatically organize your downloads, documents, and files into categorized folders. Set custom rules, schedule automatic cleanup, and keep your file system tidy without lifting a finger.",
+    "status": "coming-soon",
+    "downloadUrl": null,
+    "platform": ["windows", "macos"],
+    "features": [
+      "Automatic file sorting by type, date, or custom rules",
+      "Watch folders for real-time organization",
+      "Duplicate file detection and cleanup",
+      "Custom folder templates",
+      "Scheduled cleanup tasks",
+      "File naming conventions",
+      "Undo history for all operations"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "free",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Unlimited file organization",
+            "Custom rules",
+            "All platforms"
+          ]
+        }
+      ]
+    },
+    "changelog": [],
+    "requirements": {
+      "os": "Windows 10+ / macOS 11+",
+      "storage": "50 MB",
+      "memory": "128 MB RAM"
+    }
+  },
+  {
+    "id": "clipboard-manager",
+    "name": "Clipboard Manager",
+    "icon": "📋",
+    "bannerImage": null,
+    "description": "Never lose copied content again. This lightweight clipboard manager stores your copy history, supports pinned snippets, and lets you quickly access anything you've copied with a simple keyboard shortcut.",
+    "status": "coming-soon",
+    "downloadUrl": null,
+    "platform": ["windows", "macos"],
+    "features": [
+      "Unlimited clipboard history",
+      "Pin frequently used snippets",
+      "Quick search through history",
+      "Global hotkey access",
+      "Image and file support",
+      "Sync across devices",
+      "Privacy mode for sensitive data"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "free",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Unlimited history",
+            "All features included",
+            "No ads or tracking"
+          ]
+        }
+      ]
+    },
+    "changelog": [],
+    "requirements": {
+      "os": "Windows 10+ / macOS 11+",
+      "storage": "25 MB",
+      "memory": "64 MB RAM"
+    }
+  },
+  {
+    "id": "quick-resize",
+    "name": "Quick Resize",
+    "icon": "🖼️",
+    "bannerImage": null,
+    "description": "Batch resize, convert, and optimize images with drag-and-drop simplicity. Perfect for content creators, developers, and anyone who works with images regularly.",
+    "status": "coming-soon",
+    "downloadUrl": null,
+    "platform": ["windows", "macos"],
+    "features": [
+      "Batch image processing",
+      "Drag and drop interface",
+      "Multiple format conversion (PNG, JPG, WebP, AVIF)",
+      "Smart compression with quality control",
+      "Preset sizes for social media",
+      "Watermark support",
+      "EXIF data management"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "free",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Unlimited batch processing",
+            "All format conversions",
+            "No watermarks"
+          ]
+        }
+      ]
+    },
+    "changelog": [],
+    "requirements": {
+      "os": "Windows 10+ / macOS 11+",
+      "storage": "75 MB",
+      "memory": "256 MB RAM"
+    }
+  }
+]

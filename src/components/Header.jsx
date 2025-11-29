@@ -45,7 +45,7 @@ function Header({ darkMode, setDarkMode }) {
                 Lit Arena Development
               </h1>
               <p className="text-sm text-gray-400">
-                Professional Discord Bots for Every Need
+                Discord Bots & Clean Desktop Utilities
               </p>
             </div>
           </Link>
