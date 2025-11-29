@@ -3,7 +3,7 @@
     "id": "card-flipper-bot",
     "name": "Card Flipper Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512",
-    "bannerImage": "/litarena/screenshots/card-flipper-bot/screenshot-1.png",
+    "bannerImage": "/litarena/screenshots/card-flipper-bot/banner.png",
     "description": "Your ultimate Pokemon card value tracking assistant! Card Flipper Bot analyzes PSA card prices from GameStop, identifies undervalued cards with profit potential, and provides detailed market analytics to help you make informed trading decisions.",
     "status": "active",
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1325707530436870205",
@@ -131,7 +131,7 @@
     "id": "mercari-japan-bot",
     "name": "Mercari Japan Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1354826669885489292/5ed6992e17e2e92783df5f0599908d0f.png?size=512",
-    "bannerImage": "/litarena/screenshots/mercari-japan-bot/screenshot-1.png",
+    "bannerImage": "/litarena/screenshots/mercari-japan-bot/banner.png",
     "description": "Advanced Mercari Japan monitoring bot with real-time listing alerts, auto-translation, currency conversion, and comprehensive notification systems. Provides personal alerts, server-wide monitoring, role pings, watchlist management, and sophisticated subscription tiers for collectors, resellers, and communities seeking rare Japanese marketplace finds.",
     "status": "active",
     "features": [
@@ -440,7 +440,7 @@
     "id": "auto-pinger-bot",
     "name": "Auto Pinger Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1340932229450174465/fa14ced29206c9a91945c1d8477b8d4a.png?size=512",
-    "bannerImage": "/litarena/screenshots/auto-pinger-bot/screenshot-1.png",
+    "bannerImage": "/litarena/screenshots/auto-pinger-bot/banner.png",
     "description": "The ultimate Discord keyword monitoring and notification system with advanced role management, interactive request handling, and intelligent message forwarding. Auto Pinger Bot provides comprehensive server automation for communities that need reliable, customizable notification systems with enterprise-grade features.",
     "status": "active",
     "features": [
