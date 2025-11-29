@@ -42,7 +42,7 @@ function Header({ darkMode, setDarkMode }) {
             </motion.div>
             <div>
               <h1 className="text-3xl font-bold gradient-text">
-                Lit Arena Bots
+                Lit Arena Development
               </h1>
               <p className="text-sm text-gray-400">
                 Professional Discord Bots for Every Need

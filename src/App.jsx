@@ -85,7 +85,7 @@ function App() {
 
             {/* Copyright and Contact */}
             <div className="text-center text-gray-400">
-              <p className="text-sm">&copy; 2025 Lit Arena Bots. All rights reserved.</p>
+              <p className="text-sm">&copy; 2025 Lit Arena Development. All rights reserved.</p>
               <p className="mt-3 text-sm">
                 <a
                   href="https://discord.com/users/100304188658958336"

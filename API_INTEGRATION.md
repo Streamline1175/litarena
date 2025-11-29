@@ -1,4 +1,4 @@
-# Lit Arena Bots - API Integration Guide
+# Lit Arena Development - API Integration Guide
 
 This document explains how to integrate your backend API with the bot showcase frontend.
 

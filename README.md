@@ -1,4 +1,4 @@
-# Lit Arena Bots Showcase 🤖
+# Lit Arena Development Showcase 🤖
 
 A modern, interactive showcase for Discord bots built with React, Vite, and Tailwind CSS. Features a beautiful glassmorphism design, smooth animations, and a powerful admin panel for managing your bot collection.
 
@@ -246,7 +246,7 @@ npm run dev
 
 ## 📄 License
 
-All rights reserved © 2025 Lit Arena Bots
+All rights reserved © 2025 Lit Arena Development
 
 ## 🤝 Support
 

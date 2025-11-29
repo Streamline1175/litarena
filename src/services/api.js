@@ -1,5 +1,5 @@
 /**
- * API Service for Lit Arena Bots
+ * API Service for Lit Arena Development
  * Configure your API base URL in the environment or here
  */
 
