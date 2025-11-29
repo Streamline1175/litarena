@@ -3,6 +3,7 @@
     "id": "card-flipper-bot",
     "name": "Card Flipper Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1325707530436870205/fb48f898420df790d124501af8bb862b.png?size=512",
+    "bannerImage": "/litarena/screenshots/card-flipper-bot/screenshot-1.png",
     "description": "Your ultimate Pokemon card value tracking assistant! Card Flipper Bot analyzes PSA card prices from GameStop, identifies undervalued cards with profit potential, and provides detailed market analytics to help you make informed trading decisions.",
     "status": "active",
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1325707530436870205",
@@ -130,6 +131,7 @@
     "id": "mercari-japan-bot",
     "name": "Mercari Japan Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1354826669885489292/5ed6992e17e2e92783df5f0599908d0f.png?size=512",
+    "bannerImage": "/litarena/screenshots/mercari-japan-bot/screenshot-1.png",
     "description": "Advanced Mercari Japan monitoring bot with real-time listing alerts, auto-translation, currency conversion, and comprehensive notification systems. Provides personal alerts, server-wide monitoring, role pings, watchlist management, and sophisticated subscription tiers for collectors, resellers, and communities seeking rare Japanese marketplace finds.",
     "status": "active",
     "features": [
@@ -438,6 +440,7 @@
     "id": "auto-pinger-bot",
     "name": "Auto Pinger Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1340932229450174465/fa14ced29206c9a91945c1d8477b8d4a.png?size=512",
+    "bannerImage": "/litarena/screenshots/auto-pinger-bot/screenshot-1.png",
     "description": "The ultimate Discord keyword monitoring and notification system with advanced role management, interactive request handling, and intelligent message forwarding. Auto Pinger Bot provides comprehensive server automation for communities that need reliable, customizable notification systems with enterprise-grade features.",
     "status": "active",
     "features": [
@@ -581,6 +584,7 @@
     "id": "waifu-bot",
     "name": "Waifu Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1255750520103243807/b39ddd029ce811b584d7e628c085cb97.png?size=512",
+    "bannerImage": "",
     "description": "Anime character database and interaction bot with character information and image sharing features.",
     "status": "active",
     "features": [
@@ -623,6 +627,7 @@
     "id": "the-manager",
     "name": "The Manager",
     "icon": "https://cdn.discordapp.com/app-icons/1323134432403525694/4176f7f5c30e06a0c2e175600abc5796.png?size=512",
+    "bannerImage": "",
     "description": "Professional ACO (Add-to-Cart Opportunity) management system for sneaker and streetwear communities. Create comprehensive product release forms with interactive features, bulk upload capabilities, automated thread management, and advanced permission controls for organized community collaboration.",
     "status": "active",
     "features": [
@@ -813,6 +818,7 @@
     "id": "scratch-off-bot",
     "name": "Scratch Off Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1408793269642727434/2baa768c7721594c037ddfbecffb1634.png?size=512",
+    "bannerImage": "",
     "description": "Add a description for Scratch Bot here.",
     "status": "active",
     "features": [
@@ -857,6 +863,7 @@
     "id": "coc-watcher",
     "name": "CoC Watcher",
     "icon": "https://cdn.discordapp.com/app-icons/1406242315336683692/5a51f232198bf29a81c69a94db1b48c2.png?size=512",
+    "bannerImage": "/litarena/screenshots/coc-watcher/screenshot-1.png",
     "description": "CoC Watcher provides real-time monitoring and analytics for Clash of Clans wars.",
     "status": "active",
     "features": [
@@ -928,6 +935,7 @@
     "id": "saveit",
     "name": "SaveIt",
     "icon": "https://cdn.discordapp.com/app-icons/1433229400769429625/71b1ec889af984f844bf3a8048746119.png?size=512",
+    "bannerImage": "",
     "description": "Add a description for SaveIt here.",
     "status": "active",
     "features": [
@@ -972,6 +980,7 @@
     "id": "anonymous-art",
     "name": "Anonymous Art",
     "icon": "https://cdn.discordapp.com/app-icons/1432939933454041233/7f8b4f3f437b1d8c4add66ff4737f072.png?size=512",
+    "bannerImage": "",
     "description": "Add a description for Anonymous Art here.",
     "status": "active",
     "features": [

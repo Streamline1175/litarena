@@ -68,8 +68,27 @@ const BotCard = ({ bot, onClick, index }) => {
       className="relative group cursor-pointer"
     >
       {/* Card container with glassmorphism */}
-      <div className="relative h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 overflow-hidden
+      <div className="relative h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                     shadow-xl hover:shadow-2xl hover:shadow-primary-500/20 transition-all duration-300">
+
+        {/* Banner/Cover Image */}
+        {bot.bannerImage && (
+          <div className="relative h-32 w-full overflow-hidden">
+            <img
+              src={bot.bannerImage}
+              alt={`${bot.name} banner`}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+            {/* Gradient overlay for better text visibility */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/90" />
+          </div>
+        )}
+
+        {/* Content wrapper with padding */}
+        <div className={bot.bannerImage ? "p-6 pt-4" : "p-6"}>
 
         {/* Gradient glow effect on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 via-accent-500/0 to-primary-500/0
@@ -201,6 +220,7 @@ const BotCard = ({ bot, onClick, index }) => {
             repeatDelay: 1
           }}
         />
+        </div>
       </div>
     </motion.div>
   );

@@ -302,6 +302,7 @@ They are NOT visible to other users until you complete these steps.
                   id: '',
                   name: '',
                   icon: '',
+                  bannerImage: '',
                   description: '',
                   status: 'active',
                   installUrl: '',
@@ -521,6 +522,17 @@ function BotEditor({ bot, onSave, onClose, isNew }) {
                 onChange={(e) => updateField('icon', e.target.value)}
                 className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:border-primary-500 outline-none"
                 required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold mb-2">Banner Image URL</label>
+              <input
+                type="url"
+                value={formData.bannerImage || ''}
+                onChange={(e) => updateField('bannerImage', e.target.value)}
+                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:border-primary-500 outline-none"
+                placeholder="Optional cover/banner image"
               />
             </div>
 
