@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
-import TestimonialsSection from './components/TestimonialsSection';
 import BotGrid from './components/BotGrid';
 import BotModal from './components/BotModal';
 import AdminPanel from './components/AdminPanel';
@@ -80,8 +79,6 @@ function App() {
                   />
                 </motion.div>
               </main>
-
-              <TestimonialsSection />
             </>
           } />
         </Routes>
