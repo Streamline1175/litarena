@@ -584,7 +584,7 @@
     "id": "localtrust",
     "name": "LocalTrust",
     "icon": "https://cdn.discordapp.com/app-icons/1444097653821542410/8d5e24c70f068c32795932452fe32858.png?size=512",
-    "bannerImage": "/litarena/screenshots/localtrust/banner.png",
+    "bannerImage": "/litarena/screenshots/localtrust/banner.jpeg",
     "description": "Hyper-local marketplace and classifieds bot for Discord communities. Create listings, build reputation, verify users, and trade safely within university servers, neighborhood groups, and local hobbyist communities.",
     "status": "beta",
     "features": [
