@@ -627,7 +627,7 @@
     "id": "the-manager",
     "name": "The Manager",
     "icon": "https://cdn.discordapp.com/app-icons/1323134432403525694/4176f7f5c30e06a0c2e175600abc5796.png?size=512",
-    "bannerImage": "",
+    "bannerImage": "/litarena/screenshots/the-manager/banner.png",
     "description": "Professional ACO (Add-to-Cart Opportunity) management system for sneaker and streetwear communities. Create comprehensive product release forms with interactive features, bulk upload capabilities, automated thread management, and advanced permission controls for organized community collaboration.",
     "status": "active",
     "features": [
