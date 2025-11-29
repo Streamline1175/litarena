@@ -581,10 +581,178 @@
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1340932229450174465"
   },
   {
+    "id": "localtrust",
+    "name": "LocalTrust",
+    "icon": "",
+    "bannerImage": "",
+    "description": "Hyper-local marketplace and classifieds bot for Discord communities. Create listings, build reputation, verify users, and trade safely within university servers, neighborhood groups, and local hobbyist communities.",
+    "status": "beta",
+    "features": [
+      "Structured marketplace listings with categories and conditions",
+      "Global reputation system that follows users across servers",
+      "Email and admin verification for trusted trading",
+      "Smart search with keyword matching and filters",
+      "Image support with up to 10 images per listing",
+      "Watch alerts for instant notifications on wanted items",
+      "Offer system for price negotiations",
+      "Seller watchlist to follow favorite traders",
+      "Safe meetup spot suggestions",
+      "Dispute and report system for safety",
+      "Premium features for power sellers",
+      "Listing bumps to boost visibility",
+      "Detailed analytics and transaction history"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "5 listings per day",
+            "2 bumps per week",
+            "3 watch alerts",
+            "Full search and browse access",
+            "Reputation building",
+            "Verification support",
+            "Offer and watchlist features"
+          ]
+        },
+        {
+          "name": "Premium Subscription",
+          "price": "TBD",
+          "period": "month",
+          "features": [
+            "20 listings per day",
+            "10 bumps per week",
+            "10 watch alerts",
+            "Advanced analytics",
+            "💎 Premium badge",
+            "Featured listings",
+            "Priority support"
+          ]
+        },
+        {
+          "name": "Bump Credits",
+          "price": "TBD",
+          "period": "one-time",
+          "features": [
+            "Purchase bump credits individually",
+            "Boost listings to the top of search results",
+            "Credits never expire",
+            "Use anytime without subscription"
+          ]
+        },
+        {
+          "name": "Alert Credits",
+          "price": "TBD",
+          "period": "one-time",
+          "features": [
+            "Purchase additional watch alerts",
+            "Get notified when wanted items are listed",
+            "Credits never expire",
+            "Stack on top of free or premium limits"
+          ]
+        }
+      ]
+    },
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-11-29",
+        "changes": [
+          "Initial release with full marketplace functionality",
+          "Listing creation with categories, conditions, and images",
+          "Global reputation and rating system",
+          "Email and admin verification",
+          "Smart search with filters and sorting",
+          "Watch alerts and seller watchlist",
+          "Offer system for negotiations",
+          "Report and dispute system",
+          "Premium subscription tier",
+          "One-time bump and alert credit purchases",
+          "Comprehensive /guide help system"
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=275415247936&scope=bot%20applications.commands"
+  },
+  {
+    "id": "130-bot",
+    "name": "130 Bot",
+    "icon": "",
+    "bannerImage": "",
+    "description": "Professional eBay market analysis bot powered by 130point.com data. Provides comprehensive sold listing analysis, price trends, market sentiment, and profitability calculations for resellers, collectors, and businesses.",
+    "status": "active",
+    "features": [
+      "Single item eBay sold listing analysis with detailed price statistics",
+      "Bulk item analysis for up to 100 items simultaneously",
+      "Profitability calculations with fees, taxes, and ROI metrics",
+      "Market sentiment indicators (Hot, Stable, Cooling)",
+      "Visual price charts with trend lines and breakeven markers",
+      "Saved searches with quick re-run functionality",
+      "Real-time queue management and progress tracking",
+      "CSV export for bulk analysis results",
+      "Automatic currency conversion for international sales",
+      "Outlier detection and price filtering"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "freemium",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Single item analysis (!item)",
+            "Unlimited saved searches",
+            "Queue status monitoring",
+            "Help documentation"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$12.99",
+          "period": "month",
+          "features": [
+            "All Free features",
+            "Bulk analysis (!fastitems)",
+            "Real-time progress tracking",
+            "Downloadable CSV reports",
+            "Priority queue processing"
+          ]
+        }
+      ]
+    },
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-01",
+        "changes": [
+          "Initial release with single item analysis",
+          "Bulk item analysis with premium subscription",
+          "Price chart generation",
+          "Saved searches functionality",
+          "Queue management system"
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID_HERE"
+  },
+  {
     "id": "waifu-bot",
     "name": "Waifu Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1255750520103243807/b39ddd029ce811b584d7e628c085cb97.png?size=512",
-    "bannerImage": "",
+    "bannerImage": "/litarena/screenshots/waifu-bot/banner.png",
     "description": "Anime character database and interaction bot with character information and image sharing features.",
     "status": "active",
     "features": [
