@@ -1090,7 +1090,7 @@
     ],
     "tos": null,
     "privacy": null,
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID_HERE"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1408793269642727434"
   },
   {
     "id": "coc-watcher",
@@ -1169,12 +1169,23 @@
     "name": "SaveIt",
     "icon": "https://cdn.discordapp.com/app-icons/1433229400769429625/71b1ec889af984f844bf3a8048746119.png?size=512",
     "bannerImage": "/litarena/screenshots/saveit/banner.png",
-    "description": "Add a description for SaveIt here.",
+    "description": "A powerful Discord bot for saving, organizing, and retrieving important Discord messages and personal notes with collections, smart tagging, and fuzzy search.",
     "status": "active",
     "features": [
-      "Feature 1",
-      "Feature 2",
-      "Feature 3"
+      "Save Discord messages as bookmarks with notes and tags",
+      "Create and organize personal notes",
+      "Collections for grouping bookmarks (public or private)",
+      "Reaction bookmarking with 🔖 emoji",
+      "Smart tagging with autocomplete",
+      "Pin favorites to top of lists",
+      "Share bookmarks and notes with other users",
+      "Fuzzy search across all content",
+      "Statistics dashboard with usage insights",
+      "URL import for web bookmarks",
+      "Batch operations for multiple items",
+      "Export to CSV or Markdown",
+      "Duplicate detection",
+      "Featured bookmarks for servers (Admin)"
     ],
     "screenshots": [],
     "videos": [],
@@ -1186,9 +1197,10 @@
           "price": "$0",
           "period": "forever",
           "features": [
-            "Basic functionality",
-            "Standard commands",
-            "Community support"
+            "Basic bookmarks and notes",
+            "Tag organization",
+            "Search functionality",
+            "Reaction bookmarking"
           ]
         },
         {
@@ -1196,15 +1208,32 @@
           "price": "$4.99",
           "period": "month",
           "features": [
-            "Everything in Free",
-            "Advanced features",
+            "Unlimited bookmarks across all servers",
+            "Unlimited notes and emoji mappings",
+            "Unlimited collections",
+            "Advanced search and filtering",
+            "Markdown export",
+            "Pin important items",
+            "Share with unlimited users",
             "Priority support"
-          ],
-          "popular": true
+          ]
         }
       ]
     },
-    "changelog": [],
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-01",
+        "changes": [
+          "Initial release with bookmark and note management",
+          "Collections for organizing bookmarks",
+          "Reaction bookmarking with 🔖",
+          "Smart tagging with autocomplete",
+          "Fuzzy search functionality",
+          "Export to CSV and Markdown"
+        ]
+      }
+    ],
     "tos": null,
     "privacy": null,
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1433229400769429625"
@@ -1215,7 +1244,7 @@
     "icon": "https://cdn.discordapp.com/app-icons/1432939933454041233/7f8b4f3f437b1d8c4add66ff4737f072.png?size=512",
     "bannerImage": "/litarena/screenshots/anonymous-art/banner.png",
     "description": "Discord bot for managing anonymous creative contests with fair voting systems. All submissions are kept anonymous until voting ends!",
-    "status": "active",
+    "status": "beta",
     "features": [
       "Anonymous submission system",
       "Fair voting with multiple voting modes",
