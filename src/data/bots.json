@@ -1038,49 +1038,59 @@
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1323134432403525694"
   },
   {
-    "id": "scratch-off-bot",
-    "name": "Scratch Off Bot",
+    "id": "scratch-bot",
+    "name": "Scratch Bot",
     "icon": "https://cdn.discordapp.com/app-icons/1408793269642727434/2baa768c7721594c037ddfbecffb1634.png?size=512",
-    "bannerImage": "",
-    "description": "Add a description for Scratch Bot here.",
+    "bannerImage": "/litarena/screenshots/scratch-bot/banner.png",
+    "description": "Multi-state scratch-off lottery analysis bot that helps users find the best scratch-off tickets using data-driven analysis for Texas and Oklahoma lotteries.",
     "status": "active",
     "features": [
-      "Feature 1",
-      "Feature 2",
-      "Feature 3"
+      "Multi-state lottery support (Texas & Oklahoma)",
+      "Win probability calculations based on remaining prizes",
+      "Expected value (EV) and ROI analysis",
+      "Composite scoring for balanced game ranking",
+      "10 category-based filters (Best ROI, Best Odds, Budget, Premium, etc.)",
+      "User and server-wide state preferences",
+      "Detailed game analytics with prize tier breakdowns",
+      "Smart 15-minute caching for fast responses",
+      "Price filtering for any ticket price point",
+      "Overall lottery statistics per state"
     ],
     "screenshots": [],
     "videos": [],
     "pricing": {
-      "model": "freemium",
+      "model": "free",
       "tiers": [
         {
           "name": "Free",
           "price": "$0",
           "period": "forever",
           "features": [
-            "Basic functionality",
-            "Standard commands",
-            "Community support"
+            "All lottery analysis features",
+            "All category filters",
+            "Detailed game analytics",
+            "User and server preferences",
+            "Unlimited servers"
           ]
-        },
-        {
-          "name": "Premium",
-          "price": "$4.99",
-          "period": "month",
-          "features": [
-            "Everything in Free",
-            "Advanced features",
-            "Priority support"
-          ],
-          "popular": true
         }
       ]
     },
-    "changelog": [],
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-01-01",
+        "changes": [
+          "Initial release with Texas and Oklahoma lottery support",
+          "Category-based game filtering",
+          "Win probability and EV calculations",
+          "User and server state preferences",
+          "Smart caching system"
+        ]
+      }
+    ],
     "tos": null,
     "privacy": null,
-    "installUrl": "https://discord.com/oauth2/authorize?client_id=1408793269642727434"
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID_HERE"
   },
   {
     "id": "coc-watcher",
@@ -1158,7 +1168,7 @@
     "id": "saveit",
     "name": "SaveIt",
     "icon": "https://cdn.discordapp.com/app-icons/1433229400769429625/71b1ec889af984f844bf3a8048746119.png?size=512",
-    "bannerImage": "",
+    "bannerImage": "/litarena/screenshots/saveit/banner.png",
     "description": "Add a description for SaveIt here.",
     "status": "active",
     "features": [
@@ -1203,43 +1213,48 @@
     "id": "anonymous-art",
     "name": "Anonymous Art",
     "icon": "https://cdn.discordapp.com/app-icons/1432939933454041233/7f8b4f3f437b1d8c4add66ff4737f072.png?size=512",
-    "bannerImage": "",
-    "description": "Add a description for Anonymous Art here.",
+    "bannerImage": "/litarena/screenshots/anonymous-art/banner.png",
+    "description": "Discord bot for managing anonymous creative contests with fair voting systems. All submissions are kept anonymous until voting ends!",
     "status": "active",
     "features": [
-      "Feature 1",
-      "Feature 2",
-      "Feature 3"
+      "Anonymous submission system",
+      "Fair voting with multiple voting modes",
+      "Customizable submission and voting periods",
+      "Moderator review and approval workflow",
+      "Automatic winner announcements",
+      "Contest analytics and statistics",
+      "Per-server configuration",
+      "Scheduled contest automation"
     ],
     "screenshots": [],
     "videos": [],
     "pricing": {
-      "model": "freemium",
+      "model": "free",
       "tiers": [
         {
           "name": "Free",
           "price": "$0",
           "period": "forever",
           "features": [
-            "Basic functionality",
-            "Standard commands",
+            "All bot features",
+            "Unlimited servers",
+            "Unlimited contests",
             "Community support"
           ]
-        },
-        {
-          "name": "Premium",
-          "price": "$4.99",
-          "period": "month",
-          "features": [
-            "Everything in Free",
-            "Advanced features",
-            "Priority support"
-          ],
-          "popular": true
         }
       ]
     },
-    "changelog": [],
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-11-29",
+        "changes": [
+          "Initial release with anonymous contest management.",
+          "Submission and voting system.",
+          "Moderation tools and analytics."
+        ]
+      }
+    ],
     "tos": null,
     "privacy": null,
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1432939933454041233"
