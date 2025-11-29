@@ -24,15 +24,15 @@ const CategoryToggle = ({ activeCategory, setActiveCategory }) => {
       transition={{ duration: 0.5 }}
       className="flex justify-center mb-8"
     >
-      <div className="relative inline-flex bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-1.5">
+      <div className="relative inline-flex bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-1.5 overflow-hidden">
         {/* Animated background slider */}
         <motion.div
           className="absolute top-1.5 bottom-1.5 rounded-xl bg-gradient-to-r from-primary-500/30 to-accent-500/30 border border-primary-400/30"
           initial={false}
           animate={{
-            x: activeCategory === 'bots' ? 0 : '100%',
-            width: '50%'
+            left: activeCategory === 'bots' ? '6px' : 'calc(50% + 3px)',
           }}
+          style={{ width: 'calc(50% - 9px)' }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         />
 
