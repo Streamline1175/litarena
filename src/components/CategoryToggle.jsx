@@ -59,23 +59,12 @@ const CategoryToggle = ({ activeCategory, setActiveCategory }) => {
               />
               <div className="text-left">
                 <div className="font-semibold text-sm">{category.label}</div>
-                <div className={`text-xs transition-colors duration-300 ${
-                  isActive ? 'text-gray-300' : 'text-gray-500'
+                <div className={`text-[10px] transition-colors duration-300 ${
+                  isActive ? 'text-gray-400' : 'text-gray-500'
                 }`}>
                   {category.description}
                 </div>
               </div>
-              
-              {/* Active indicator dot */}
-              {isActive && (
-                <motion.div
-                  layoutId="activeDot"
-                  className="absolute -top-1 -right-1 w-2 h-2 bg-primary-400 rounded-full"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                />
-              )}
             </motion.button>
           );
         })}
