@@ -30,9 +30,9 @@ const CategoryToggle = ({ activeCategory, setActiveCategory }) => {
           className="absolute top-1.5 bottom-1.5 rounded-xl bg-gradient-to-r from-primary-500/30 to-accent-500/30 border border-primary-400/30"
           initial={false}
           animate={{
-            left: activeCategory === 'bots' ? '6px' : 'calc(50% + 3px)',
+            left: activeCategory === 'bots' ? '6px' : '50%',
           }}
-          style={{ width: 'calc(50% - 9px)' }}
+          style={{ width: 'calc(50% - 6px)' }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         />
 
