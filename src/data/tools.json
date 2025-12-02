@@ -1,21 +1,24 @@
 [
   {
-    "id": "file-organizer",
-    "name": "File Organizer",
-    "icon": "📁",
+    "id": "process-surgeon",
+    "name": "Process Surgeon",
+    "icon": "🔧",
     "bannerImage": null,
-    "description": "Automatically organize your downloads, documents, and files into categorized folders. Set custom rules, schedule automatic cleanup, and keep your file system tidy without lifting a finger.",
-    "status": "coming-soon",
-    "downloadUrl": null,
-    "platform": ["windows", "macos"],
+    "description": "A cross-platform network port and process management utility for developers. Eliminates the need to memorize command-line tools like lsof or netstat with a powerful graphical interface.",
+    "status": "available",
+    "downloadUrl": "https://github.com/Streamline1175/port-bounty/releases",
+    "platform": ["windows", "macos", "linux"],
     "features": [
-      "Automatic file sorting by type, date, or custom rules",
-      "Watch folders for real-time organization",
-      "Duplicate file detection and cleanup",
-      "Custom folder templates",
-      "Scheduled cleanup tasks",
-      "File naming conventions",
-      "Undo history for all operations"
+      "Discover which applications are using specific network ports",
+      "Gracefully terminate processes (SIGTERM) or force-kill them (SIGKILL)",
+      "Real-time monitoring with configurable refresh intervals",
+      "Docker container management capabilities",
+      "Quick port search functionality with keyboard shortcuts",
+      "Favorite/pin commonly monitored ports",
+      "Action history with timestamps",
+      "Export data as JSON or CSV formats",
+      "Advanced filtering by name, PID, port, protocol, and connection state",
+      "Right-click context menu support"
     ],
     "screenshots": [],
     "videos": [],
@@ -27,79 +30,51 @@
           "price": "$0",
           "period": "forever",
           "features": [
-            "Unlimited file organization",
-            "Custom rules",
-            "All platforms"
-          ]
-        }
-      ]
-    },
-    "changelog": [],
-    "requirements": {
-      "os": "Windows 10+ / macOS 11+",
-      "storage": "50 MB",
-      "memory": "128 MB RAM"
-    }
-  },
-  {
-    "id": "clipboard-manager",
-    "name": "Clipboard Manager",
-    "icon": "📋",
-    "bannerImage": null,
-    "description": "Never lose copied content again. This lightweight clipboard manager stores your copy history, supports pinned snippets, and lets you quickly access anything you've copied with a simple keyboard shortcut.",
-    "status": "coming-soon",
-    "downloadUrl": null,
-    "platform": ["windows", "macos"],
-    "features": [
-      "Unlimited clipboard history",
-      "Pin frequently used snippets",
-      "Quick search through history",
-      "Global hotkey access",
-      "Image and file support",
-      "Sync across devices",
-      "Privacy mode for sensitive data"
-    ],
-    "screenshots": [],
-    "videos": [],
-    "pricing": {
-      "model": "free",
-      "tiers": [
-        {
-          "name": "Free",
-          "price": "$0",
-          "period": "forever",
-          "features": [
-            "Unlimited history",
+            "Open source (MIT License)",
             "All features included",
-            "No ads or tracking"
+            "Cross-platform support",
+            "No restrictions"
           ]
         }
       ]
     },
-    "changelog": [],
+    "changelog": [
+      {
+        "version": "0.1.0",
+        "date": "November 2025",
+        "changes": [
+          "Initial release",
+          "Port and process management",
+          "Docker container support",
+          "Export functionality"
+        ]
+      }
+    ],
     "requirements": {
-      "os": "Windows 10+ / macOS 11+",
-      "storage": "25 MB",
-      "memory": "64 MB RAM"
+      "os": "Windows 10+ / macOS 10.15+ / Linux (Ubuntu/Debian)",
+      "storage": "100 MB",
+      "memory": "256 MB RAM"
     }
   },
   {
-    "id": "quick-resize",
-    "name": "Quick Resize",
-    "icon": "🖼️",
+    "id": "log-microscope",
+    "name": "Log Microscope",
+    "icon": "🔬",
     "bannerImage": null,
-    "description": "Batch resize, convert, and optimize images with drag-and-drop simplicity. Perfect for content creators, developers, and anyone who works with images regularly.",
-    "status": "coming-soon",
-    "downloadUrl": null,
-    "platform": ["windows", "macos"],
+    "description": "High-performance desktop application for analyzing large log files. Leverages memory-mapped file access and parallel processing to handle gigabyte-scale logs efficiently with smooth 60 FPS scrolling.",
+    "status": "available",
+    "downloadUrl": "https://github.com/Streamline1175/log-microscope/releases",
+    "platform": ["windows", "macos", "linux"],
     "features": [
-      "Batch image processing",
-      "Drag and drop interface",
-      "Multiple format conversion (PNG, JPG, WebP, AVIF)",
-      "Smart compression with quality control",
-      "Preset sizes for social media",
-      "Watermark support",
-      "EXIF data management"
+      "Memory-mapped file access - open multi-gigabyte logs instantly",
+      "Parallel regex search with SIMD optimizations",
+      "SQL query support via Apache DataFusion engine",
+      "Virtualized rendering maintains 60 FPS through millions of lines",
+      "Recent files - quick access to last 7 opened files",
+      "Word wrap toggle for long log entries",
+      "Dark theme for extended debugging sessions",
+      "Fast pattern matching using Rust's rayon and memchr",
+      "No need to load entire files into memory"
     ],
     "screenshots": [],
     "videos": [],
@@ -111,18 +86,19 @@
           "price": "$0",
           "period": "forever",
           "features": [
-            "Unlimited batch processing",
-            "All format conversions",
-            "No watermarks"
+            "Open source (MIT License)",
+            "Unlimited log file size",
+            "All features included",
+            "Cross-platform support"
           ]
         }
       ]
     },
     "changelog": [],
     "requirements": {
-      "os": "Windows 10+ / macOS 11+",
-      "storage": "75 MB",
-      "memory": "256 MB RAM"
+      "os": "Windows 10+ / macOS 10.15+ / Linux",
+      "storage": "100 MB",
+      "memory": "512 MB RAM"
     }
   }
 ]
