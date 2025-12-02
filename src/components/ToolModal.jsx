@@ -33,6 +33,7 @@ const ToolModal = ({ tool, onClose }) => {
   const getStatusLabel = (status) => {
     const labels = {
       'active': 'Available',
+      'available': 'Available',
       'coming-soon': 'Coming Soon',
       'beta': 'Beta',
       'maintenance': 'Maintenance'
@@ -42,6 +43,7 @@ const ToolModal = ({ tool, onClose }) => {
 
   const statusColors = {
     active: 'bg-green-500/20 text-green-300 border-green-400/50',
+    available: 'bg-green-500/20 text-green-300 border-green-400/50',
     'coming-soon': 'bg-blue-500/20 text-blue-300 border-blue-400/50',
     beta: 'bg-yellow-500/20 text-yellow-300 border-yellow-400/50',
     maintenance: 'bg-red-500/20 text-red-300 border-red-400/50'
@@ -78,8 +80,19 @@ const ToolModal = ({ tool, onClose }) => {
           
           <div className="relative flex items-start gap-6">
             {/* Tool icon */}
-            <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-accent-500/30 to-primary-500/30 border border-white/20 flex items-center justify-center text-5xl shadow-xl">
-              {tool.icon}
+            <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-accent-500/30 to-primary-500/30 border border-white/20 overflow-hidden flex items-center justify-center shadow-xl">
+              {tool.icon && tool.icon.startsWith('/') ? (
+                <img
+                  src={tool.icon}
+                  alt={`${tool.name} icon`}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.outerHTML = `<span class="text-5xl">${tool.icon}</span>`;
+                  }}
+                />
+              ) : (
+                <span className="text-5xl">{tool.icon}</span>
+              )}
             </div>
 
             <div className="flex-1">
@@ -115,7 +128,7 @@ const ToolModal = ({ tool, onClose }) => {
 
         {/* Download button */}
         <div className="px-8 py-4">
-          {tool.status === 'active' && tool.downloadUrl ? (
+          {(tool.status === 'active' || tool.status === 'available') && tool.downloadUrl ? (
             <a
               href={tool.downloadUrl}
               target="_blank"

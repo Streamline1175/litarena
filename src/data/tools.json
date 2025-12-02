@@ -5,7 +5,7 @@
     "icon": "/litarena/screenshots/process-surgeon/icon.png",
     "bannerImage": "/litarena/screenshots/process-surgeon/banner.png",
     "description": "A cross-platform network port and process management utility for developers. Eliminates the need to memorize command-line tools like lsof or netstat with a powerful graphical interface.",
-    "status": "available",
+    "status": "active",
     "downloadUrl": "https://github.com/Streamline1175/port-bounty/releases",
     "platform": ["windows", "macos", "linux"],
     "features": [
@@ -62,7 +62,7 @@
     "icon": "/litarena/screenshots/log-microscope/icon.png",
     "bannerImage": "/litarena/screenshots/log-microscope/banner.png",
     "description": "High-performance desktop application for analyzing large log files. Leverages memory-mapped file access and parallel processing to handle gigabyte-scale logs efficiently with smooth 60 FPS scrolling.",
-    "status": "available",
+    "status": "active",
     "downloadUrl": "https://github.com/Streamline1175/log-microscope/releases",
     "platform": ["windows", "macos", "linux"],
     "features": [

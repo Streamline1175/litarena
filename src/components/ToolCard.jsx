@@ -18,6 +18,7 @@ const ToolCard = ({ tool, onClick, index }) => {
   // Status badge colors
   const statusColors = {
     active: 'bg-green-500/20 text-green-300 border-green-400/50',
+    available: 'bg-green-500/20 text-green-300 border-green-400/50',
     'coming-soon': 'bg-blue-500/20 text-blue-300 border-blue-400/50',
     beta: 'bg-yellow-500/20 text-yellow-300 border-yellow-400/50',
     maintenance: 'bg-red-500/20 text-red-300 border-red-400/50'
@@ -69,6 +70,7 @@ const ToolCard = ({ tool, onClick, index }) => {
   const getStatusLabel = (status) => {
     const labels = {
       'active': 'Available',
+      'available': 'Available',
       'coming-soon': 'Coming Soon',
       'beta': 'Beta',
       'maintenance': 'Maintenance'
@@ -92,12 +94,27 @@ const ToolCard = ({ tool, onClick, index }) => {
       <div className="relative h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                     shadow-xl hover:shadow-2xl hover:shadow-accent-500/20 transition-all duration-300">
 
-        {/* Tool icon header */}
-        <div className="relative h-32 w-full overflow-hidden bg-gradient-to-br from-accent-500/20 via-primary-500/10 to-transparent flex items-center justify-center">
-          <span className="text-6xl">{tool.icon}</span>
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/90" />
-        </div>
+        {/* Banner/Cover Image */}
+        {tool.bannerImage ? (
+          <div className="relative h-32 w-full overflow-hidden">
+            <img
+              src={tool.bannerImage}
+              alt={`${tool.name} banner`}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/90" />
+          </div>
+        ) : (
+          <div className="relative h-32 w-full overflow-hidden bg-gradient-to-br from-accent-500/20 via-primary-500/10 to-transparent flex items-center justify-center">
+            <span className="text-6xl">{tool.icon}</span>
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/90" />
+          </div>
+        )}
 
         {/* Content wrapper with padding */}
         <div className="p-6 pt-4">
@@ -188,14 +205,14 @@ const ToolCard = ({ tool, onClick, index }) => {
             {/* Action button */}
             <div className="flex items-center justify-between pt-4 border-t border-white/10">
               <span className="text-sm text-gray-400">
-                {tool.status === 'active' ? 'Download now' : 'Learn more'}
+                {(tool.status === 'active' || tool.status === 'available') ? 'Download now' : 'Learn more'}
               </span>
               <motion.div
                 className="flex items-center gap-2 text-accent-400 group-hover:text-accent-300"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                {tool.status === 'active' ? (
+                {(tool.status === 'active' || tool.status === 'available') ? (
                   <Download className="w-4 h-4" />
                 ) : (
                   <ArrowRight className="w-4 h-4" />
