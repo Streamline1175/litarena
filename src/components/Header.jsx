@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import { Moon, Sun } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-function Header({ darkMode, setDarkMode }) {
+function Header() {
   const navigate = useNavigate();
   const [keySequence, setKeySequence] = useState([]);
 
@@ -50,23 +49,7 @@ function Header({ darkMode, setDarkMode }) {
             </div>
           </Link>
 
-          <div className="flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-3 glass-effect glass-hover rounded-xl"
-              aria-label="Toggle theme"
-            >
-              {darkMode ? (
-                <Sun className="w-5 h-5 text-yellow-400" />
-              ) : (
-                <Moon className="w-5 h-5 text-blue-400" />
-              )}
-            </motion.button>
-
-            {/* Admin panel button removed - Access via Ctrl+Shift+A */}
-          </div>
+          {/* Admin panel button removed - Access via Ctrl+Shift+A */}
         </div>
       </div>
     </motion.header>

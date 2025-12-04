@@ -19,7 +19,6 @@ function App() {
   const [selectedTool, setSelectedTool] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
-  const [darkMode, setDarkMode] = useState(true);
   const [activeCategory, setActiveCategory] = useState('bots');
 
   // Filter bots based on search and status
@@ -48,8 +47,8 @@ function App() {
 
   return (
     <Router basename="/litarena">
-      <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      <div className="min-h-screen dark">
+        <Header />
 
         <Routes>
           <Route path="/" element={
