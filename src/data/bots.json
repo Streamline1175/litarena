@@ -601,7 +601,9 @@
       "Preview mode for low-resolution previews",
       "Metadata preservation and format optimization"
     ],
-    "screenshots": [],
+    "screenshots": [
+      "/litarena/screenshots/aquamark/screenshot-1.png"
+    ],
     "videos": [],
     "pricing": {
       "model": "free",
@@ -1289,5 +1291,93 @@
     "tos": null,
     "privacy": null,
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1432939933454041233"
+  },
+  {
+    "id": "shopguard",
+    "name": "ShopGuard",
+    "icon": "https://cdn.discordapp.com/app-icons/1445192539878457465/91be80353d33a1aba8e63ff53f876b9a.png?size=512",
+    "bannerImage": "/shopguard/screenshots/banner.png",
+    "description": "A Discord bot integrated with Shopify for Local Game Stores (LGS) and Local Card Stores (LCS) to sell inventory directly to their community while preventing bot sniping and ensuring fair access.",
+    "status": "beta",
+    "features": [
+      "Multi-layer bot protection and verification",
+      "Product drop creation and management from Discord",
+      "Private invoice system with hidden inventory",
+      "Fair queue system with randomized purchase order",
+      "Real-time analytics and drop performance tracking",
+      "Seamless Shopify store integration and sync",
+      "Advanced security with rate limiting and abuse prevention",
+      "Role-based access control and conditional verification",
+      "Automated scheduling for releases and drops",
+      "Customizable verification settings per server",
+      "Private channel management for exclusive access",
+      "Invoice generation via Shopify draft orders",
+      "Guild configuration and admin dashboard",
+      "Webhook notifications for drop events",
+      "Comprehensive moderation and approval workflows"
+    ],
+    "screenshots": [
+      "/shopguard/screenshots/screenshot-1.png",
+      "/shopguard/screenshots/screenshot-2.png",
+      "/shopguard/screenshots/screenshot-3.png",
+      "/shopguard/screenshots/screenshot-4.png"
+    ],
+    "videos": [],
+    "pricing": {
+      "model": "subscription",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "All core bot features",
+            "Unlimited servers",
+            "Unlimited drops and releases",
+            "Basic verification and queue system",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Pro",
+          "price": "$29",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Advanced analytics and reporting",
+            "Priority support",
+            "Custom branding options",
+            "No 'Powered by' branding"
+          ]
+        },
+        {
+          "name": "Enterprise",
+          "price": "$79",
+          "period": "month",
+          "features": [
+            "Everything in Pro",
+            "White-label solution",
+            "Dedicated support",
+            "Advanced customization",
+            "API access"
+          ]
+        }
+      ]
+    },
+    "changelog": [
+      {
+        "version": "0.1.0",
+        "date": "2025-12-01",
+        "changes": [
+          "Initial beta release with core functionality.",
+          "Bot setup, Discord integration, and basic Shopify API connection.",
+          "Release creation, user verification, and queue system.",
+          "Private channels, invoice generation, and basic analytics."
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1445192539878457465"
   }
 ]
