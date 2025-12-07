@@ -1296,7 +1296,7 @@
     "id": "shopguard",
     "name": "ShopGuard",
     "icon": "https://cdn.discordapp.com/app-icons/1445192539878457465/91be80353d33a1aba8e63ff53f876b9a.png?size=512",
-    "bannerImage": "/shopguard/screenshots/banner.png",
+    "bannerImage": "/litareana/screenshots/shopguard/banner.png",
     "description": "A Discord bot integrated with Shopify for Local Game Stores (LGS) and Local Card Stores (LCS) to sell inventory directly to their community while preventing bot sniping and ensuring fair access.",
     "status": "beta",
     "features": [
@@ -1317,10 +1317,10 @@
       "Comprehensive moderation and approval workflows"
     ],
     "screenshots": [
-      "/shopguard/screenshots/screenshot-1.png",
-      "/shopguard/screenshots/screenshot-2.png",
-      "/shopguard/screenshots/screenshot-3.png",
-      "/shopguard/screenshots/screenshot-4.png"
+      "/litareana/screenshots/shopguard/screenshot-1.png",
+      "/litareana/screenshots/shopguard/screenshot-2.jpeg",
+      "/litareana/screenshots/shopguard/screenshot-3.jpeg",
+      "/litareana/screenshots/shopguard/screenshot-4.jpeg"
     ],
     "videos": [],
     "pricing": {
