@@ -169,6 +169,13 @@ function App() {
                   </svg>
                   Contact on Discord
                 </a>
+                <span className="mx-2">|</span>
+                <a
+                  href="mailto:firethelitmage1@gmail.com"
+                  className="hover:text-primary-400 transition-colors"
+                >
+                  firethelitmage1@gmail.com
+                </a>
               </p>
             </div>
           </div>
