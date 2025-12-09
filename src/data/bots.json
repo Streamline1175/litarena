@@ -1379,5 +1379,71 @@
     "tos": null,
     "privacy": null,
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1445192539878457465"
+  },
+  {
+    "id": "japanese-translator-bot",
+    "name": "Japanese Tweet Translator",
+    "icon": "https://cdn.discordapp.com/app-icons/1447448485354803201/b9d395d27eb4eef9a02e7e7072b80297.png?size=512",
+    "bannerImage": "/litarena/screenshots/japanese-translator-bot/banner.png",
+    "description": "A Discord bot that automatically translates Japanese text in messages, embeds, and RSS feeds to English. Supports manual translations and premium RSS monitoring for comprehensive Japanese content translation.",
+    "status": "released",
+    "features": [
+      "Automatic translation of Japanese messages in monitored channels",
+      "Translation of embeds and forwarded content",
+      "Manual translation commands",
+      "Premium RSS feed monitoring with automatic translations",
+      "Channel monitoring setup with !set_channels command",
+      "Premium subscription for enhanced features",
+      "Daily premium entitlement checks",
+      "Support for multiple channels (up to 5 with premium)",
+      "Real-time translation using Google Translate API",
+      "Guild-specific configuration and data persistence"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "subscription",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Translate Japanese messages and embeds",
+            "Monitor 1 channel",
+            "Basic translation features",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$2.99",
+          "period": "month",
+          "features": [
+            "Everything in Free",
+            "Automatic RSS feed monitoring",
+            "Monitor up to 5 channels",
+            "Priority support",
+            "Enhanced features"
+          ]
+        }
+      ]
+    },
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-12-08",
+        "changes": [
+          "Initial release with core translation functionality",
+          "Discord integration and bot setup",
+          "Channel monitoring and RSS feed support",
+          "Premium subscription system",
+          "Automatic translation of messages, embeds, and RSS feeds"
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1447448485354803201"
   }
 ]
