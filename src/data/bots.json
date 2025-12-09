@@ -1400,7 +1400,9 @@
       "Guild-specific configuration and data persistence"
     ],
     "screenshots": [],
-    "videos": [],
+    "videos": [
+      "/litarena/screenshots/japanese-translator-bot/video-1.mov"
+    ],
     "pricing": {
       "model": "subscription",
       "tiers": [
