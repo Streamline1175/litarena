@@ -1447,5 +1447,98 @@
     "tos": null,
     "privacy": null,
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1447448485354803201"
+  },
+  {
+    "id": "secret-santa-helper-bot",
+    "name": "Secret Santa Discord Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1448452940254810212/f41ac92c7caa09c487495a768fa00dc5.png?size=512",
+    "bannerImage": "/litarena/screenshots/secret-santa-helper/banner.png",
+    "description": "The ultimate Discord bot for organizing Secret Santa events with premium features and customization. Supports up to 50 participants in the free tier and unlimited with premium purchase.",
+    "status": "released",
+    "features": [
+      "Create Secret Santa events (1 active event at a time in free tier)",
+      "Up to 50 participants per event (unlimited with premium)",
+      "Automated Secret Santa assignments",
+      "Anonymous messaging between Santa and giftee",
+      "Wishlist management",
+      "Participant profiles with interests",
+      "Shipping address collection",
+      "Event management (create, start, assign)",
+      "Privacy-focused (encrypted data, auto-deletion)",
+      "Premium: Multiple concurrent events",
+      "Premium: Budget tracking and management",
+      "Premium: Advanced wishlists with product scraping",
+      "Premium: Automated reminders",
+      "Premium: Gift tracking (purchase, shipping, delivery)",
+      "Premium: Event templates",
+      "Premium: Full customization (colors, messages, branding)",
+      "Premium: Custom questionnaires",
+      "Premium: Advanced restrictions (geographic matching, exclusions)",
+      "Premium: Analytics dashboard",
+      "Premium: Export data as CSV/Excel",
+      "Premium: Priority support"
+    ],
+    "screenshots": [],
+    "videos": [],
+    "pricing": {
+      "model": "one-time",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "period": "forever",
+          "features": [
+            "Create Secret Santa events (1 active at a time)",
+            "Up to 50 participants per event",
+            "Automated assignments",
+            "Anonymous messaging",
+            "Wishlist management",
+            "Participant profiles",
+            "Shipping address collection",
+            "Event management",
+            "Privacy-focused features",
+            "Community support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "$9.99",
+          "period": "one-time",
+          "features": [
+            "Everything in Free",
+            "Unlimited participants",
+            "Multiple concurrent events",
+            "Budget tracking",
+            "Advanced wishlists with product scraping",
+            "Automated reminders",
+            "Gift tracking",
+            "Event templates",
+            "Full customization",
+            "Custom questionnaires",
+            "Advanced restrictions",
+            "Analytics dashboard",
+            "Export data",
+            "Priority support"
+          ]
+        }
+      ]
+    },
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2025-12-11",
+        "changes": [
+          "Initial release with core Secret Santa functionality",
+          "Discord integration and bot setup",
+          "Event management, participant handling, and assignments",
+          "Wishlist and messaging features",
+          "Premium monetization system with Discord SKU",
+          "Privacy-focused data handling and auto-deletion"
+        ]
+      }
+    ],
+    "tos": null,
+    "privacy": null,
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1448452940254810212"
   }
 ]
