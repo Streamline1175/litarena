@@ -24,6 +24,36 @@ const BotModal = ({ bot, onClose }) => {
     deprecated: 'bg-gray-500/20 text-gray-300 border-gray-400/50'
   };
 
+  // Tag colors based on tag type
+  const getTagColor = (tag) => {
+    const tagLower = tag.toLowerCase();
+
+    // Pricing related tags
+    if (tagLower.includes('free') || tagLower.includes('open source')) {
+      return 'bg-green-500/20 text-green-300 border-green-400/50';
+    }
+    if (tagLower.includes('premium') || tagLower.includes('paid')) {
+      return 'bg-purple-500/20 text-purple-300 border-purple-400/50';
+    }
+    if (tagLower.includes('freemium') || tagLower.includes('trial')) {
+      return 'bg-blue-500/20 text-blue-300 border-blue-400/50';
+    }
+    if (tagLower.includes('one-time')) {
+      return 'bg-indigo-500/20 text-indigo-300 border-indigo-400/50';
+    }
+
+    // Feature related tags
+    if (tagLower.includes('real-time') || tagLower.includes('analytics') || tagLower.includes('statistics')) {
+      return 'bg-cyan-500/20 text-cyan-300 border-cyan-400/50';
+    }
+    if (tagLower.includes('automation') || tagLower.includes('bot protection')) {
+      return 'bg-orange-500/20 text-orange-300 border-orange-400/50';
+    }
+
+    // Default color for other tags
+    return 'bg-slate-500/20 text-slate-300 border-slate-400/50';
+  };
+
   const toggleChangelog = (index) => {
     setExpandedChangelog(prev =>
       prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
@@ -75,9 +105,24 @@ const BotModal = ({ bot, onClose }) => {
                     </div>
                     <div>
                       <h2 className="text-3xl font-bold text-white mb-2">{bot.name}</h2>
-                      <span className={`inline-block px-3 py-1 rounded-lg text-sm font-medium border ${statusColors[bot.status]}`}>
-                        {bot.status}
-                      </span>
+                      <div className="mb-2">
+                        <span className={`inline-block px-3 py-1 rounded-lg text-sm font-medium border ${statusColors[bot.status]}`}>
+                          {bot.status.charAt(0).toUpperCase() + bot.status.slice(1)}
+                        </span>
+                      </div>
+                      {/* Tags */}
+                      {bot.tags && bot.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {bot.tags.map((tag, idx) => (
+                            <span
+                              key={idx}
+                              className={`inline-block px-2.5 py-1 rounded-lg text-xs font-medium border ${getTagColor(tag)}`}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
 
