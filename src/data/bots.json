@@ -6,7 +6,12 @@
     "bannerImage": "/litarena/screenshots/card-flipper-bot/banner.png",
     "description": "Your ultimate Pokemon card value tracking assistant! Card Flipper Bot analyzes PSA card prices from GameStop, identifies undervalued cards with profit potential, and provides detailed market analytics to help you make informed trading decisions.",
     "status": "active",
-    "tags": ["Premium", "Analytics", "Real-time", "Social Media"],
+    "tags": [
+      "Premium",
+      "Analytics",
+      "Real-time",
+      "Social Media"
+    ],
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1325707530436870205",
     "features": [
       "Real-time PSA card price tracking from GameStop",
@@ -31,7 +36,7 @@
       "tiers": [
         {
           "name": "Slab Flips",
-          "price": "$29.99",
+          "price": "$14.99",
           "period": "month",
           "features": [
             "Automatic alerts for undervalued cards",
@@ -137,7 +142,13 @@
     "bannerImage": "/litarena/screenshots/mercari-japan-bot/banner.png",
     "description": "Advanced Mercari Japan monitoring bot with real-time listing alerts, auto-translation, currency conversion, and comprehensive notification systems. Provides personal alerts, server-wide monitoring, role pings, watchlist management, and sophisticated subscription tiers for collectors, resellers, and communities seeking rare Japanese marketplace finds.",
     "status": "active",
-    "tags": ["Free Trial", "Premium Tiers", "Real-time", "Auto-Translation", "Multi-tier"],
+    "tags": [
+      "Free Trial",
+      "Premium Tiers",
+      "Real-time",
+      "Auto-Translation",
+      "Multi-tier"
+    ],
     "features": [
       "Real-time Mercari Japan monitoring with dynamic check intervals",
       "Advanced API integration with protobuf parsing and DPoP authentication",
@@ -447,7 +458,12 @@
     "bannerImage": "/litarena/screenshots/auto-pinger-bot/banner.png",
     "description": "The ultimate Discord keyword monitoring and notification system with advanced role management, interactive request handling, and intelligent message forwarding. Auto Pinger Bot provides comprehensive server automation for communities that need reliable, customizable notification systems with enterprise-grade features.",
     "status": "active",
-    "tags": ["Free", "Open Source", "Role Management", "Automation"],
+    "tags": [
+      "Free",
+      "Open Source",
+      "Role Management",
+      "Automation"
+    ],
     "features": [
       "Advanced keyword detection with OR, AND, and EXACT phrase matching",
       "Interactive request system with approval/denial buttons and persistent views",
@@ -592,7 +608,12 @@
     "bannerImage": "/litarena/screenshots/aquamark/banner.png",
     "description": "Professional image watermarking bot with advanced customization options for protecting digital content, branding images, and maintaining intellectual property rights.",
     "status": "active",
-    "tags": ["Free", "Image Processing", "Batch Support", "Steganography"],
+    "tags": [
+      "Free",
+      "Image Processing",
+      "Batch Support",
+      "Steganography"
+    ],
     "features": [
       "Text watermarks with full typography control",
       "Logo watermarks for brand placement",
@@ -650,7 +671,12 @@
     "bannerImage": "/litarena/screenshots/localtrust/banner.jpeg",
     "description": "Hyper-local marketplace and classifieds bot for Discord communities. Create listings, build reputation, verify users, and trade safely within university servers, neighborhood groups, and local hobbyist communities.",
     "status": "beta",
-    "tags": ["Freemium", "Marketplace", "Reputation System", "Verification"],
+    "tags": [
+      "Freemium",
+      "Marketplace",
+      "Reputation System",
+      "Verification"
+    ],
     "features": [
       "Structured marketplace listings with categories and conditions",
       "Global reputation system that follows users across servers",
@@ -753,7 +779,13 @@
     "bannerImage": "/litarena/screenshots/130-bot/banner.png",
     "description": "Professional eBay market analysis bot powered by 130point.com data. Provides comprehensive sold listing analysis, price trends, market sentiment, and profitability calculations for resellers, collectors, and businesses.",
     "status": "active",
-    "tags": ["Freemium", "Analytics", "eBay", "Bulk Analysis", "CSV Export"],
+    "tags": [
+      "Freemium",
+      "Analytics",
+      "eBay",
+      "Bulk Analysis",
+      "CSV Export"
+    ],
     "features": [
       "Single item eBay sold listing analysis with detailed price statistics",
       "Bulk item analysis for up to 100 items simultaneously",
@@ -820,7 +852,12 @@
     "bannerImage": "/litarena/screenshots/waifu-bot/banner.png",
     "description": "Anime character database and interaction bot with character information and image sharing features.",
     "status": "active",
-    "tags": ["Free", "Anime", "Database", "Entertainment"],
+    "tags": [
+      "Free",
+      "Anime",
+      "Database",
+      "Entertainment"
+    ],
     "features": [
       "Anime character database lookup",
       "Random character image generation",
@@ -864,7 +901,13 @@
     "bannerImage": "/litarena/screenshots/the-manager/banner.png",
     "description": "Professional ACO (Add-to-Cart Opportunity) management system for sneaker and streetwear communities. Create comprehensive product release forms with interactive features, bulk upload capabilities, automated thread management, and advanced permission controls for organized community collaboration.",
     "status": "active",
-    "tags": ["Freemium", "Sneakers", "Bulk Upload", "Community", "Voting"],
+    "tags": [
+      "Freemium",
+      "Sneakers",
+      "Bulk Upload",
+      "Community",
+      "Voting"
+    ],
     "features": [
       "Interactive ACO form creation with 11+ customizable fields",
       "Bulk upload system with Excel template support (up to 10 forms)",
@@ -1056,7 +1099,13 @@
     "bannerImage": "/litarena/screenshots/scratch-bot/banner.png",
     "description": "Multi-state scratch-off lottery analysis bot that helps users find the best scratch-off tickets using data-driven analysis for Texas and Oklahoma lotteries.",
     "status": "active",
-    "tags": ["Free", "Analytics", "Multi-State", "Lottery", "Statistics"],
+    "tags": [
+      "Free",
+      "Analytics",
+      "Multi-State",
+      "Lottery",
+      "Statistics"
+    ],
     "features": [
       "Multi-state lottery support (Texas & Oklahoma)",
       "Win probability calculations based on remaining prizes",
@@ -1112,7 +1161,13 @@
     "bannerImage": "/litarena/screenshots/coc-watcher/banner.png",
     "description": "CoC Watcher provides real-time monitoring and analytics for Clash of Clans wars.",
     "status": "active",
-    "tags": ["Freemium", "Gaming", "Clash of Clans", "Analytics", "War Tracking"],
+    "tags": [
+      "Freemium",
+      "Gaming",
+      "Clash of Clans",
+      "Analytics",
+      "War Tracking"
+    ],
     "features": [
       "Real-time war status monitoring",
       "Detailed war analytics and history",
@@ -1185,7 +1240,13 @@
     "bannerImage": "/litarena/screenshots/saveit/banner.png",
     "description": "A powerful Discord bot for saving, organizing, and retrieving important Discord messages and personal notes with collections, smart tagging, and fuzzy search.",
     "status": "active",
-    "tags": ["Freemium", "Organization", "Bookmarks", "Search", "Export"],
+    "tags": [
+      "Freemium",
+      "Organization",
+      "Bookmarks",
+      "Search",
+      "Export"
+    ],
     "features": [
       "Save Discord messages as bookmarks with notes and tags",
       "Create and organize personal notes",
@@ -1260,7 +1321,13 @@
     "bannerImage": "/litarena/screenshots/anonymous-art/banner.png",
     "description": "Discord bot for managing anonymous creative contests with fair voting systems. All submissions are kept anonymous until voting ends!",
     "status": "beta",
-    "tags": ["Free", "Contests", "Anonymous", "Voting", "Community"],
+    "tags": [
+      "Free",
+      "Contests",
+      "Anonymous",
+      "Voting",
+      "Community"
+    ],
     "features": [
       "Anonymous submission system",
       "Fair voting with multiple voting modes",
@@ -1311,7 +1378,13 @@
     "bannerImage": "/litarena/screenshots/shopguard/banner.png",
     "description": "A Discord bot integrated with Shopify for Local Game Stores (LGS) and Local Card Stores (LCS) to sell inventory directly to their community while preventing bot sniping and ensuring fair access.",
     "status": "beta",
-    "tags": ["Free", "Premium Tiers", "Shopify", "E-commerce", "Bot Protection"],
+    "tags": [
+      "Free",
+      "Premium Tiers",
+      "Shopify",
+      "E-commerce",
+      "Bot Protection"
+    ],
     "features": [
       "Multi-layer bot protection and verification",
       "Product drop creation and management from Discord",
@@ -1400,7 +1473,13 @@
     "bannerImage": "/litarena/screenshots/japanese-translator-bot/banner.png",
     "description": "A Discord bot that automatically translates Japanese text in messages, embeds, and RSS feeds to English. Supports manual translations and premium RSS monitoring for comprehensive Japanese content translation.",
     "status": "released",
-    "tags": ["Premium", "Translation", "Japanese", "RSS", "Auto-Translation"],
+    "tags": [
+      "Premium",
+      "Translation",
+      "Japanese",
+      "RSS",
+      "Auto-Translation"
+    ],
     "features": [
       "Automatic translation of Japanese messages in monitored channels",
       "Translation of embeds and forwarded content",
@@ -1469,7 +1548,12 @@
     "bannerImage": "/litarena/screenshots/secret-santa-helper/banner.png",
     "description": "The ultimate Discord bot for organizing Secret Santa events with premium features and customization. Supports up to 50 participants in the free tier and unlimited with premium purchase.",
     "status": "released",
-    "tags": ["One-time Purchase", "Event Management", "Anonymous", "Gift Exchange"],
+    "tags": [
+      "One-time Purchase",
+      "Event Management",
+      "Anonymous",
+      "Gift Exchange"
+    ],
     "features": [
       "Create Secret Santa events (1 active event at a time in free tier)",
       "Up to 50 participants per event (unlimited with premium)",
