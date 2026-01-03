@@ -3,7 +3,8 @@
  * Configure your API base URL in the environment or here
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://your-api-domain.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://vast-dynamic-muskrat.ngrok-free.app';
+const BOT_STATS_API_URL = import.meta.env.VITE_BOT_STATS_API_URL || API_BASE_URL;
 
 // Cache configuration
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
@@ -384,6 +385,44 @@ export async function getBotAnalyticsEnhanced(botId, timeRange = '7d') {
 }
 
 /**
+ * Get server counts for all bots from the bot stats API
+ * Expected response: { counts: { "bot-id": 123, ... }, cached: boolean }
+ */
+export async function getBotServerCounts() {
+  const cacheKey = 'bot-server-counts';
+  const cached = cache.get(cacheKey);
+
+  if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+    return cached.data;
+  }
+
+  try {
+    const response = await fetch(`${BOT_STATS_API_URL}/bots/server-counts`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Bot Stats API Error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    cache.set(cacheKey, { data, timestamp: Date.now() });
+    return data;
+  } catch (error) {
+    console.warn('Failed to fetch bot server counts:', error);
+    // Return cached data if available, even if stale
+    if (cached) {
+      return cached.data;
+    }
+    // Return empty counts on failure (graceful degradation)
+    return { counts: {}, cached: false };
+  }
+}
+
+/**
  * Clear API cache (useful for admin actions)
  */
 export function clearCache() {
@@ -399,5 +438,6 @@ export default {
   getReviews,
   getTrendingBots,
   getMercariAnalytics,
+  getBotServerCounts,
   clearCache,
 };

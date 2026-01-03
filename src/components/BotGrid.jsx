@@ -1,7 +1,20 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import BotCard from './BotCard';
+import { getBotServerCounts } from '../services/api';
 
 const BotGrid = ({ bots, onBotClick }) => {
+  const [serverCounts, setServerCounts] = useState({});
+
+  // Fetch server counts on component mount
+  useEffect(() => {
+    getBotServerCounts().then(data => {
+      setServerCounts(data.counts || {});
+    }).catch(err => {
+      console.warn('Failed to load server counts:', err);
+    });
+  }, []);
+
   // Container animation
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -43,6 +56,7 @@ const BotGrid = ({ bots, onBotClick }) => {
           bot={bot}
           onClick={() => onBotClick(bot)}
           index={index}
+          serverCount={serverCounts[bot.id]}
         />
       ))}
     </motion.div>
@@ -50,3 +64,4 @@ const BotGrid = ({ bots, onBotClick }) => {
 };
 
 export default BotGrid;
+
