@@ -1639,5 +1639,141 @@
     "tos": null,
     "privacy": null,
     "installUrl": "https://discord.com/oauth2/authorize?client_id=1448452940254810212"
+  },
+  {
+    "id": "cupid-courier-bot",
+    "name": "Cupid Courier Bot",
+    "icon": "https://cdn.discordapp.com/app-icons/1459711138110509191/ff69c7581fe68ce6711386be6eeba956.png?size=512",
+    "bannerImage": "/litarena/screenshots/cupid-courier-bot/banner.png",
+    "description": "A cozy Valentine-themed Discord bot that helps users send sweet or silly love notes anonymously! Cupid Courier promotes community engagement with candy gifting, daily valentine selections, and premium custom messages to spread love and friendship in your server.",
+    "status": "active",
+    "tags": [
+      "Premium",
+      "Community",
+      "Fun",
+      "Engagement"
+    ],
+    "installUrl": "https://discord.com/oauth2/authorize?client_id=1459711138110509191",
+    "features": [
+      "Send anonymous or signed love notes to server members",
+      "60+ pre-written messages across wholesome, funny, and friendship categories",
+      "Candy gifting system to show appreciation for other users",
+      "Interactive leaderboard showing the sweetest members",
+      "Daily Valentine automatic selection with premium priority weighting",
+      "Premium custom messages up to 200 characters",
+      "Message mode settings (wholesome, funny, friends, or mixed)",
+      "Rate limiting and safety features to prevent spam",
+      "Server-specific configuration and announcement channels",
+      "Discord native subscription integration"
+    ],
+    "screenshots": [
+      "/litarena/screenshots/cupid-courier-bot/screenshot-1.png"
+    ],
+    "videos": [],
+    "pricing": {
+      "model": "subscription",
+      "tiers": [
+        {
+          "name": "Cupid Premium",
+          "price": "$2.99",
+          "period": "month",
+          "features": [
+            "Custom personalized love note messages",
+            "Bypass candy-per-person limit",
+            "3x chance to be selected as Daily Valentine",
+            "Exclusive 💎 premium badge on all interactions"
+          ],
+          "popular": true
+        }
+      ]
+    },
+    "changelog": [
+      {
+        "version": "2.0.0",
+        "date": "2026-01-15",
+        "changes": [
+          "Major rewrite with Discord subscription integration",
+          "Added premium features: custom messages, extra candy, priority selection",
+          "Implemented SQLAlchemy ORM with async database support",
+          "Added comprehensive rate limiting and safety validation"
+        ]
+      },
+      {
+        "version": "1.5.0",
+        "date": "2025-01-10",
+        "changes": [
+          "Added Daily Valentine feature with automatic selection",
+          "Implemented candy gifting system and leaderboards",
+          "Added server-specific configuration options"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "date": "2025-01-01",
+        "changes": [
+          "Initial release with anonymous love notes",
+          "60+ pre-written messages in 3 categories",
+          "Basic slash command support"
+        ]
+      }
+    ],
+    "tos": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "content": "By using Cupid Courier Bot, you agree to these Terms of Service. If you disagree with any part of the terms, you do not have permission to use the Bot."
+        },
+        {
+          "heading": "2. Description of Service",
+          "content": "Cupid Courier Bot allows users to send anonymous or signed love notes to other Discord members, gift virtual candy to show appreciation, participate in daily valentine selections, and engage with their community through themed interactions."
+        },
+        {
+          "heading": "3. Premium Features",
+          "content": "Premium features are offered for $2.99/month through Discord's payment system. Premium subscribers get custom message creation, unlimited candy gifting, 3x daily valentine selection priority, and cosmetic premium badges. No refunds will be issued for premium features."
+        },
+        {
+          "heading": "4. User Conduct",
+          "content": "Users must not use the Bot to harass, bully, or send inappropriate content to other users. Custom messages are subject to content validation including URL blocking, spam detection, and character limits. Abuse of the Bot may result in restricted access."
+        },
+        {
+          "heading": "5. Data Usage",
+          "content": "The Bot collects user IDs, server IDs, love note content, candy gift records, daily valentine selections, and subscription status. All data is used solely to provide bot functionality and improve service quality."
+        },
+        {
+          "heading": "6. Limitations",
+          "content": "The Bot is provided for entertainment purposes only. We are not responsible for any disputes between users arising from love note or candy interactions. Server administrators are responsible for moderating their communities."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "1. Data Collection",
+          "content": "We collect Discord user IDs, server IDs, channel IDs, love note message content and metadata, candy gift transaction records, daily valentine selection history, premium subscription status, and user activity timestamps necessary for bot operation."
+        },
+        {
+          "heading": "2. Data Usage",
+          "content": "Collected data is used to deliver love notes to recipients, track candy balances and leaderboards, select daily valentines, manage premium subscriptions, enforce rate limits, and maintain server-specific settings."
+        },
+        {
+          "heading": "3. Data Security",
+          "content": "We implement appropriate security measures to protect user data from unauthorized access, modification, disclosure, and destruction. Data is stored in encrypted databases with access limited to essential bot operations."
+        },
+        {
+          "heading": "4. Third-Party Services",
+          "content": "The Bot integrates with Discord API for messaging and user data, Discord Entitlements API for subscription management, and SQLite/PostgreSQL databases for data persistence."
+        },
+        {
+          "heading": "5. Data Retention",
+          "content": "User data is retained only as long as necessary to provide services. Love note history and candy records may be retained for leaderboard functionality. Users may request data deletion by contacting support, subject to legal and operational requirements."
+        },
+        {
+          "heading": "6. Children's Privacy",
+          "content": "The Bot is intended for users who meet Discord's minimum age requirements. We do not knowingly collect data from users under the age of 13."
+        }
+      ]
+    }
   }
 ]
