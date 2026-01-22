@@ -188,7 +188,9 @@
       "/litarena/screenshots/mercari-japan-bot/screenshot-4.png",
       "/litarena/screenshots/mercari-japan-bot/screenshot-5.png"
     ],
-    "videos": [],
+    "videos": [
+      "/litarena/screenshots/mercari-japan-bot/video-1.mp4"
+    ],
     "pricing": {
       "model": "subscription",
       "tiers": [
