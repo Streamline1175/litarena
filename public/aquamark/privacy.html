@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy · AquaMark</title><link rel="stylesheet" href="policy.css"></head><body><main>
+<nav><a href="./">AquaMark</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></nav>
+<h1>Privacy Policy</h1>
+<p class="date">Effective 7 November 2026</p>
+
+<p>This policy explains what the AquaMark Discord bot (“the bot”, “we”) collects, why, who it is shared with, and how to have it deleted.</p>
+
+<h2>What we collect</h2>
+<div class="wrap"><table>
+<tr><th>Data</th><th>Why</th></tr>
+<tr><td>Your Discord user ID, with your saved presets and default settings</td><td>To reuse your watermark settings</td></tr>
+<tr><td>Logos you save, plus the last logo you attached</td><td>So saved logos and “Same as last time” work</td></tr>
+<tr><td>Watermark history: settings used, links to results, watermark IDs and image fingerprints (never the image itself). You can turn this off with <code>/history record</code></td><td>So <code>/history</code> and <code>/verify</code> can recognise your work</td></tr>
+<tr><td>Usage counts and feedback you send, with your user ID and username</td><td>To fix problems and improve the bot</td></tr>
+<tr><td>Server ID and name, and per-server settings</td><td>To apply the server's settings and plan</td></tr>
+<tr><td><b>Pro servers:</b> the original images of each protected post, and its caption</td><td>To create each member's marked copy when they press View</td></tr>
+<tr><td><b>Pro servers:</b> view records: which member viewed which protected post, when, the code and pattern issued to them, and fingerprints of their copy</td><td>So staff can see who viewed a post and trace a leaked copy</td></tr>
+<tr><td><b>Pro servers:</b> brand kits (logo, text, colours), auto-watermark channels, mod-log and role settings, and trace results</td><td>To run Pro features</td></tr>
+<tr><td>Subscription records: plan, dates, and for card payments the Stripe customer and subscription IDs</td><td>To give paying servers their plan</td></tr>
+</table></div>
+<p>Images you watermark with the free tools are processed and sent back to you; we don't keep them. Background removal runs on our own server, not a third-party service. In auto-watermark channels on Pro servers, the bot reads images members post so it can watermark them; it does not store message text. We never see or store card numbers.</p>
+
+<h2>Marked copies (AquaMark Pro)</h2>
+<p>When you view a protected post, your copy carries a faint visible code, a hidden pattern and an invisible signed mark that identify you to that server's staff. Staff can see that you viewed the post and, if a copy is shared outside the server, may use it to identify you. Your copy itself is cached only briefly so it can be resent quickly.</p>
+
+<h2>Who we share it with</h2>
+<p>We do not sell personal data or use it for advertising. Data reaches these services only as far as needed to run the bot:</p>
+<ul>
+<li><b>Discord</b>, to deliver messages and check subscriptions (<a href="https://discord.com/privacy">Discord's privacy policy</a>).</li>
+<li><b>Stripe</b>, for card payments (<a href="https://stripe.com/privacy">Stripe's privacy policy</a>).</li>
+<li><b>Server staff</b> on Pro servers, who see view records and trace results for their own server's protected posts.</li>
+<li><b>Bot listing sites</b> such as top.gg, which receive only the bot's server count and update announcements.</li>
+</ul>
+
+<h2>How long we keep it</h2>
+<ul>
+<li>Presets, logos, history and usage counts: until you delete them or run <code>/mydata delete</code>.</li>
+<li>Protected post originals: until staff remove the post (<code>/protect remove</code>) or the bot leaves the server.</li>
+<li>View records: while the server keeps the bot, so a leak can still be traced later. They are deleted when the bot leaves the server. <code>/mydata delete</code> does not remove them, so a member can't erase evidence of a leak; ask the server's staff or contact us if you believe a record should be removed.</li>
+<li>Cached member copies: briefly, then discarded.</li>
+<li>Subscription and trial records: kept while needed to apply plans and enforce trial limits.</li>
+<li>Logs, which include user and server IDs and the commands used: kept for troubleshooting and cleared during maintenance.</li>
+</ul>
+
+<h2>Your choices</h2>
+<ul>
+<li><code>/mydata export</code> downloads everything linked to your user ID; <code>/mydata delete</code> removes it, except Pro view records as explained above.</li>
+<li>Turn off watermark history with <code>/history record enabled:False</code>.</li>
+<li>For any other request, ask in the <a href="https://discord.gg/rU4zZWXP55">support server</a>. We handle requests within 30 days.</li>
+</ul>
+
+<h2>Children</h2>
+<p>The bot is meant for people who meet Discord's minimum age (13, or higher where local law requires). We do not knowingly collect data from anyone younger.</p>
+
+<h2>Security</h2>
+<p>Data is stored on a private server. Invisible marks are signed with a private key so they can't be forged. No system is perfectly secure, but we take reasonable steps to protect your data.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, we will update the date above and announce significant changes through the bot's update announcements.</p>
+</main></body></html>
